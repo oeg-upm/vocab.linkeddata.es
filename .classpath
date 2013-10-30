@@ -20,6 +20,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commonsHTTP"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Jena2.7.3"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/vapour"/>
-	<classpathentry kind="lib" path="/Users/oeg/Documents/workspace/libraries/arq-2.8.4.jar"/>
+	<classpathentry kind="lib" path="lib/arq-2.8.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
