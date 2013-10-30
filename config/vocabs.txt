@@ -1,0 +1,17 @@
+http://purl.org/net/p-plan
+http://purl.org/net/wf-motifs
+http://purl.org/net/wf-invocation
+http://purl.org/net/ro-optimization
+http://purl.org/net/wf-fd
+http://purl.org/net/SMARTprotocol
+http://purl.org/net/wicus
+http://purl.org/net/wicus-hwspecs
+http://purl.org/net/wicus-sva
+http://purl.org/net/wicus-stack
+http://purl.org/net/wicus-reqs
+http://www.w3.org/ns/prov#
+http://purl.oclc.org/NET/ldr/ns#
+http://www.opmw.org/ontology/
+http://purl.org/wf4ever/ro#
+http://purl.org/wf4ever/wfprov#
+http://purl.org/wf4ever/wfdesc#
