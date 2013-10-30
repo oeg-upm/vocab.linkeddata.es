@@ -1,8 +1,10 @@
 package parseVocabs;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -16,8 +18,14 @@ public class ReadConfig {
         
 		BufferedReader in;
 		
+		File dir1 = new File (".");
+		String path = dir1.getCanonicalPath();
+
+		
 		try {
-			in = new BufferedReader(new FileReader("/Users/oeg/Documents/workspace/vocab.linkeddata.es/config/vocabs.txt"));
+//			in = new BufferedReader(new FileReader("/Users/oeg/Documents/workspace/vocab.linkeddata.es/config/vocabs.txt"));
+			in = new BufferedReader(new FileReader(path +"/config/vocabs.txt"));
+
 			String str;
 			while ((str = in.readLine()) != null) {
 				this.vocabs.add(str);
