@@ -18,6 +18,9 @@ public class Constants {
 											"http://www.opmw.org/ontology/\n"+
 											"http://purl.org/wf4ever/ro#\n"+
 											"http://purl.org/wf4ever/wfprov#\n"+
-											"http://purl.org/wf4ever/wfdesc#";
+											"http://purl.org/wf4ever/wfdesc#\n"+
+											"http://aemet.linkeddata.es/ontology/\n"+
+											"http://webenemasuno.linkeddata.es/ontology/OPMO/\n"+
+											"http://rtve.linkeddata.es/def/OntoRTVE#";
 
 }
