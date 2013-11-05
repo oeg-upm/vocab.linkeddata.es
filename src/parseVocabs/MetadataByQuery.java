@@ -36,7 +36,7 @@ public class MetadataByQuery {
 //	    	 ResultSetFormatter.out(System.err, results, queryMetadata);
 	    	 
 	    	 int i = 0;
-	    	 while(results.hasNext()){
+	    	 if(results.hasNext()){
 		         	QuerySolution qs = results.next();
 		         	
 		         	RDFNode currentPrefix = qs.getLiteral("vocabPrefix");
@@ -45,6 +45,8 @@ public class MetadataByQuery {
 		         	RDFNode currentDescriptionTerms = qs.getLiteral("descriptionTerms");
 		         	RDFNode currentTitleElements = qs.getLiteral("titleElements");
 		         	RDFNode currentDescriptionElements = qs.getLiteral("descriptionElements");
+		         	
+		         	
 		         	
 		         	if (currentPrefix != null){
 			         	if (i == 0) {
