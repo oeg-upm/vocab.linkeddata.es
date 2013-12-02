@@ -151,7 +151,7 @@ public class Vocabulary {
 		        }
 		        else{
 		        	this.title = titleWithLang.replace("^^http://www.w3.org/2000/01/rdf-schema#Literal", "");
-		        	this.title = titleWithLang.replace("^^http://www.w3.org/2001/XMLSchema#string", "");
+		        	this.title = title.replace("^^http://www.w3.org/2001/XMLSchema#string", "");
 		        }
 	        }
 	        
@@ -162,7 +162,7 @@ public class Vocabulary {
 		        }
 		        else{
 		        	this.description = descriptionWithLang.replace("^^http://www.w3.org/2000/01/rdf-schema#Literal", "");
-		        	this.title = titleWithLang.replace("^^http://www.w3.org/2001/XMLSchema#string", "");
+		        	this.title = title.replace("^^http://www.w3.org/2001/XMLSchema#string", "");
 		        }
 	        	
 	        }
