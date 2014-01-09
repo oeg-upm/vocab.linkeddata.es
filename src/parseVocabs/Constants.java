@@ -22,6 +22,8 @@ public class Constants {
 											"http://aemet.linkeddata.es/ontology\n"+
 											"http://webenemasuno.linkeddata.es/ontology/OPMO\n"+
 											"http://rtve.linkeddata.es/def/OntoRTVE\n"+
-											"http://vocab.linkeddata.es/normv";
+											"http://vocab.linkeddata.es/normv\n"+
+											"http://cerrado.linkeddata.es/ecology/ccon\n"+
+											"http://cerrado.linkeddata.es/ecology/fire";
 
 }
