@@ -26,4 +26,8 @@ public class Constants {
 											"http://cerrado.linkeddata.es/ecology/ccon\n"+
 											"http://cerrado.linkeddata.es/ecology/fire";
 
+	
+//	public static final String vocabularies = "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/DireccionPostal\n"
+//            + "http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio/DivisionAdministrativa\n"
+//            +"http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero";
 }

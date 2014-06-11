@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=iso-8859-1" language="java"  import="java.util.*, parseVocabs.*"%>
+<%@ page contentType="text/html; charset=iso-8859-1" language="java"  import="java.util.*,  java.text.SimpleDateFormat, parseVocabs.*"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +68,12 @@
 	        	  		out.print("Can't believe you didn't include a dcterms:description or dcelements:description");
 					}
 			        else{
-			        	out.print(currentVocab.description);
+			        	String desc = currentVocab.description;
+			        	if (desc.length() > 360){
+			        		int nextSpace = desc.indexOf(" ", 360);
+			        		desc = currentVocab.description.substring(0, nextSpace) + "...";
+			        	}
+			        	out.print(desc);
 			        }
 	          		 %></p>
 	          <p><% if (currentVocab.cnRDF && currentVocab.cnHTML){
@@ -113,7 +118,8 @@
 	        <br>
 	        Contact email: vocab(at)listas.fi.upm.es
 	        <br>
-	        Latest revision October 2013
+	        <% Date d = new java.util.Date(Calendar.getInstance().getTimeInMillis());%>
+	        Latest revision <% out.print(new SimpleDateFormat("MMMM").format(d)); %> <%out.print(new GregorianCalendar().get(Calendar.YEAR)); %>
         </div>
     	<div class="span2">
     		<a href="http://www.oeg-upm.net/" target="_blank"><img src="images/logoOEG.png" alt="OEG logo" /></a>

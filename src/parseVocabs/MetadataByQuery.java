@@ -82,7 +82,7 @@ public class MetadataByQuery {
 			         	}
 		         	}
 		         	if (currentTitleElements != null){
-			         	if (i == 0) {
+			         	if (i == 0 ) {
 			         		this.title = qs.getLiteral("titleElements").toString();
 			         	}
 			         	else{
