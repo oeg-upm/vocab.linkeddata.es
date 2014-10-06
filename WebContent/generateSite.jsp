@@ -124,6 +124,8 @@
 	        <br>
 	        Contact email: vocab(at)listas.fi.upm.es
 	        <br>
+	        Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
+	        <br>
 	        <% Date d = new java.util.Date(Calendar.getInstance().getTimeInMillis());%>
 	        Latest revision <% out.print(new SimpleDateFormat("MMMM").format(d)); %> <%out.print(new GregorianCalendar().get(Calendar.YEAR)); %>
         </div>
