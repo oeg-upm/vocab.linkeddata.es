@@ -30,4 +30,15 @@ public class Queries {
 			"OPTIONAL {?s dcelements:title ?titleElements.}" +
 			"OPTIONAL {?s dcelements:description ?descriptionElements.}" +
 			"}";
+	
+	public static String vocabInLOV = "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+			"PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" +
+			"PREFIX voaf:<http://purl.org/vocommons/voaf#>" +
+			"PREFIX vann:<http://purl.org/vocab/vann/>" +
+			"SELECT ?vocabURI ?vocabPrefix " +
+			"WHERE{" +
+			"?vocabURI a voaf:Vocabulary." +
+			"?vocabURI vann:preferredNamespacePrefix ?vocabPrefix." +
+			"FILTER regex(str(?vocabURI), \"";
+
 }

@@ -36,6 +36,10 @@ public class Vocabulary {
 	public boolean vapourExc = false;
 	public boolean jenaModelExc = false;
 	
+	public boolean isInLOV = false;
+	public String webpageInLOV = null;
+	public String prefixInLOV = null;
+	
 	//when loading the onto as and RDF model
 	public Model modelRDF;
 
@@ -162,7 +166,7 @@ public class Vocabulary {
 		        }
 		        else{
 		        	this.description = descriptionWithLang.replace("^^http://www.w3.org/2000/01/rdf-schema#Literal", "");
-		        	this.title = title.replace("^^http://www.w3.org/2001/XMLSchema#string", "");
+		        	this.description = description.replace("^^http://www.w3.org/2001/XMLSchema#string", "");
 		        }
 	        	
 	        }
@@ -178,6 +182,15 @@ public class Vocabulary {
         	
         	AskForHTML askHTML = new AskForHTML(this.uriUsedHTML, this.vannPrefix);
         	this.askingHTML = askHTML.getTypeHTML();
+        	
+        	//look if it is in LOV
+        	VocabInLOV isInLOV = new VocabInLOV(uri);
+        	if (isInLOV.isInLOV){
+        		this.isInLOV = true;
+        		this.webpageInLOV = isInLOV.getLOVpage();
+        		this.prefixInLOV = isInLOV.getPrefixInLOV();
+        	}
+
         	
         }
         

@@ -7,7 +7,7 @@ public class Constants {
 											"http://purl.org/net/wf-invocation\n"+
 											"http://purl.org/net/ro-optimization\n"+
 											"http://purl.org/net/wf-fd\n"+
-											"http://purl.org/net/SMARTprotocol\n"+
+											"http://purl.org/net/SMARTprotocol\n"+ 
 											"http://purl.org/net/wicus\n"+
 											"http://purl.org/net/wicus-hwspecs\n"+
 											"http://purl.org/net/wicus-sva\n"+

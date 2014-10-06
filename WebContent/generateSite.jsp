@@ -75,6 +75,12 @@
 			        	}
 			        	out.print(desc);
 			        }
+	          
+	          		if (currentVocab.isInLOV) {
+	          			out.println("</p>");
+	          			out.println("<p>");
+      	  				out.print("See the <a href = \"" + currentVocab.webpageInLOV + "\" target=\"_blank\"> LOV page for this vocab (" + currentVocab.prefixInLOV + ")</a>.");
+					}
 	          		 %></p>
 	         <!--  <p> if (currentVocab.cnRDF && currentVocab.cnHTML){
 	        	  		String rdfURI = currentVocab.uriVapourRDF;
