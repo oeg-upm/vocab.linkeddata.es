@@ -17,6 +17,7 @@ public class Constants {
 											"http://purl.oclc.org/NET/ldr/ns\n"+
 											"http://www.opmw.org/ontology/\n"+
 											"http://purl.org/wf4ever/ro\n"+
+											"http://purl.org/wf4ever/roevo\n"+
 											"http://purl.org/wf4ever/wfprov\n"+
 											"http://purl.org/wf4ever/wfdesc\n"+
 											"http://aemet.linkeddata.es/ontology\n"+
@@ -24,7 +25,8 @@ public class Constants {
 											"http://rtve.linkeddata.es/def/OntoRTVE\n"+
 											"http://vocab.linkeddata.es/normv\n"+
 											"http://cerrado.linkeddata.es/ecology/ccon\n"+
-											"http://cerrado.linkeddata.es/ecology/fire";
+											"http://cerrado.linkeddata.es/ecology/fire\n"+
+											"http://purl.org/net/translation";
 
 	
 //	public static final String vocabularies = "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/DireccionPostal\n"

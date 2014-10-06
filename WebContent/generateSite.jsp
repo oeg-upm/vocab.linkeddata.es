@@ -76,7 +76,7 @@
 			        	out.print(desc);
 			        }
 	          		 %></p>
-	          <p><% if (currentVocab.cnRDF && currentVocab.cnHTML){
+	         <!--  <p> if (currentVocab.cnRDF && currentVocab.cnHTML){
 	        	  		String rdfURI = currentVocab.uriVapourRDF;
 	        	  		String htmlURI = currentVocab.uriVapourHTML;
 	        	  		out.print("Best practices for content negotiation implemented for <strong>RDF</strong> and <strong>HTML</strong> formats.");
@@ -94,7 +94,7 @@
 	          		}
 					else {}
 	          		%></p>
-	          <!-- <p><a class="btn" href="<%out.print(currentVocab.uri); %>">Query vocab &raquo;</a></p> -->
+	          <p><a class="btn" href="out.print(currentVocab.uri); %>">Query vocab &raquo;</a></p> -->
 	        </div>
 			<%
 			
