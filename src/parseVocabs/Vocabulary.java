@@ -170,6 +170,9 @@ public class Vocabulary {
 		        }
 	        	
 	        }
+	        else{
+	        	System.out.println("no hay descripci—n en: " + this.uri );
+	        }
 	       	        
         	        		        
 	        if (!this.jenaModelExc) {

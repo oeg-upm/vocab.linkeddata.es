@@ -16,7 +16,7 @@ public class MetadataByQuery {
 	public String vannPrefix = null;
 	public String vannNS = null;
 	public String title = null;
-	public String description = null;
+	public String description = "";
 	
 	public MetadataByQuery(Model model) {
 //		System.err.println("     Load onto ");
@@ -35,72 +35,37 @@ public class MetadataByQuery {
 	    	 // Output query results	
 //	    	 ResultSetFormatter.out(System.err, results, queryMetadata);
 	    	 
-	    	 int i = 0;
-	    	 if(results.hasNext()){
+	    	 if(results.hasNext()){ 
 		         	QuerySolution qs = results.next();
 		         	
-		         	RDFNode currentPrefix = qs.getLiteral("vocabPrefix");
-		         	RDFNode currentNs = qs.getLiteral("prefNS");		         	
-		         	RDFNode currentTitleTerms = qs.getLiteral("titleTerms");
-		         	RDFNode currentDescriptionTerms = qs.getLiteral("descriptionTerms");
-		         	RDFNode currentTitleElements = qs.getLiteral("titleElements");
-		         	RDFNode currentDescriptionElements = qs.getLiteral("descriptionElements");
+		         	this.vannPrefix  += this.getValue("vocabPrefix", qs) + " ";
+		         	this.vannNS  += this.getValue("prefNS", qs) + " ";	
 		         	
+		         	String titleT = null;
+		         	titleT = this.getValue("titleTerms", qs);
+		         	String titleE = null;
+		         	titleE = this.getValue("titleElements", qs);
 		         	
-		         	
-		         	if (currentPrefix != null){
-			         	if (i == 0) {
-			         		this.vannPrefix = qs.getLiteral("vocabPrefix").toString();
-			         	}
-			         	else{
-			         		this.vannPrefix += " " + qs.getLiteral("vocabPrefix").toString();
-			         	}
+		         	if (titleT != null && !titleT.equals("")){
+		         		this.title = titleT;
+		         	}
+		         	else if (titleE != null && !titleE.equals("")){
+		         		this.title = titleE;
+		         	}
+		         	else{
+		         		System.out.println ("que no hay title!!!!!!");
 		         	}
 		         	
-		         	if (currentNs != null){
-			         	if (i == 0) {
-			         		this.vannNS = qs.getLiteral("prefNS").toString();
-			         	}
-			         	else{
-			         		this.vannNS += " " + qs.getLiteral("prefNS").toString();
-			         	}
-		         	}		         	
-		         	if (currentTitleTerms != null){
-			         	if (i == 0) {
-			         		this.title = qs.getLiteral("titleTerms").toString();
-			         	}
-			         	else{
-			         		this.title += " " + qs.getLiteral("titleTerms").toString();
-			         	}
-		         	}
-		         	if (currentDescriptionTerms != null){
-			         	if (i == 0) {
-			         		this.description = qs.getLiteral("descriptionTerms").toString();
-			         	}
-			         	else{
-			         		this.description += " " + qs.getLiteral("descriptionTerms").toString();
-			         	}
-		         	}
-		         	if (currentTitleElements != null){
-			         	if (i == 0 ) {
-			         		this.title = qs.getLiteral("titleElements").toString();
-			         	}
-			         	else{
-			         		this.title += " " + qs.getLiteral("titleElements").toString();
-			         	}
-		         	}
-		         	if (currentDescriptionElements != null){
-			         	if (i == 0) {
-			         		this.description = qs.getLiteral("descriptionElements").toString();
-			         	}
-			         	else{
-			         		this.description += " " + qs.getLiteral("descriptionElements").toString();
-			         	}
-		         	}
+		         	this.description = this.getValue("descriptionTerms", qs) + " ";
+		         	this.description = this.getValue("descriptionElements", qs) + " ";
 		         	
-		         	i++;         		
+		         	while (results.hasNext()){ // in case there is more than one description
+			         	QuerySolution qs1 = results.next();
+			         	this.description += this.getValue("descriptionTerms", qs1) + " ";
+			         	this.description += this.getValue("descriptionElements", qs1) + " ";
+		         	}
 		     }
-	    	 
+    	 
 	    	 // Important - free up resources used running the query
 	    	 qe.close();
 	    	 
@@ -131,5 +96,23 @@ public class MetadataByQuery {
 	
 	public String getDescription (){
 		return this.description;
+	}
+	
+	private String getValue (String variable, QuerySolution qs){
+		String value = "";
+		
+		try{
+ 			value = qs.getLiteral(variable).toString();
+ 		}catch(Exception e){
+ 			
+ 			try{
+ 				value = qs.getResource(variable).toString();
+ 			}
+ 			catch (Exception f){
+ 			}
+ 			
+ 		}
+		
+		return value;
 	}
 }

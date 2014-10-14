@@ -21,7 +21,7 @@ public class Queries {
 	public static String prefix = "SELECT ?vocabPrefix "+
 			"WHERE{ ?s vann:preferredNamespacePrefix ?vocabPrefix.}";
 	
-	public static String metadataOnto = "SELECT ?vocabPrefix ?prefNS ?titleTerms ?descriptionTerms ?titleElements ?descriptionElements"+
+	public static String metadataOnto = "SELECT ?vocabPrefix ?prefNS ?titleTerms ?descriptionTerms ?titleElements ?descriptionElements "+
 			"WHERE{" +
 			"OPTIONAL {?s vann:preferredNamespacePrefix ?vocabPrefix.}" +
 			"OPTIONAL {?s vann:preferredNamespaceUri ?prefNS.}" +
