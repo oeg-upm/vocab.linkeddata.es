@@ -56,13 +56,25 @@ public class MetadataByQuery {
 		         		System.out.println ("que no hay title!!!!!!");
 		         	}
 		         	
-		         	this.description = this.getValue("descriptionTerms", qs) + " ";
-		         	this.description = this.getValue("descriptionElements", qs) + " ";
+		         	String descriptionT = null;
+		         	descriptionT = this.getValueOnlyLiteral("descriptionTerms", qs);
+		         	String descriptionE = null;
+		         	descriptionE = this.getValueOnlyLiteral("descriptionElements", qs);
+		         	
+		         	if (descriptionT != null && !descriptionT.equals("")){
+		         		this.description = descriptionT;
+		         	}
+		         	else if (descriptionE != null && !descriptionE.equals("")){
+		         		this.description = descriptionE;
+		         	}
+		         	else{
+		         		System.out.println ("que no hay description!!!!!!");
+		         	}
 		         	
 		         	while (results.hasNext()){ // in case there is more than one description
 			         	QuerySolution qs1 = results.next();
-			         	this.description += this.getValue("descriptionTerms", qs1) + " ";
-			         	this.description += this.getValue("descriptionElements", qs1) + " ";
+			         	this.description += " " + this.getValueOnlyLiteral("descriptionTerms", qs1);
+			         	this.description += " " + this.getValueOnlyLiteral("descriptionElements", qs1);
 		         	}
 		     }
     	 
@@ -110,6 +122,18 @@ public class MetadataByQuery {
  			}
  			catch (Exception f){
  			}
+ 			
+ 		}
+		
+		return value;
+	}
+	
+	private String getValueOnlyLiteral (String variable, QuerySolution qs){
+		String value = "";
+		
+		try{
+ 			value = qs.getLiteral(variable).toString();
+ 		}catch(Exception e){
  			
  		}
 		
