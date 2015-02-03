@@ -23,12 +23,14 @@ public class VocabInLOV {
     		
     		Queries q = new Queries();
     		
-    	    Query queryLOV = QueryFactory.create(Queries.vocabInLOV + uri + "\")}", Syntax.syntaxARQ);
+    	    Query queryLOV = QueryFactory.create(Queries.vocabInLOV + uri + "\")}}");
+//    	    System.out.println(queryLOV.toString());
     	            
 	    	 // Execute the query and obtain results
 	    	 QueryExecution qe = QueryExecutionFactory.sparqlService(Queries.LOVEndpoint, queryLOV);
+
 	    	 ResultSet results = qe.execSelect();
-	    	 
+	    	 	    	 
 	    	 // Output query results	
 //	    	 ResultSetFormatter.out(System.err, results, queryMetadata);
 	    	 	

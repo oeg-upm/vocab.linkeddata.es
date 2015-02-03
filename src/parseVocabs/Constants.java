@@ -26,7 +26,8 @@ public class Constants {
 											"http://vocab.linkeddata.es/normv\n"+
 											"http://cerrado.linkeddata.es/ecology/ccon\n"+
 											"http://cerrado.linkeddata.es/ecology/fire\n"+
-											"http://purl.org/net/translation";
+											"http://purl.org/net/translation\n"+
+											"http://datos.bne.es/def/";
 
 	
 //	public static final String vocabularies = "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/DireccionPostal\n"
