@@ -47,7 +47,7 @@ public class TextConstants {
 			"    <script type=\"text/javascript\" src=\"dist/js/jquery.tablesorter.min.js\"></script>\n" +
 			"    <script type=\"text/javascript\" src=\"dist/js/jquery.stickytableheaders.js\"></script>\n" +
 			"    <script type=\"text/javascript\" src=\"dist/js/jquery-ui.js\"></script>\n" +
-			"    <script type=\"text/javascript\" src=\"dist/js/bootstrap-tooltip.js\"></script>\n" +
+			"    <script type=\"text/javascript\" src=\"dist/js/bootstrap.js\"></script>\n" +
 			"    <link rel=\"stylesheet\" href=\"dist/css/jquery-ui.css\"></link>\n" +
 			"    <script type=\"text/javascript\" id=\"js\">\n" +
 			"	    $(document).ready(function() \n" +
