@@ -175,7 +175,8 @@ public class VocabUtils {
 //                this.mainOntology.setNamespaceURI(value);                
 //            }else
             if(propertyName.equals("license")){
-                vocabulary.setLicense(value);
+//                vocabulary.setLicense(value);
+                vocabulary.setLicense(vocabURI);
 //                this.license = new License();
 //                if(isURL(value)){
 //                    this.license.setUrl(value);

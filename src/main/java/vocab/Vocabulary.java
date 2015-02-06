@@ -17,6 +17,13 @@ package vocab;
 
 import java.util.ArrayList;
 
+import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
+import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
+
+import licensius.GetLicense;
+
 /**
  * Class that defines the attributes of a vocabulary
  * @author dgarijo, mpoveda
@@ -28,7 +35,8 @@ public class Vocabulary {
     private ArrayList<String> supportedSerializations;
     private String license;
     private String description;
-    private String shortDescription;
+    private String firstPartDesc;
+    private String secondPartDesc;
     private ArrayList<String> languages;
     private ArrayList<String> domains;
     private String prefix;
@@ -51,7 +59,8 @@ public class Vocabulary {
         String desc = this.description;
     	if (desc.length() > 360){
     		int nextSpace = desc.indexOf(" ", 360);
-    		this.shortDescription = this.description.substring(0, nextSpace) + "...";
+    		this.firstPartDesc = this.description.substring(0, nextSpace);
+    		this.secondPartDesc = this.description.substring(nextSpace);
     	}
     	
         this.languages = languages;
@@ -111,7 +120,7 @@ public class Vocabulary {
     }
     
     public String getShortDescrition (){
-    	return shortDescription;
+    	return firstPartDesc;
     }
     
     
@@ -121,12 +130,14 @@ public class Vocabulary {
 
     public void setDescription(String description) {
         this.description = description;
-        this.shortDescription = description;
+        this.firstPartDesc = description;
         
         String desc = this.description;
     	if (desc.length() > TextConstants.shortDescLenght){
     		int nextSpace = desc.indexOf(" ", TextConstants.shortDescLenght);
-    		this.shortDescription = this.description.substring(0, nextSpace) + "...";
+    		this.firstPartDesc = this.description.substring(0, nextSpace);
+    		this.secondPartDesc = this.description.substring(nextSpace);
+
     	}
     	
     }
@@ -135,10 +146,15 @@ public class Vocabulary {
         this.domains = domains;
     }
 
-    public void setLicense(String license) {
-        this.license = license;
+//    public void setLicense(String license) {
+////      this.license = license;
+//      this.license = GetLicense.getLicense(license);
+//    }
+    
+    public void setLicense(String uri) {
+    	//this.license = license;
+    	this.license = GetLicense.getLicense(uri);
     }
-
     public void setSupportedSerializations(ArrayList<String> supportedSerializations) {
         this.supportedSerializations = supportedSerializations;
     }
@@ -237,8 +253,45 @@ public class Vocabulary {
         html+=("</td>\n");
         
         //description
-        html+="<td>" + shortDescription + "</td>\n";
+        html+="<td>\n";    
+
+        if (firstPartDesc.length() < description.length()){
+//            html+= firstPartDesc + "..." ;
+//            html+="<a data-toggle=\"collapse\" href=\"#collapse"+id+"\">\n";
+//            html+= " see more" ;
+//            html+= "</a>\n";
+//
+//    		html+= "<div id=\"collapse"+id+"\" class=\"collapse\">\n";
+//            html+= description;
+//    		html+= "</div>\n"; 
+        	
+        	html+= "<p id=\"collapse"+id+"\" data-toggle=\"collapse\" >\n";
+        	html+= firstPartDesc + " ... ";
+        	html+= "<a class=\"more\">See more</a>\n";
+        	html+= "</p>\n";
+        	html+= "<script>\n";
+        		html+= "$('#collapse"+id+"').click(function () {\n";
+        		html+= "if($('a').hasClass('more'))\n";
+      			html+= "{\n";
+        		html+= "$('#collapse"+id+"').html('"+ description +"  <a class=\"less\">See less<a>'); \n";
+				html+= "}\n";
+				html+= "else\n";
+				html+= "{      \n";
+				html+= "$('#collapse"+id+"').html('"+ firstPartDesc + " ... "+" <a  class=\"more\">See more</a>'); \n";
+				html+= "}\n";
+				html+= "}); \n";
+			html+= "</script>\n";
+
+        }
+        else{
+        	html+=description;
+        } 
+
+        html+= "</td>\n";
+
         html+="<input type=\"hidden\" name=\"inp"+id+"\" id=\"inp"+id+"\" value=\""+domainText+"\"/>";
+        
+        //finish row
         html+=("</tr>");        
         return html;
     }

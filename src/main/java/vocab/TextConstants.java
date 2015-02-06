@@ -28,7 +28,7 @@ import java.util.Locale;
  */
 public class TextConstants {
 	
-	public static final int shortDescLenght = 110;
+	public static final int shortDescLenght = 100;
     
     public static final String header = "<!DOCTYPE html>\n" + 
 			"<html lang=\"en\">\n" + 
@@ -317,7 +317,7 @@ public class TextConstants {
                "    </div>\n" + 
                "    <div class=\"collapse navbar-collapse\">\n" + 
                "      <ul class=\"nav navbar-nav\">\n" + 
-               "        <li><a href=\"./test.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
+               "        <li><a href=\"../test.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
                "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
                "        <li><a href=\"./about.html\">About</a></li>\n" + 
                "      </ul>\n" + 

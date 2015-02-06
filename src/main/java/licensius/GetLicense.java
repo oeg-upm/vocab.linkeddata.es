@@ -38,6 +38,7 @@ public class GetLicense {
      */
     public static String getLicense(String uriToScan) {
         String output="unknown";
+
         try {
             String uri="http://licensius.appspot.com/getLicense?content=";
             String encodedData = URLEncoder.encode(uriToScan);
@@ -55,12 +56,15 @@ public class GetLicense {
             while ((linea = br.readLine()) != null) {
                 output=linea;
             }
+//            System.out.println(output);
+
             conn.disconnect();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return output;
     }
     
