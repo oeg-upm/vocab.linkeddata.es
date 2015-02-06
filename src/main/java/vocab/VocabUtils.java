@@ -27,9 +27,16 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 //import com.hp.hpl.jena.query.Syntax;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -264,6 +271,37 @@ public class VocabUtils {
 //                    System.err.println("Error: no model available!!");
 //                }
 //        }
+    }
+    
+    /**
+     * Method to save a document on a path
+     * @param path
+     * @param textToWrite
+     */
+    public static void saveDocument(String path, String textToWrite){
+        File f = new File(path);
+        Writer out = null;
+        try{
+//            if(f.exists()){
+//                //JOptionPane.showMessageDialog(null, "You have overwritten the previous file. This message should be better prepared.");
+//                if(!c.getOverWriteAll()){
+//                    String[] options = new String[] {"Rewrite all", "Yes", "No"};
+//                    int response = JOptionPane.showOptionDialog(null, "The file "+f.getName()+" already exists. Do you want to overwrite it?", "Existing File!",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,null, options, options[0]);
+//                    //0 -> yes to all. 1 -> Yes. 2-> No
+//                    if(response == 0)c.setOverwriteAll(true); 
+//                    if(response == 2)return; //else we continue rewriting the file.
+//                }
+//            }
+//            else{
+            f.createNewFile();
+//            }
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), "UTF-8"));
+            out.write(textToWrite);
+            out.close();
+        }catch(IOException e){
+            System.err.println("Error while creating the file "+e.getMessage()+"\n"+f.getAbsolutePath());
+        }        
+        
     }
     
     /**

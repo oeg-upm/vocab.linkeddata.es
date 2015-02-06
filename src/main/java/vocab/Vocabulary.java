@@ -162,7 +162,7 @@ public class Vocabulary {
         //URI and title
         String ontURI = this.uri;
         String ontTitle = this.getTitle();
-        String localURL = ontURI.replace("https://","").replace("http://","").replace("/", "").replace("#", "");
+        String localURL = ontURI.replace("https://","").replace("http://","").replace("/", "").replace("#", "").trim();
         html +=("<td><a href = \""+ ontURI + "\" >" + ontTitle + "</a> <a href = \"ontologies/" + localURL + ".html\" target=\"_blank\"><span class=\"glyphicon glyphicon-info-sign\"/></a></td>\n");
 
         //Serializations

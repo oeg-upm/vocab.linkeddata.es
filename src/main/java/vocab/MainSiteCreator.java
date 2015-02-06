@@ -15,15 +15,11 @@
  */
 package vocab;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
+import java.io.File;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.ArrayList;
-import oops.OOPSevaluation;
+import oops.CreateOOPSEvalPage;
 import static vocab.ProcessCSVFile.processCSV;
-import static vocab.VocabUtils.getVocabularyMetadata;
 
 /**
  * Class for processing vocabularies and converting them to HTML.
@@ -34,24 +30,11 @@ import static vocab.VocabUtils.getVocabularyMetadata;
  */
 public class MainSiteCreator {
     public static void main(String[] args) throws IOException{
-        //System.out.println("test");
-//        OOPSevaluation eval = new OOPSevaluation("http://purl.org/net/p-plan", "");
-//        System.out.println(eval.printEvaluation());
         String urlOut="test.html";
         String html = TextConstants.header;
         html+=TextConstants.tableHead;
         ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
-//        Vocabulary v = getVocabularyMetadata("http://purl.org/net/p-plan");
         ArrayList<String> domains = new ArrayList();
-//        d.add("provenance");
-//        v.setDomains(d);
-//        Vocabulary v1 = getVocabularyMetadata("http://purl.org/net/wf-motifs");
-////        Vocabulary v2 = getVocabularyMetadata("http://purl.org/net/ro-optimization");
-//        html+=v.getHTMLSerializationAsRow(""+0);
-//        html+=v1.getHTMLSerializationAsRow(""+1);
-////        html+=v2.getHTMLSerializationAsRow(""+2);
-//        d.add("banana");
-//        d.add("Poveda");
         int i=0;
         for(Vocabulary v:vocs){
             html+=v.getHTMLSerializationAsRow(""+i);
@@ -63,15 +46,19 @@ public class MainSiteCreator {
             }
             i++;                  
         }
-        //note: d will have all the do mains
+        //note: d will have all the domains
         html+=TextConstants.tableEnd+TextConstants.end+TextConstants.getScriptForFilteringAndEndDocument(domains);
-        try ( //System.out.println(html);
-        //export to file
-            Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(urlOut), "UTF-8"))) {
-            out.write(html);
-            out.close();
-        }catch(Exception e){
-            System.err.println("Error while generating the site: "+e.getMessage());
+        VocabUtils.saveDocument(urlOut, html);
+        //we generate the evaluations separately in a folder called 'ontologies'
+        File f = new File (urlOut);
+        File ontologyDir  = new File(f.getAbsoluteFile().getParent()+File.separator+"ontologies");
+        ontologyDir.mkdir();
+        for(Vocabulary v:vocs){
+            try{
+                new CreateOOPSEvalPage(v).createPage(ontologyDir.getPath());            
+            }catch(Exception e){
+                System.out.println("Error while printing the evaluation of"+ v.getUri());
+            }
         }
     }
     

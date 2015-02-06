@@ -49,7 +49,7 @@ public class OOPSevaluation {
 	
 	private String uriOnto = null;
 	
-	public OOPSevaluation(String uriOnto, String content) throws IOException {
+	public OOPSevaluation(String uriOnto) throws IOException {
 		this.uriOnto = uriOnto;
 		
 		String request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
@@ -58,9 +58,9 @@ public class OOPSevaluation {
                     request+=uriOnto;
                 }
                 request+="</OntologyUrl><OntologyContent>";
-                if(content!=null &&!"".equals(content)){
-                    request+=content;
-                }
+//                if(content!=null &&!"".equals(content)){
+//                    request+=content;
+//                }
                 request+="</OntologyContent>"+
                     "<Pitfalls></Pitfalls>" +
                     "<OutputFormat>RDF/XML</OutputFormat>" +
@@ -83,8 +83,7 @@ public class OOPSevaluation {
 		
 		OntModelSpec s = new OntModelSpec( OntModelSpec.OWL_MEM );
 		this.model = ModelFactory.createOntologyModel( s );
-		this.model.read(in, "http://myEvaluation.com#");
-		
+		this.model.read(in, "http://myevaluation.com#");
 		
 		URL url2 = new URL(uri);
 		HttpURLConnection connection2 = (HttpURLConnection) url2.openConnection();

@@ -22,8 +22,9 @@ public class ProcessCSVFile {
             BufferedReader in = new BufferedReader(new FileReader(path));
             String currentLine;
             int lineN = 0;
-            
+            String currentVocab="";
             while ((currentLine = in.readLine()) != null) {
+                try{                    
                     if (lineN == 0){
                             lineN++; //get rid of the headers
                     }
@@ -31,7 +32,8 @@ public class ProcessCSVFile {
 //                        System.out.println(currentLine);
                         //process each vocab
                         String[] vocsAndDomains = currentLine.split(";");
-                        Vocabulary v = VocabUtils.getVocabularyMetadata(vocsAndDomains[0]);
+                        currentVocab = vocsAndDomains[0];
+                        Vocabulary v = VocabUtils.getVocabularyMetadata(currentVocab);
                         if(vocsAndDomains.length>1){
                             vocsAndDomains = vocsAndDomains[1].split(",");
                             ArrayList<String> domains = new ArrayList();
@@ -40,6 +42,9 @@ public class ProcessCSVFile {
                         }
                         vocabs.add(v);
                     }
+                }catch(Exception e){
+                    System.out.println("Error while dealing with vocab: "+currentVocab+" "+e.getMessage());
+                }
             }
             in.close();
         }catch(Exception e){
