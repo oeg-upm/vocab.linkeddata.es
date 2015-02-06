@@ -28,6 +28,7 @@ public class Vocabulary {
     private ArrayList<String> supportedSerializations;
     private String license;
     private String description;
+    private String shortDescription;
     private ArrayList<String> languages;
     private ArrayList<String> domains;
     private String prefix;
@@ -46,6 +47,13 @@ public class Vocabulary {
         this.supportedSerializations = supportedSerializations;
         this.license = license;
         this.description = description;
+        
+        String desc = this.description;
+    	if (desc.length() > 360){
+    		int nextSpace = desc.indexOf(" ", 360);
+    		this.shortDescription = this.description.substring(0, nextSpace) + "...";
+    	}
+    	
         this.languages = languages;
         this.domains = domains;
         this.prefix = prefix;
@@ -102,6 +110,10 @@ public class Vocabulary {
         return lastModifiedDate;
     }
     
+    public String getShortDescrition (){
+    	return shortDescription;
+    }
+    
     
     /**
      * Setters
@@ -109,6 +121,14 @@ public class Vocabulary {
 
     public void setDescription(String description) {
         this.description = description;
+        this.shortDescription = description;
+        
+        String desc = this.description;
+    	if (desc.length() > TextConstants.shortDescLenght){
+    		int nextSpace = desc.indexOf(" ", TextConstants.shortDescLenght);
+    		this.shortDescription = this.description.substring(0, nextSpace) + "...";
+    	}
+    	
     }
 
     public void setDomains(ArrayList<String> domains) {
@@ -151,6 +171,14 @@ public class Vocabulary {
         this.languages = languages;
     }
     
+//    public void setShortDescription(String description) {
+//    	String desc = this.description;
+//    	if (desc.length() > 360){
+//    		int nextSpace = desc.indexOf(" ", 360);
+//    		this.shortDescription = this.description.substring(0, nextSpace) + "...";
+//    	}
+//    }
+    
     /**
      * Method that returns an html serialization of the vocabulary.
      * Assuming that there is a table 
@@ -163,7 +191,7 @@ public class Vocabulary {
         String ontURI = this.uri;
         String ontTitle = this.getTitle();
         String localURL = ontURI.replace("https://","").replace("http://","").replace("/", "").replace("#", "").trim();
-        html +=("<td><a href = \""+ ontURI + "\" >" + ontTitle + "</a> <a href = \"ontologies/" + localURL + ".html\" target=\"_blank\"><span class=\"glyphicon glyphicon-info-sign\"/></a></td>\n");
+        html +=("<td><a href = \""+ ontURI + "\" >" + ontTitle + "</a> <a href = \"ontologies/" + localURL + ".html\" target=\"_blank\"><span class=\"glyphicon glyphicon-info-sign\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"More information about this vocabulary\"/></a></td>\n");
 
         //Serializations
         html+="<td>\n";
@@ -209,7 +237,7 @@ public class Vocabulary {
         html+=("</td>\n");
         
         //description
-        html+="<td>" + description + "</td>\n";
+        html+="<td>" + shortDescription + "</td>\n";
         html+="<input type=\"hidden\" name=\"inp"+id+"\" id=\"inp"+id+"\" value=\""+domainText+"\"/>";
         html+=("</tr>");        
         return html;

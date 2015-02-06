@@ -27,6 +27,8 @@ import java.util.Locale;
  * @author mpoveda, dgarijo
  */
 public class TextConstants {
+	
+	public static final int shortDescLenght = 110;
     
     public static final String header = "<!DOCTYPE html>\n" + 
 			"<html lang=\"en\">\n" + 
@@ -45,15 +47,19 @@ public class TextConstants {
 			"    <script type=\"text/javascript\" src=\"dist/js/jquery.tablesorter.min.js\"></script>\n" +
 			"    <script type=\"text/javascript\" src=\"dist/js/jquery.stickytableheaders.js\"></script>\n" +
 			"    <script type=\"text/javascript\" src=\"dist/js/jquery-ui.js\"></script>\n" +
+			"    <script type=\"text/javascript\" src=\"dist/js/bootstrap-tooltip.js\"></script>\n" +
 			"    <link rel=\"stylesheet\" href=\"dist/css/jquery-ui.css\"></link>\n" +
 			"    <script type=\"text/javascript\" id=\"js\">\n" +
 			"	    $(document).ready(function() \n" +
 			"		    { \n" +
 			"		    	$(\"#tablesorter-demo\").tablesorter(); \n" +
 			"		    	$(\"#tablesorter-demo\").stickyTableHeaders(); \n" +
+			"		    	$('[data-toggle=\"tooltip\"]').tooltip(); \n" +
+
 			"		    } \n" +
 			"	    ); \n" +
 			"    </script>\n" +
+
 			"\n" + 
 			"    <!-- Le styles -->\n" + 
 			"    <link href=\"dist/css/bootstrap.css\" rel=\"stylesheet\">\n" + 
@@ -93,7 +99,7 @@ public class TextConstants {
 		    "    </div>\n" + 
 		    "    <div class=\"collapse navbar-collapse\">\n" + 
 		    "      <ul class=\"nav navbar-nav\">\n" + 
-		    "        <li class=\"active\"><a href=\"#\">Ontologies</a></li>\n" + 
+		    "        <li class=\"active\"><a href=\"#\">Vocabularies</a></li>\n" + 
 		    "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
 		    "        <li><a href=\"./about.html\">About</a></li>\n" + 
 		    "      </ul>\n" + 
@@ -137,7 +143,7 @@ public class TextConstants {
                     "      <footer class=\"footer\">\n" +
                     "      " +
                     "      <div class=\"row\">\n" +
-                    "    	<div class=\"col-md-7\">\n" +
+                    "    	<div class=\"col-md-10\">\n" +
                     "    		Developed by " +
                     "	        <a href = \"http://oeg-upm.net\" target=\"_blank\">Ontology Engineering Group</a>\n" +
 //			"	        <br>\n" +
@@ -149,7 +155,7 @@ public class TextConstants {
                     "	        Latest revision "+(new SimpleDateFormat("MMMM", Locale.UK).format(new Date(Calendar.getInstance().getTimeInMillis())))+", "+new GregorianCalendar().get(Calendar.YEAR)+"\n" +
                     "           <br><p>&copy; Ontology Engineering Group</p>\n"+           
                     "        </div>\n" +			
-                    "    	<div class=\"col-md-5\">\n" +
+                    "    	<div class=\"col-md-2\">\n" +
                     "    		<a href=\"http://www.oeg-upm.net/\" target=\"_blank\"><img src=\"dist/logo.gif\" alt=\"OEG logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
                     "    	</div>\n" +
                     "      </div>\n" +
@@ -180,15 +186,15 @@ public class TextConstants {
                     "<label for=\"tags\">Filter by domain: </label>\n"+
                     "<input class=\"form-control\" id=\"tags\">  <button id=\"remButt\" class=\"label label-default\" onclick=\"showRows();\" style=\"font-size: 75%; font-weight: bold; line-height: 1; display: none;\"><span class=\"submit glyphicon glyphicon-remove\"></span>  Remove filter</button>\n"+
                     "</div>\n"+
-                    "<table id=\"tablesorter-demo\" class=\"tablesorter table table-hover\">\n"+
+                    "<table id=\"tablesorter-demo\" class=\"tablesorter table table-hover table-responsive\">\n"+
                     "<thead>\n"+
                     "<tr>\n"+
-                    "<th>Ontology</th>\n"+
-                    "<th>Serializations</th>\n"+
-                    "<th>License</th>\n"+
-                    "<th>Language</th>\n"+
-                    "<th>Domain</th>\n"+
-                    "<th>Description</th>\n"+
+                    "<th class=\"col-md-2\">Ontology</th>\n"+
+                    "<th class=\"col-md-2\">Serialization</th>\n"+
+                    "<th class=\"col-md-1\">License</th>\n"+
+                    "<th class=\"col-md-1\">Language</th>\n"+
+                    "<th class=\"col-md-2\">Domain</th>\n"+
+                    "<th class=\"col-md-4\">Description</th>\n"+
                     "</tr>\n"+
                     "</thead>\n"+
                     "<tbody>\n";
@@ -311,7 +317,7 @@ public class TextConstants {
                "    </div>\n" + 
                "    <div class=\"collapse navbar-collapse\">\n" + 
                "      <ul class=\"nav navbar-nav\">\n" + 
-               "        <li><a href=\"#\">Ontologies</a></li>\n" + 
+               "        <li><a href=\"./test.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
                "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
                "        <li><a href=\"./about.html\">About</a></li>\n" + 
                "      </ul>\n" + 
@@ -384,23 +390,31 @@ public class TextConstants {
             "    [6] Heath, T., Bizer, C.: Linked data: Evolving the Web into a global data space (1st edition). Morgan &amp; Claypool (2011).\n"+
             "    </li>\n"+
             "    </ul>\n"+    
+            
             //copy footer here
-            "<footer>\n" +
-            "            <div class=\"row\">\n" +
-            "    	<div class=\"col-md-7\">\n" +
-            "    		Developed by 	        <a href = \"http://delicias.dia.fi.upm.es/members/mpoveda/\" target=\"_blank\">Mar&iacutea Poveda</a>\n" +
+            
+            "     <hr>" +
+            "      <footer>\n" +
+            "      <div class=\"row\">\n" +
+            "    	<div class=\"col-md-10\">\n" +
+            "    		Evaluation results provided by <a href = \"http://purl.org/net/mpoveda\" target=\"_blank\">Mar&iacutea Poveda</a> and integrated with vocab by <a href=\"http://purl.org/net/dgarijo\">Daniel Garijo</a>\n" +
             "	        <br>\n" +
             "    	Built with <a target=\"_blank\" href=\"http://getbootstrap.com/\">Bootstrap</a>\n" +
-            "	        <br>\n" +
-            "           Integration with vocab by <a href=\"http://delicias.dia.fi.upm.es/members/DGarijo/\">Daniel Garijo</a>"+
-            "	        <br>\n" +
+//            "	        <br>\n" +
+//            "           Integration with vocab by <a href=\"http://purl.org/net/dgarijo\">Daniel Garijo</a>"+
+			"	        <br>\n" +
+			"	        Latest revision "+(new SimpleDateFormat("MMMM", Locale.UK).format(new Date(Calendar.getInstance().getTimeInMillis())))+", "+new GregorianCalendar().get(Calendar.YEAR)+"\n" +
+			"           <br><p>&copy; Ontology Engineering Group</p>\n"+              
             "        </div>\n" +
-            "    	<div class=\"col-md-5\">\n" +
-            "		<p class=\"text-right\"> Developed with: </p>\n" +
-            "		<p class=\"text-right\">\n" +
-            "     		<a href=\"http://www.oeg-upm.net/oops/\" target=\"_blank\"><img src=\"oops/logomini.png\" alt=\"OOPS! logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
-            "    	</p>\n" +
+            "    	<div class=\"col-md-2\">\n" +
+            "    		<a href=\"http://www.oeg-upm.net/\" target=\"_blank\"><img src=\"../dist/logo.gif\" alt=\"OEG logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
             "    	</div>\n" +
+//            "    	<div class=\"col-md-2\">\n" +
+//            "		<p class=\"text-right\"> Developed with: </p>\n" +
+//            "		<p class=\"text-right\">\n" +
+//            "     		<a href=\"http://www.oeg-upm.net/oops/\" target=\"_blank\"><img src=\"oops/logomini.png\" alt=\"OOPS! logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
+//            "    	</p>\n" +
+//            "    	</div>\n" +
             "      </div>\n" +
             "      </footer>\n" +
             "    </div> <!-- /container -->\n";
