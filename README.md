@@ -5,6 +5,6 @@ This repository contains the source code for generating the website published at
 
 If you want to add a new vocabulary to the site you only need to include its URI at src/Constants
 
-Main developer: María Poveda
+Main developers: María Poveda (site designer), Daniel Garijo 
 
-Other contributors: Daniel Garijo
+Other contributors: Miguel Angel García

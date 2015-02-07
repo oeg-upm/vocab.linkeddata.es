@@ -34,13 +34,20 @@ public class ProcessCSVFile {
                         String[] vocsAndDomains = currentLine.split(";");
                         currentVocab = vocsAndDomains[0];
                         Vocabulary v = VocabUtils.getVocabularyMetadata(currentVocab);
-                        if(vocsAndDomains.length>1){
-                            vocsAndDomains = vocsAndDomains[1].split(",");
-                            ArrayList<String> domains = new ArrayList();
-                            domains.addAll(Arrays.asList(vocsAndDomains));
-                            v.setDomains(domains);
+                        //if the vocabulary is null, then we have an error to report.
+                        //Also, if the vocabulary does not have description or title, report an error.
+                        /*to do*/
+                        //if the domains are not there, or there is no license issue a warning.
+                        /*to do*/
+                        if(v!=null){
+                            if(vocsAndDomains.length>1){
+                                vocsAndDomains = vocsAndDomains[1].split(",");
+                                ArrayList<String> domains = new ArrayList();
+                                domains.addAll(Arrays.asList(vocsAndDomains));
+                                v.setDomains(domains);
+                            }
+                            vocabs.add(v);
                         }
-                        vocabs.add(v);
                     }
                 }catch(Exception e){
                     System.out.println("Error while dealing with vocab: "+currentVocab+" "+e.getMessage());

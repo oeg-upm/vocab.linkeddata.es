@@ -23,7 +23,7 @@ import static vocab.ProcessCSVFile.processCSV;
 
 /**
  * Class for processing vocabularies and converting them to HTML.
- * Input: csv with 2 columns: URI of vocab and domains (separated by ;)
+ * Input: csv with 2 columns: URI of vocab and domains (separated by ,)
  * Input 2: Path where you want the output
  * Output: an html file with the table summarizing all the vocabs
  * @author dgarijo and mpoveda
