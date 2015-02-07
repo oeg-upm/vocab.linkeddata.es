@@ -24,8 +24,12 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -227,6 +231,34 @@ public class VocabUtils {
 //        }
             
         }
+        
+        //look for languages used in the vocabulary
+        
+        ArrayList <String> languagesUsed = new ArrayList<String>();;
+        try {
+    	    Query languagesQ = QueryFactory.create(Queries.languagesUsed);
+            QueryExecution qe = QueryExecutionFactory.create(languagesQ, currentModel);
+            ResultSet results = qe.execSelect() ;
+            
+			for ( ; results.hasNext() ; )
+            {
+              QuerySolution soln = results.nextSolution() ;
+              RDFNode x = soln.get("langUsed") ;       // Get a result variable by name.
+              
+              if(x != null){
+            	  if (!x.toString().isEmpty()){
+            		  languagesUsed.add(x.toString());
+//            		  System.out.println("Language added: " + x);
+            	  } 
+              }
+            }
+			vocabulary.setLanguages(languagesUsed);
+            qe.close();
+        }
+        catch (java.lang.Exception d){
+            System.err.println("error when getting the languages: " + d.getMessage());
+        }
+        
         //liberate resources    
         currentModel.close();
         //LOV

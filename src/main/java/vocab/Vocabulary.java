@@ -216,7 +216,16 @@ public class Vocabulary {
         //License
         html+=("<td>");
         //this should be made to support more than one license @TO DO
-        String licenseLabel = license.replace("http://creativecommons.org/licenses/", "");
+//        String licenseLabel = license.replace("http://creativecommons.org/licenses/", "");
+        
+        String licenseLabel = null;
+        if (license != null){       //He puesto esto para meter mas vocabularios en las pruebas
+             licenseLabel = license.substring(license.length()-5); 
+        }
+        else {
+        	 licenseLabel = "too bad";
+        }
+        
         //Temporary solution: to do!
         html+= "<a href=\"" + license + "\" target=\"_blank\"><span class=\"label label-success\">" + licenseLabel + "</span></a>";        
 //        else{
@@ -229,12 +238,13 @@ public class Vocabulary {
         html+=("<td>");
         if(languages!=null){
             for(String lang: languages){
-                html+="<span class=\"label label-success\">" + lang + "</span>";
+                html+="<span class=\"label label-primary\">" + lang + "</span> ";
             }
         }else{
             html+="<span class=\"label label-default\">Undefined</span>";
         }
         html+="</td>\n";    
+        
         //Domains
         html+="<td>";
         String domainText=title;

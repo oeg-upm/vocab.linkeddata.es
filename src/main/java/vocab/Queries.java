@@ -46,6 +46,10 @@ public class Queries {
 			"FILTER regex(str(?vocabURI), \""+uri+"\")}}";
             return vocabInLOV;
         }
+        
+        public static final String languagesUsed = "SELECT distinct (lang(?lang) as ?langUsed) WHERE { ?thing ?property ?lang}";
+
+
 //	public static String vocabInLOV = "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
 //			"PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>" +
 //			"PREFIX voaf:<http://purl.org/vocommons/voaf#>" +
