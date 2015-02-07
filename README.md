@@ -7,4 +7,4 @@ If you want to add a new vocabulary to the site you only need to include its URI
 
 Main developers: María Poveda (site designer), Daniel Garijo 
 
-Other contributors: Miguel Angel García, Victor Rodrigues Doncel
+Other contributors: Miguel Angel García, Victor Rodríguez Doncel
