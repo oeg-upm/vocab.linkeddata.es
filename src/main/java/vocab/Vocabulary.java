@@ -17,10 +17,6 @@ package vocab;
 
 import java.util.ArrayList;
 
-import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.rdf.model.NodeIterator;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
 
 import licensius.GetLicense;
 
@@ -241,7 +237,7 @@ public class Vocabulary {
         html+="</td>\n";    
         //Domains
         html+="<td>";
-        String domainText="";
+        String domainText=title;
         if(domains!=null){
             for(String d:domains){
                 html+="<span class=\"label label-primary\">" + d + "</span>\n";

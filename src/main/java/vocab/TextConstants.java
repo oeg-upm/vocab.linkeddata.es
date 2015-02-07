@@ -183,7 +183,7 @@ public class TextConstants {
     
     public static final String tableHead= 
                     "<div class=\"ui-widget\">\n"+
-                    "<label for=\"tags\">Filter by domain: </label>\n"+
+                    "<label for=\"tags\">Filter by title or domain: </label>\n"+
                     "<input class=\"form-control\" id=\"tags\">  <button id=\"remButt\" class=\"label label-default\" onclick=\"showRows();\" style=\"font-size: 75%; font-weight: bold; line-height: 1; display: none;\"><span class=\"submit glyphicon glyphicon-remove\"></span>  Remove filter</button>\n"+
                     "</div>\n"+
                     "<table id=\"tablesorter-demo\" class=\"tablesorter table table-hover table-responsive\">\n"+

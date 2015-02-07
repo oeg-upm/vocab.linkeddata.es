@@ -39,6 +39,8 @@ public class MainSiteCreator {
         for(Vocabulary v:vocs){
             html+=v.getHTMLSerializationAsRow(""+i);
             ArrayList<String> currVocDomains = v.getDomains();
+            //we add the title as welll to filter
+            domains.add(v.getTitle());
                 if(currVocDomains!=null){
                     for(String aux:currVocDomains){
                         domains.add(aux);
