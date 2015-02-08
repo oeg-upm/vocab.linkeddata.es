@@ -21,14 +21,15 @@ package vocab;
  * @author Daniel Garijo
  */
 public class Report {
-    String report;
-    Report r;
+    private static Report r;
+    private String report;    
     
-    private Report(){
+    protected Report(){
         report = "Vocabulary report +\n";
     }
     
-    public Report getInstance(){
+        
+    public static Report getInstance(){
         if(r == null){
             r = new Report();
         }

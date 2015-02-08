@@ -31,6 +31,7 @@ import static vocab.ProcessCSVFile.processCSV;
 public class MainSiteCreator {
     public static void main(String[] args) throws IOException{
         String urlOut="test.html";
+        String urlReportOut = "report.txt";
         String html = TextConstants.header;
         html+=TextConstants.tableHead;
         ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
@@ -62,6 +63,7 @@ public class MainSiteCreator {
                 System.out.println("Error while printing the evaluation of"+ v.getUri());
             }
         }
+        Report.getInstance().saveReport(urlReportOut);
     }
     
     //the input will be a file with the urls and a set of tags describing the domain.

@@ -33,24 +33,33 @@ public class ProcessCSVFile {
                         //process each vocab
                         String[] vocsAndDomains = currentLine.split(";");
                         currentVocab = vocsAndDomains[0];
+                        Report.getInstance().addReport("Dealing with Vocabulary "+currentVocab);
                         Vocabulary v = VocabUtils.getVocabularyMetadata(currentVocab);
                         //if the vocabulary is null, then we have an error to report.
                         //Also, if the vocabulary does not have description or title, report an error.
-                        /*to do*/
-                        //if the domains are not there, or there is no license issue a warning.
-                        /*to do*/
                         if(v!=null){
                             if(vocsAndDomains.length>1){
                                 vocsAndDomains = vocsAndDomains[1].split(",");
                                 ArrayList<String> domains = new ArrayList();
                                 domains.addAll(Arrays.asList(vocsAndDomains));
                                 v.setDomains(domains);
+                            }else{
+                                Report.getInstance().addReport("-->Warning: no domains found for this vocab!");
                             }
-                            vocabs.add(v);
+                            if(v.getDescription()!=null && !v.getDescription().equals("") &&
+                                    v.getTitle()!=null && !v.getTitle().equals("")){
+                                vocabs.add(v);
+                                Report.getInstance().addReport("-->Vocabulary added successfully.");
+                            }else{
+                                Report.getInstance().addReport("Error: title or description missing from vocabulary. Omitted");
+                            }
+                        }else{
+                            Report.getInstance().addReport("Error while parsing the vocabulary.");
                         }
                     }
                 }catch(Exception e){
                     System.out.println("Error while dealing with vocab: "+currentVocab+" "+e.getMessage());
+                    Report.getInstance().addReport("Error while dealing with vocab: "+currentVocab+" "+e.getMessage());
                 }
             }
             in.close();

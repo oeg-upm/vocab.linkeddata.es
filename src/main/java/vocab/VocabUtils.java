@@ -287,6 +287,7 @@ public class VocabUtils {
                 model.read(v.getUri(), null, "N3");
             }else{
                 System.err.println("Error: no serializations available!!");
+                Report.getInstance().addReport("-->Error: no serializations available for vocab");
                 return;
             }
             System.out.println("Vocab "+v.getUri()+" loaded successfully!");
