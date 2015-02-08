@@ -273,17 +273,17 @@ public class Vocabulary {
         	
         	html+= "<p id=\"collapse"+id+"\" data-toggle=\"collapse\" >\n";
         	html+= firstPartDesc + " ... ";
-        	html+= "<a class=\"more\">See more</a>\n";
+        	html+= "<a class=\"more"+id+"\">See more</a>\n";
         	html+= "</p>\n";
         	html+= "<script>\n";
         		html+= "$('#collapse"+id+"').click(function () {\n";
-        		html+= "if($('a').hasClass('more'))\n";
+        		html+= "if($('a').hasClass('more"+id+"'))\n";
       			html+= "{\n";
-        		html+= "$('#collapse"+id+"').html('"+ description +"  <a class=\"less\">See less<a>'); \n";
+        		html+= "$('#collapse"+id+"').html('"+ description +"  <a class=\"less"+id+"\">See less<a>'); \n";
 				html+= "}\n";
 				html+= "else\n";
 				html+= "{      \n";
-				html+= "$('#collapse"+id+"').html('"+ firstPartDesc + " ... "+" <a  class=\"more\">See more</a>'); \n";
+				html+= "$('#collapse"+id+"').html('"+ firstPartDesc + " ... "+" <a  class=\"more"+id+"\">See more</a>'); \n";
 				html+= "}\n";
 				html+= "}); \n";
 			html+= "</script>\n";
