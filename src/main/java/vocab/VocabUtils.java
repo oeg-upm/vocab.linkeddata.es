@@ -276,6 +276,7 @@ public class VocabUtils {
         ArrayList<String> s = v.getSupportedSerializations();
         if (s.isEmpty()){
             System.err.println("Error: no serializations available!!");
+            Report.getInstance().addToReport("-->Error: no serializations available for vocab");
         }else{
             if(s.contains("application/rdf+xml")){
                 model.read(v.getUri(), null, "RDF/XML");
@@ -287,7 +288,7 @@ public class VocabUtils {
                 model.read(v.getUri(), null, "N3");
             }else{
                 System.err.println("Error: no serializations available!!");
-                Report.getInstance().addReport("-->Error: no serializations available for vocab");
+                Report.getInstance().addToReport("-->Error: no serializations available for vocab");
                 return;
             }
             System.out.println("Vocab "+v.getUri()+" loaded successfully!");

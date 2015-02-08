@@ -52,6 +52,7 @@ public class MainSiteCreator {
         //note: d will have all the domains
         html+=TextConstants.tableEnd+TextConstants.end+TextConstants.getScriptForFilteringAndEndDocument(domains);
         VocabUtils.saveDocument(urlOut, html);
+        Report.getInstance().saveReport(urlReportOut);//save report!
         //we generate the evaluations separately in a folder called 'ontologies'
         File f = new File (urlOut);
         File ontologyDir  = new File(f.getAbsoluteFile().getParent()+File.separator+"ontologies");
@@ -63,7 +64,6 @@ public class MainSiteCreator {
                 System.out.println("Error while printing the evaluation of"+ v.getUri());
             }
         }
-        Report.getInstance().saveReport(urlReportOut);
     }
     
     //the input will be a file with the urls and a set of tags describing the domain.

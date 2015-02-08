@@ -25,7 +25,7 @@ public class Report {
     private String report;    
     
     protected Report(){
-        report = "Vocabulary report +\n";
+        report = "Vocabulary report \n";
     }
     
         
@@ -36,7 +36,7 @@ public class Report {
         return r;        
     }
     
-    public void addReport(String s){
+    public void addToReport(String s){
         report +=s+"\n";
     }
     
