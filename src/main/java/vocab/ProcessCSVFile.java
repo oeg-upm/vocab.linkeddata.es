@@ -29,7 +29,6 @@ public class ProcessCSVFile {
                             lineN++; //get rid of the headers
                     }
                     else{
-//                        System.out.println(currentLine);
                         //process each vocab
                         String[] vocsAndDomains = currentLine.split(";");
                         currentVocab = vocsAndDomains[0];

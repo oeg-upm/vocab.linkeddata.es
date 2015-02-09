@@ -28,7 +28,10 @@ import java.util.Locale;
  */
 public class TextConstants {
 	
-	public static final int shortDescLenght = 100;
+    public static final int shortDescLenght = 100;
+    public static final String outPath = "";
+    public static final String reportName = "VocabularyREPORT.txt";
+    public static final String siteName = "index.html";
     
     public static final String header = "<!DOCTYPE html>\n" + 
 			"<html lang=\"en\">\n" + 
@@ -41,14 +44,14 @@ public class TextConstants {
 			"    <meta name=\"keywords\" content=\"ontology, smart city, energy efficiency\">\n" + 
 			"    <meta name=\"author\" content=\"Maria Poveda Villalon\">\n" + 
 			"    \n" + 
-			"    <script src=\"dist/js/jquery.js\"></script>\n" + 
-			"    <link rel=\"stylesheet\" href=\"dist/themes/blue/style.css\" type=\"text/css\" media=\"print, projection, screen\" />\n" +
-		    "    <script src=\"dist/js/jquery-1.11.0.js\"></script>\n" +
-			"    <script type=\"text/javascript\" src=\"dist/js/jquery.tablesorter.min.js\"></script>\n" +
-			"    <script type=\"text/javascript\" src=\"dist/js/jquery.stickytableheaders.js\"></script>\n" +
-			"    <script type=\"text/javascript\" src=\"dist/js/jquery-ui.js\"></script>\n" +
-			"    <script type=\"text/javascript\" src=\"dist/js/bootstrap.js\"></script>\n" +
-			"    <link rel=\"stylesheet\" href=\"dist/css/jquery-ui.css\"></link>\n" +
+			"    <script src=\"vocab/js/jquery.js\"></script>\n" + 
+			"    <link rel=\"stylesheet\" href=\"vocab/themes/blue/style.css\" type=\"text/css\" media=\"print, projection, screen\" />\n" +
+		    "    <script src=\"vocab/js/jquery-1.11.0.js\"></script>\n" +
+			"    <script type=\"text/javascript\" src=\"vocab/js/jquery.tablesorter.min.js\"></script>\n" +
+			"    <script type=\"text/javascript\" src=\"vocab/js/jquery.stickytableheaders.js\"></script>\n" +
+			"    <script type=\"text/javascript\" src=\"vocab/js/jquery-ui.js\"></script>\n" +
+			"    <script type=\"text/javascript\" src=\"vocab/js/bootstrap.js\"></script>\n" +
+			"    <link rel=\"stylesheet\" href=\"vocab/css/jquery-ui.css\"></link>\n" +
 			"    <script type=\"text/javascript\" id=\"js\">\n" +
 			"	    $(document).ready(function() \n" +
 			"		    { \n" +
@@ -62,26 +65,26 @@ public class TextConstants {
 
 			"\n" + 
 			"    <!-- Le styles -->\n" + 
-			"    <link href=\"dist/css/bootstrap.css\" rel=\"stylesheet\">\n" + 
+			"    <link href=\"vocab/css/bootstrap.css\" rel=\"stylesheet\">\n" + 
 			"    <style type=\"text/css\">\n" + 
 			"      body {\n" + 
 			"        padding-top: 60px;\n" + 
 			"        padding-bottom: 40px;\n" + 
 			"      }\n" + 
 			"    </style>\n" + 
-			"    <link href=\"dist/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n" + 
+			"    <link href=\"vocab/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n" + 
 			"    \n" + 
 			"    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->\n" + 
 			"    <!--[if lt IE 9]>\n" + 
-			"      <script src=\"dist/js/html5shiv.js\"></script>\n" + 
+			"      <script src=\"vocab/js/html5shiv.js\"></script>\n" + 
 			"    <![endif]-->\n" + 
 			"\n" + 
 			"    <!-- Fav and touch icons -->\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"dist/ico/apple-touch-icon-144-precomposed.png\">\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"dist/ico/apple-touch-icon-114-precomposed.png\">\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"dist/ico/apple-touch-icon-72pcomposed.png\">\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" href=\"dist/ico/apple-touch-icon-57-precomposed.png\">\n" + 
-//			"    <link rel=\"shortcut icon\" href=\"dist/ico/favicon.png\">\n" + 
+//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"vocab/ico/apple-touch-icon-144-precomposed.png\">\n" + 
+//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"vocab/ico/apple-touch-icon-114-precomposed.png\">\n" + 
+//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"vocab/ico/apple-touch-icon-72pcomposed.png\">\n" + 
+//			"    <link rel=\"apple-touch-icon-precomposed\" href=\"vocab/ico/apple-touch-icon-57-precomposed.png\">\n" + 
+//			"    <link rel=\"shortcut icon\" href=\"vocab/ico/favicon.png\">\n" + 
 			"  </head>\n" + 
 			"\n" + 
 			"  <body>\n" + 
@@ -101,7 +104,7 @@ public class TextConstants {
 		    "      <ul class=\"nav navbar-nav\">\n" + 
 		    "        <li class=\"active\"><a href=\"#\">Vocabularies</a></li>\n" + 
 		    "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
-		    "        <li><a href=\"./about.html\">About</a></li>\n" + 
+		    //"        <li><a href=\"./about.html\">About</a></li>\n" + 
 		    "      </ul>\n" + 
 		    "    </div><!--/.nav-collapse -->\n" + 
 		    "  </div>\n" + 
@@ -156,7 +159,7 @@ public class TextConstants {
                     "           <br><p>&copy; Ontology Engineering Group</p>\n"+           
                     "        </div>\n" +			
                     "    	<div class=\"col-md-2\">\n" +
-                    "    		<a href=\"http://www.oeg-upm.net/\" target=\"_blank\"><img src=\"dist/logo.gif\" alt=\"OEG logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
+                    "    		<a href=\"http://www.oeg-upm.net/\" target=\"_blank\"><img src=\"vocab/logo.gif\" alt=\"OEG logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
                     "    	</div>\n" +
                     "      </div>\n" +
                     "" +
@@ -294,15 +297,15 @@ public class TextConstants {
         "    \n" +
         "    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->\n" +
         "    <!--[if lt IE 9]>\n" +
-        "      <script src=\"/dist/js/html5shiv.js\"></script>\n" +
+        "      <script src=\"/vocab/js/html5shiv.js\"></script>\n" +
         "    <![endif]-->\n" +
         "\n" +
         //"    <!-- Fav and touch icons -->\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"../dist/ico/apple-touch-icon-144-precomposed.png\">\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"../dist/ico/apple-touch-icon-114-precomposed.png\">\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"../dist/ico/apple-touch-icon-72pcomposed.png\">\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" href=\"dist/ico/apple-touch-icon-57-precomposed.png\">\n" +
-        //"    <link rel=\"shortcut icon\" href=\"../dist/ico/favicon.png\">\n" +
+        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"../vocab/ico/apple-touch-icon-144-precomposed.png\">\n" +
+        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"../vocab/ico/apple-touch-icon-114-precomposed.png\">\n" +
+        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"../vocab/ico/apple-touch-icon-72pcomposed.png\">\n" +
+        //"    <link rel=\"apple-touch-icon-precomposed\" href=\"vocab/ico/apple-touch-icon-57-precomposed.png\">\n" +
+        //"    <link rel=\"shortcut icon\" href=\"../vocab/ico/favicon.png\">\n" +
         "  </head>\n"
         + "<div class=\"container\">\n" +
         "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n" + 
@@ -319,7 +322,7 @@ public class TextConstants {
                "      <ul class=\"nav navbar-nav\">\n" + 
                "        <li><a href=\"../test.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
                "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
-               "        <li><a href=\"./about.html\">About</a></li>\n" + 
+              // "        <li><a href=\"./about.html\">About</a></li>\n" + 
                "      </ul>\n" + 
                "    </div><!--/.nav-collapse -->\n" + 
                "  </div>\n" + 
@@ -407,7 +410,7 @@ public class TextConstants {
 			"           <br><p>&copy; Ontology Engineering Group</p>\n"+              
             "        </div>\n" +
             "    	<div class=\"col-md-2\">\n" +
-            "    		<a href=\"http://www.oeg-upm.net/\" target=\"_blank\"><img src=\"../dist/logo.gif\" alt=\"OEG logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
+            "    		<a href=\"http://www.oeg-upm.net/\" target=\"_blank\"><img src=\"../vocab/logo.gif\" alt=\"OEG logo\" class=\"img-rounded\" class=\"img-responsive\" /></a>\n" +
             "    	</div>\n" +
 //            "    	<div class=\"col-md-2\">\n" +
 //            "		<p class=\"text-right\"> Developed with: </p>\n" +

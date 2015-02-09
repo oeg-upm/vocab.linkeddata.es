@@ -29,14 +29,26 @@ import static vocab.ProcessCSVFile.processCSV;
  * @author dgarijo and mpoveda
  */
 public class MainSiteCreator {
+    public static void createFolderStructure(String savePath){
+        VocabUtils.unZipIt("/vocab.zip", savePath);
+        //copy vocab on the Ontologies folder
+        File ont = new File( savePath+File.separator+"ontologies");
+        ont.mkdirs();
+        VocabUtils.unZipIt("/oops.zip", ont.getAbsolutePath());
+    }
     public static void main(String[] args) throws IOException{
-        String urlOut="test.html";
+        String urlOut = "";
+        File auxF = new File(urlOut);
+        auxF = new File (auxF.getAbsolutePath()+File.separator+"vocabSite");
+        auxF.mkdirs();
+        MainSiteCreator.createFolderStructure(auxF.getAbsolutePath());
+        String catalogOutPath=auxF.getAbsolutePath()+File.separator+"index.html";
         String urlReportOut = "report.txt";
         String html = TextConstants.header;
         html+=TextConstants.tableHead;
         ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
         ArrayList<String> domains = new ArrayList();
-        int i=0;
+        int i=1;
         for(Vocabulary v:vocs){
             html+=v.getHTMLSerializationAsRow(""+i);
             ArrayList<String> currVocDomains = v.getDomains();
@@ -51,12 +63,11 @@ public class MainSiteCreator {
         }
         //note: d will have all the domains
         html+=TextConstants.tableEnd+TextConstants.end+TextConstants.getScriptForFilteringAndEndDocument(domains);
-        VocabUtils.saveDocument(urlOut, html);
+        VocabUtils.saveDocument(catalogOutPath, html);
         Report.getInstance().saveReport(urlReportOut);//save report!
         //we generate the evaluations separately in a folder called 'ontologies'
-        File f = new File (urlOut);
-        File ontologyDir  = new File(f.getAbsoluteFile().getParent()+File.separator+"ontologies");
-        ontologyDir.mkdir();
+        File ontologyDir  = new File(auxF.getAbsolutePath()+File.separator+"ontologies");
+//        ontologyDir.mkdir();
         for(Vocabulary v:vocs){
             try{
                 new CreateOOPSEvalPage(v).createPage(ontologyDir.getPath());            

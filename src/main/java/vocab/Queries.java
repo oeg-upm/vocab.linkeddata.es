@@ -24,7 +24,7 @@ public class Queries {
 	
 	public static final String LOVEndpoint = "http://lov.okfn.org/dataset/lov/sparql";
 	
-	public static final String LOVAggEndpoint = "http://lov.okfn.org/endpoint/lov_aggregator";
+//	public static final String LOVAggEndpoint = "http://lov.okfn.org/endpoint/lov_aggregator";
 	
 	public static final String prefixes = "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
 			"PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>" +

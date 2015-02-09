@@ -223,7 +223,7 @@ public class Vocabulary {
              licenseLabel = license.substring(license.length()-5); 
         }
         else {
-        	 licenseLabel = "too bad";
+        	 licenseLabel = "undefined";
         }
         
         //Temporary solution: to do!
@@ -247,11 +247,11 @@ public class Vocabulary {
         
         //Domains
         html+="<td>";
-        String domainText=title;
+        String domainText=title+"--";
         if(domains!=null){
             for(String d:domains){
                 html+="<span class=\"label label-primary\">" + d + "</span>\n";
-                domainText = domainText + "--";
+                domainText = domainText +d+ "--";
             }
         }else{
             html+="<span class=\"label label-default\">Undefined</span>";

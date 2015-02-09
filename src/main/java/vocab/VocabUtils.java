@@ -24,12 +24,9 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,10 +34,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-//import com.hp.hpl.jena.query.Syntax;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JOptionPane;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -120,7 +117,7 @@ public class VocabUtils {
             return false;	    	 
         }
         catch (java.lang.Exception d){
-            System.err.println("exc query en VocabInLOV: " + d.getMessage());
+            System.err.println("exc query en VocabInLOV: " + d.getMessage()+ d.getCause().getMessage());
             return false;
         }
     }
@@ -206,29 +203,10 @@ public class VocabUtils {
             if(propertyName.equals("created")){
                 vocabulary.setCreationDate(value);
             }
-//                if(releaseDate==null || "".equals(releaseDate)){
-//                    this.releaseDate = value;
-//                }
             else
             if(propertyName.equals("modified")){
                 vocabulary.setLastModifiedDate(value);
             }
-//            System.out.println("Loaded properties from ontology");
-            //not including imported ontologies at the moment
-            //else
-//            if(propertyName.equals("imports")){
-//                Ontology o = new Ontology();
-//                if(isURL(value)){
-//                    o.setNamespaceURI(value);
-//                    o.setName("imported ontology name goes here");
-//                }else{
-//                    o.setName(value);
-//                    o.setNamespaceURI("namespace URI goes here");
-//                }
-//                this.importedOntologies.add(o);
-//            }
-            //to do: if property is comment and abstract is null, then complete abstract.
-//        }
             
         }
         
@@ -293,19 +271,6 @@ public class VocabUtils {
             }
             System.out.println("Vocab "+v.getUri()+" loaded successfully!");
         }
-        
-//        try{
-//            model.read(v.getUri(), null, "RDF/XML");
-//        }catch(Exception e){
-//            try{
-//                model.read(ontoURL, null, "TURTLE");            
-//            }catch(Exception e1){
-//                try{
-//                    model.read(ontoURL, null, "N3");            
-//                }catch(Exception e2){
-//                    System.err.println("Error: no model available!!");
-//                }
-//        }
     }
     
     /**
@@ -317,19 +282,7 @@ public class VocabUtils {
         File f = new File(path);
         Writer out = null;
         try{
-//            if(f.exists()){
-//                //JOptionPane.showMessageDialog(null, "You have overwritten the previous file. This message should be better prepared.");
-//                if(!c.getOverWriteAll()){
-//                    String[] options = new String[] {"Rewrite all", "Yes", "No"};
-//                    int response = JOptionPane.showOptionDialog(null, "The file "+f.getName()+" already exists. Do you want to overwrite it?", "Existing File!",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,null, options, options[0]);
-//                    //0 -> yes to all. 1 -> Yes. 2-> No
-//                    if(response == 0)c.setOverwriteAll(true); 
-//                    if(response == 2)return; //else we continue rewriting the file.
-//                }
-//            }
-//            else{
             f.createNewFile();
-//            }
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), "UTF-8"));
             out.write(textToWrite);
             out.close();
@@ -340,23 +293,45 @@ public class VocabUtils {
     }
     
     /**
-     * Test to get the response of a get request.
-     * @param args 
+     * Code to unzip a file. Inspired from
+     * http://www.mkyong.com/java/how-to-decompress-files-from-a-zip-file/
+     * Taken from 
+     * @param resourceName
+     * @param outputFolder 
      */
-//    public static void main(String[] args){
-//        Vocabulary v = getVocabularyMetadata("http://purl.org/net/p-plan");
-//        System.out.println(v.getHTMLSerializationAsRow(""+0));
-//    }
-//        Vocabulary v = new Vocabulary();
-//        v.setUri("http://purl.org/net/p-plan");
-//        if(getLOVPage(v)){
-//            System.out.println("It has a lov page: "+ v.getLovURI());
-//        }
-//        ArrayList<String> s = getSerializations("http://datos.bne.es/def/");
-//        System.out.println("Suported serializations:");
-//        for (String a:s){
-//            System.out.println(a);
-//        }
-//    }
+    public static void unZipIt(String resourceName, String outputFolder){
+ 
+     byte[] buffer = new byte[1024];
+ 
+     try{
+    	ZipInputStream zis = 
+    		new ZipInputStream(VocabUtils.class.getResourceAsStream(resourceName));
+    	ZipEntry ze = zis.getNextEntry();
+ 
+    	while(ze!=null){
+ 
+    	   String fileName = ze.getName();
+           File newFile = new File(outputFolder + File.separator + fileName);
+           System.out.println("file unzip : "+ newFile.getAbsoluteFile());
+           if (ze.isDirectory()){
+                String temp = newFile.getAbsolutePath();
+                new File(temp).mkdirs();
+           }
+           else{
+                FileOutputStream fos = new FileOutputStream(newFile);
+                int len; while ((len = zis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len); }
+                fos.close();
+           }  
+            ze = zis.getNextEntry();
+    	}
+ 
+        zis.closeEntry();
+    	zis.close();
+ 
+    }catch(IOException ex){
+        System.err.println("Error while extracting the reosurces: "+ex.getMessage());
+    }
+   } 
     
 }
