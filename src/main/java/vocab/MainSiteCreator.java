@@ -30,20 +30,20 @@ import static vocab.ProcessCSVFile.processCSV;
  */
 public class MainSiteCreator {
     public static void createFolderStructure(String savePath){
-        VocabUtils.unZipIt("/vocab.zip", savePath);
+        VocabUtils.unZipIt(TextConstants.vocabResources, savePath);
         //copy vocab on the Ontologies folder
-        File ont = new File( savePath+File.separator+"ontologies");
+        File ont = new File( savePath+File.separator+TextConstants.ontologyFolder);
         ont.mkdirs();
-        VocabUtils.unZipIt("/oops.zip", ont.getAbsolutePath());
+        VocabUtils.unZipIt(TextConstants.oopsResources, ont.getAbsolutePath());
     }
     public static void main(String[] args) throws IOException{
         String urlOut = "";
         File auxF = new File(urlOut);
-        auxF = new File (auxF.getAbsolutePath()+File.separator+"vocabSite");
+        auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.siteFolderName);
         auxF.mkdirs();
         MainSiteCreator.createFolderStructure(auxF.getAbsolutePath());
-        String catalogOutPath=auxF.getAbsolutePath()+File.separator+"index.html";
-        String urlReportOut = "report.txt";
+        String catalogOutPath=auxF.getAbsolutePath()+File.separator+TextConstants.siteName;
+        String urlReportOut = TextConstants.reportName;
         String html = TextConstants.header;
         html+=TextConstants.tableHead;
         ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
@@ -66,7 +66,7 @@ public class MainSiteCreator {
         VocabUtils.saveDocument(catalogOutPath, html);
         Report.getInstance().saveReport(urlReportOut);//save report!
         //we generate the evaluations separately in a folder called 'ontologies'
-        File ontologyDir  = new File(auxF.getAbsolutePath()+File.separator+"ontologies");
+        File ontologyDir  = new File(auxF.getAbsolutePath()+File.separator+TextConstants.ontologyFolder);
 //        ontologyDir.mkdir();
         for(Vocabulary v:vocs){
             try{
@@ -76,7 +76,5 @@ public class MainSiteCreator {
             }
         }
     }
-    
-    //the input will be a file with the urls and a set of tags describing the domain.
     
 }
