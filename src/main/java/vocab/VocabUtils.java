@@ -175,9 +175,10 @@ public class VocabUtils {
 //            if(propertyName.equals("preferredNamespaceUri")){
 //                this.mainOntology.setNamespaceURI(value);                
 //            }else
-            if(propertyName.equals("license")){
+            if(propertyName.equals("license")){ // es necesario este if? no se crea siempre
 //                vocabulary.setLicense(value);
                 vocabulary.setLicense(vocabURI);
+                vocabulary.setLicenseLabel(vocabURI);
 //                this.license = new License();
 //                if(isURL(value)){
 //                    this.license.setUrl(value);

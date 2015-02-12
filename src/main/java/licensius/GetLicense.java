@@ -68,6 +68,37 @@ public class GetLicense {
         return output;
     }
     
+    public static String getLicenseLabel(String uriToScan) {
+        String output="unknown";
+
+        try {
+            String uri="http://licensius.appspot.com/getLicenseLabel?content=";
+            String encodedData = URLEncoder.encode(uriToScan);
+            uri+=encodedData;
+            URL url = new URL(uri);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Content-Length", String.valueOf(encodedData.length()));
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("HTTP error code : "+ conn.getResponseCode());
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String linea = "";
+            while ((linea = br.readLine()) != null) {
+                output=linea;
+            }
+//            System.out.println(output);
+
+            conn.disconnect();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return output;
+    }
     /**
      * @param args the command line arguments
      */

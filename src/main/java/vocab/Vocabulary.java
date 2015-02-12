@@ -30,6 +30,7 @@ public class Vocabulary {
     private String lovURI;
     private ArrayList<String> supportedSerializations;
     private String license;
+    private String licenseLabel;
     private String description;
     private String firstPartDesc;
     private String secondPartDesc;
@@ -85,6 +86,10 @@ public class Vocabulary {
 
     public String getLicense() {
         return license;
+    }    
+    
+    public String getLicenseLabel() {
+        return licenseLabel;
     }
 
     public ArrayList<String> getSupportedSerializations() {
@@ -151,6 +156,12 @@ public class Vocabulary {
     	//this.license = license;
     	this.license = GetLicense.getLicense(uri);
     }
+    
+    public void setLicenseLabel(String uri) {
+    	//this.license = license;
+    	this.licenseLabel = GetLicense.getLicenseLabel(uri);
+    }
+    
     public void setSupportedSerializations(ArrayList<String> supportedSerializations) {
         this.supportedSerializations = supportedSerializations;
     }
@@ -219,15 +230,16 @@ public class Vocabulary {
 //        String licenseLabel = license.replace("http://creativecommons.org/licenses/", "");
         
         String licenseLabel = null;
-        if (license != null){       //He puesto esto para meter mas vocabularios en las pruebas
-             licenseLabel = license.substring(license.length()-5); 
+        if (licenseLabel == null){       //He puesto esto para meter mas vocabularios en las pruebas
+            html+= "<span class=\"label label-default\">Undefined</span>";        
         }
-        else {
-        	 licenseLabel = "undefined";
+        else{
+//            html+= "<a href=\"" + license + "\" target=\"_blank\"><span class=\"label label-success\">" + licenseLabel + "</span></a>";        
+            html+= "<span class=\"label label-success\">" + licenseLabel + "</span>";        
         }
         
+
         //Temporary solution: to do!
-        html+= "<a href=\"" + license + "\" target=\"_blank\"><span class=\"label label-success\">" + licenseLabel + "</span></a>";        
 //        else{
 //            // boton gris, unknown
 //            html.println("<span class=\"label label-default\">Unknown</span>"); 
