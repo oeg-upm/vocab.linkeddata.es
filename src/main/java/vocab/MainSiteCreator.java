@@ -37,6 +37,12 @@ public class MainSiteCreator {
         VocabUtils.unZipIt(TextConstants.oopsResources, ont.getAbsolutePath());
     }
     public static void main(String[] args) throws IOException{
+        String pathVocabsFile = "";
+        if(args.length!=2){
+            System.out.println("Say here how this is supposed to be used");
+            return;
+        }
+        pathVocabsFile = args[1];
         String urlOut = "";
         File auxF = new File(urlOut);
         auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.siteFolderName);
@@ -47,7 +53,8 @@ public class MainSiteCreator {
         String html = TextConstants.header;
         html+=TextConstants.tableHead;
         try{
-            ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
+            //ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
+            ArrayList<Vocabulary> vocs = processCSV(pathVocabsFile);
             ArrayList<String> domains = new ArrayList();
             int i=1;
             for(Vocabulary v:vocs){

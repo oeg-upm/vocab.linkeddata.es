@@ -253,6 +253,7 @@ public class Vocabulary {
    				 }
 				 else{
 					//no se reconoce el lenguaje --> avisar e incluir en log
+                                        Report.getInstance().addToReport("Languages could not be recognised for vocab");
 				 }
             }
         }else{

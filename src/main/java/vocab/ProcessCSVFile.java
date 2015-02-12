@@ -32,7 +32,7 @@ public class ProcessCSVFile {
                         //process each vocab
                         String[] vocsAndDomains = currentLine.split(";");
                         currentVocab = vocsAndDomains[0];
-                        Report.getInstance().addToReport("Dealing with Vocabulary "+currentVocab);
+                        Report.getInstance().addToReport("\nDealing with Vocabulary "+currentVocab);
                         Vocabulary v = VocabUtils.getVocabularyMetadata(currentVocab);
                         //if the vocabulary is null, then we have an error to report.
                         //Also, if the vocabulary does not have description or title, report an error.
@@ -59,6 +59,7 @@ public class ProcessCSVFile {
                 }catch(Exception e){
                     System.out.println("Error while dealing with vocab: "+currentVocab+" "+e.getMessage());
                     Report.getInstance().addToReport("-->Error while dealing with vocab: "+currentVocab+" "+e.getMessage());
+                    e.printStackTrace();
                 }
             }
             in.close();
