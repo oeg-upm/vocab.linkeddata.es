@@ -16,6 +16,8 @@
 package vocab;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 
 
 import licensius.GetLicense;
@@ -160,6 +162,7 @@ public class Vocabulary {
     public void setLicenseTitle(String uri) {
     	//this.license = license;
     	this.licenseTitle = GetLicense.getLicenseTitle(uri);
+//    	System.out.println("License: " + this.licenseTitle);
     }
     
     public void setSupportedSerializations(ArrayList<String> supportedSerializations) {
@@ -232,16 +235,25 @@ public class Vocabulary {
         }
         else{
 //            html+= "<a href=\"" + license + "\" target=\"_blank\"><span class=\"label label-success\">" + licenseLabel + "</span></a>";        
-            html+= "<span class=\"label label-success\">" + licenseTitle + "</span>";        
+            String licenseTitleReduced = licenseTitle.replace("Creative Commons ", "");
+        	html+= "<a href=\"" + this.license + "\" target=\"_blank\"> <span class=\"label label-success\">" + licenseTitleReduced + "</span> </a>";        
         }
 
         html+=("</td>\n");
 
-        //Ontology Language
+        //Natural Language
         html+=("<td>");
         if(languages!=null){
             for(String lang: languages){
-                html+="<span class=\"label label-primary\">" + lang + "</span> ";
+            	HashMap <String, String> mapLang = new Languages().getMapLang();
+            	
+            	if (mapLang.containsKey(lang.substring(0, 2))){
+            		String langURI = mapLang.get(lang.substring(0, 2));
+                    html+="<a href=\"" + langURI + "\" target=\"_blank\"> <span class=\"label label-primary\">" + lang + "</span></a> ";
+   				 }
+				 else{
+					//no se reconoce el lenguaje --> avisar e incluir en log
+				 }
             }
         }else{
             html+="<span class=\"label label-default\">Undefined</span>";

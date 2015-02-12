@@ -48,7 +48,7 @@ public class CreateOOPSEvalPage {
             evaluation = eval.printEvaluation();
             //SAVE File
             //evalFolder.getAbsolutePath()+File.separator+
-            VocabUtils.saveDocument(evalFolder.getAbsolutePath()+File.separator+c.getUri().replace("https://","").replace("http://","").replace("/", "").replace("#", "").trim()+".html", TextConstants.getEvaluationText(evaluation, c));
+            VocabUtils.saveDocument(evalFolder.getAbsolutePath()+File.separator+c.getUri().replace("https://","").replace("http://","").replace("/", "").replace("#", "").trim()+".html", TextConstants.getOntologyPageAndEvaluation(evaluation, c));
             //pointerToMain.openBrowser(new File(evalFolder.getAbsolutePath()+File.separator+"oopsEval.html").toURI());
         }catch(Exception e){
             System.err.println("Error while saving OOPS evaluation: "+e.getMessage());
