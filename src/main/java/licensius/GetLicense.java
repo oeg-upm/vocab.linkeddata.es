@@ -22,10 +22,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import vocab.Report;
+import vocab.TextConstants;
 
 /**
  *
- * @author Victor Rodriguez Doncel
+ * @author Victor Rodriguez Doncel.
+ * Integrated by Maria Poveda and Daniel Garijo
  */
 public class GetLicense {
     
@@ -35,13 +38,14 @@ public class GetLicense {
      * Invokes the getLicense method of the Licensius service, so that
      * the license in a RDF resource is found.
      * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     * @return 
      */
     public static String getLicense(String uriToScan) {
-        String output="unknown";
+        String output=null;
 
         try {
-            String uri="http://licensius.appspot.com/getLicense?content=";
             String encodedData = URLEncoder.encode(uriToScan);
+            String uri=TextConstants.licensiusURIServiceLicense;            
             uri+=encodedData;
             URL url = new URL(uri);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -52,7 +56,7 @@ public class GetLicense {
                 throw new RuntimeException("HTTP error code : "+ conn.getResponseCode());
             }
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-            String linea = "";
+            String linea;
             while ((linea = br.readLine()) != null) {
                 output=linea;
             }
@@ -60,19 +64,21 @@ public class GetLicense {
 
             conn.disconnect();
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            Report.getInstance().addToReport("-->Could not load license for vocab");
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            Report.getInstance().addToReport("-->Could not load license for vocab");
         }
 
         return output;
     }
     
-    public static String getLicenseLabel(String uriToScan) {
-        String output="unknown";
+    public static String getLicenseTitle(String uriToScan) {
+        String output=null;
 
         try {
-            String uri="http://licensius.appspot.com/getLicenseLabel?content=";
+            String uri=TextConstants.licensiusURIServiceLicenseTitle;
             String encodedData = URLEncoder.encode(uriToScan);
             uri+=encodedData;
             URL url = new URL(uri);
@@ -92,9 +98,11 @@ public class GetLicense {
 
             conn.disconnect();
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Report.getInstance().addToReport("-->Could not load license title for vocab");
+//            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            Report.getInstance().addToReport("-->Could not load license title for vocab");
+//            e.printStackTrace();
         }
 
         return output;
@@ -102,9 +110,9 @@ public class GetLicense {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        String license=getLicense("http://purl.org/goodrelations/v1.owl");
-        System.out.println(license);
-    }
+//    public static void main(String[] args) {
+//        String license=getLicense("http://purl.org/goodrelations/v1.owl");
+//        System.out.println(license);
+//    }
 }
     

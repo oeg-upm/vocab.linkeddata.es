@@ -175,17 +175,17 @@ public class VocabUtils {
 //            if(propertyName.equals("preferredNamespaceUri")){
 //                this.mainOntology.setNamespaceURI(value);                
 //            }else
-            if(propertyName.equals("license")){ // es necesario este if? no se crea siempre
-//                vocabulary.setLicense(value);
-                vocabulary.setLicense(vocabURI);
-                vocabulary.setLicenseLabel(vocabURI);
-//                this.license = new License();
-//                if(isURL(value)){
-//                    this.license.setUrl(value);
-//                }else{
-//                    license.setName(value);
-//                }
-            }else
+//            if(propertyName.equals("license")){ // es necesario este if? no se crea siempre
+////                vocabulary.setLicense(value);
+//                vocabulary.setLicense(vocabURI);
+//                vocabulary.setLicenseLabel(vocabURI);
+////                this.license = new License();
+////                if(isURL(value)){
+////                    this.license.setUrl(value);
+////                }else{
+////                    license.setName(value);
+////                }
+//            }else
 //            if(propertyName.equals("creator")||propertyName.equals("contributor")){
 //                Agent g = new Agent();
 //                if(isURL(value)){
@@ -209,6 +209,13 @@ public class VocabUtils {
                 vocabulary.setLastModifiedDate(value);
             }
             
+        }
+        //since the webservice extracts the license, we don't need to find it
+        try{
+            vocabulary.setLicense(vocabURI);
+            vocabulary.setLicenseTitle(vocabURI);
+        }catch(Exception e){
+            Report.getInstance().addToReport("-->Warning: could not load license from vocab");
         }
         
         //look for languages used in the vocabulary

@@ -46,34 +46,39 @@ public class MainSiteCreator {
         String urlReportOut = TextConstants.reportName;
         String html = TextConstants.header;
         html+=TextConstants.tableHead;
-        ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
-        ArrayList<String> domains = new ArrayList();
-        int i=1;
-        for(Vocabulary v:vocs){
-            html+=v.getHTMLSerializationAsRow(""+i);
-            ArrayList<String> currVocDomains = v.getDomains();
-            //we add the title as welll to filter
-            domains.add(v.getTitle());
-                if(currVocDomains!=null){
-                    for(String aux:currVocDomains){
-                        domains.add(aux);
-                    }
+        try{
+            ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
+            ArrayList<String> domains = new ArrayList();
+            int i=1;
+            for(Vocabulary v:vocs){
+                html+=v.getHTMLSerializationAsRow(""+i);
+                ArrayList<String> currVocDomains = v.getDomains();
+                //we add the title as welll to filter
+                domains.add(v.getTitle());
+                    if(currVocDomains!=null){
+                        for(String aux:currVocDomains){
+                            domains.add(aux);
+                        }
+                }
+                i++;                  
             }
-            i++;                  
-        }
-        //note: d will have all the domains
-        html+=TextConstants.tableEnd+TextConstants.end+TextConstants.getScriptForFilteringAndEndDocument(domains);
-        VocabUtils.saveDocument(catalogOutPath, html);
-        Report.getInstance().saveReport(urlReportOut);//save report!
-        //we generate the evaluations separately in a folder called 'ontologies'
-        File ontologyDir  = new File(auxF.getAbsolutePath()+File.separator+TextConstants.ontologyFolder);
-//        ontologyDir.mkdir();
-        for(Vocabulary v:vocs){
-            try{
-                new CreateOOPSEvalPage(v).createPage(ontologyDir.getPath());            
-            }catch(Exception e){
-                System.out.println("Error while printing the evaluation of"+ v.getUri());
+            //note: d will have all the domains
+            html+=TextConstants.tableEnd+TextConstants.end+TextConstants.getScriptForFilteringAndEndDocument(domains);
+            VocabUtils.saveDocument(catalogOutPath, html);
+            Report.getInstance().saveReport(urlReportOut);//save report!
+            //we generate the evaluations separately in a folder called 'ontologies'
+            File ontologyDir  = new File(auxF.getAbsolutePath()+File.separator+TextConstants.ontologyFolder);
+    //        ontologyDir.mkdir();
+            for(Vocabulary v:vocs){
+                try{
+                    new CreateOOPSEvalPage(v).createPage(ontologyDir.getPath());            
+                }catch(Exception e){
+                    System.out.println("Error while printing the evaluation of"+ v.getUri());
+                }
             }
+        }catch(Exception e){
+            System.err.println("Could not create the site: "+e.getMessage());
+            e.printStackTrace();
         }
     }
     

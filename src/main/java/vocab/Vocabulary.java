@@ -30,7 +30,7 @@ public class Vocabulary {
     private String lovURI;
     private ArrayList<String> supportedSerializations;
     private String license;
-    private String licenseLabel;
+    private String licenseTitle;
     private String description;
     private String firstPartDesc;
     private String secondPartDesc;
@@ -88,8 +88,8 @@ public class Vocabulary {
         return license;
     }    
     
-    public String getLicenseLabel() {
-        return licenseLabel;
+    public String getLicenseTitle() {
+        return licenseTitle;
     }
 
     public ArrayList<String> getSupportedSerializations() {
@@ -157,9 +157,9 @@ public class Vocabulary {
     	this.license = GetLicense.getLicense(uri);
     }
     
-    public void setLicenseLabel(String uri) {
+    public void setLicenseTitle(String uri) {
     	//this.license = license;
-    	this.licenseLabel = GetLicense.getLicenseLabel(uri);
+    	this.licenseTitle = GetLicense.getLicenseTitle(uri);
     }
     
     public void setSupportedSerializations(ArrayList<String> supportedSerializations) {
@@ -226,24 +226,15 @@ public class Vocabulary {
         html+="</td>\n";
         //License
         html+=("<td>");
-        //this should be made to support more than one license @TO DO
-//        String licenseLabel = license.replace("http://creativecommons.org/licenses/", "");
         
-        String licenseLabel = null;
-        if (licenseLabel == null){       //He puesto esto para meter mas vocabularios en las pruebas
+        if (this.licenseTitle == null || this.licenseTitle.equals("Unknown")){      
             html+= "<span class=\"label label-default\">Undefined</span>";        
         }
         else{
 //            html+= "<a href=\"" + license + "\" target=\"_blank\"><span class=\"label label-success\">" + licenseLabel + "</span></a>";        
-            html+= "<span class=\"label label-success\">" + licenseLabel + "</span>";        
+            html+= "<span class=\"label label-success\">" + licenseTitle + "</span>";        
         }
-        
 
-        //Temporary solution: to do!
-//        else{
-//            // boton gris, unknown
-//            html.println("<span class=\"label label-default\">Unknown</span>"); 
-//        }
         html+=("</td>\n");
 
         //Ontology Language

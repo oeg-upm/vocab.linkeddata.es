@@ -35,6 +35,8 @@ public class TextConstants {
     public static final String oopsResources= "/oops.zip";
     public static final String vocabResources = "/vocab.zip";
     public static final String ontologyFolder = "ontologies";
+    public static final String licensiusURIServiceLicense = "http://licensius.appspot.com/getLicense?content=";
+    public static final String licensiusURIServiceLicenseTitle = "http://licensius.appspot.com/getLicenseTitle?content=";
     
     public static final int shortDescLenght = 100;
     
