@@ -392,6 +392,7 @@ public class TextConstants {
             "</dl>"+
              evaluationContent+
             //references
+             "<br>\n"+
             "<p>References:</p>\n"+
             "    <ul>\n"+
             "    <li>\n"+

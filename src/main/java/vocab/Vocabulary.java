@@ -137,10 +137,13 @@ public class Vocabulary {
         
         String desc = this.description;
     	if (desc.length() > TextConstants.shortDescLenght){
+    		
     		int nextSpace = desc.indexOf(" ", TextConstants.shortDescLenght);
-    		this.firstPartDesc = this.description.substring(0, nextSpace);
-    		this.secondPartDesc = this.description.substring(nextSpace);
-
+    		if (nextSpace != -1){
+    			this.firstPartDesc = this.description.substring(0, nextSpace);
+    			this.secondPartDesc = this.description.substring(nextSpace);
+    		}
+    		
     	}
     	
     }
