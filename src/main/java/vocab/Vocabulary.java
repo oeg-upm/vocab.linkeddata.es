@@ -233,7 +233,7 @@ public class Vocabulary {
         //License
         html+=("<td>");
         
-        if (this.licenseTitle == null || this.licenseTitle.equals("Unknown")){      
+        if (this.licenseTitle == null || this.licenseTitle.toLowerCase().equals("unknown")){      
             html+= "<span class=\"label label-default\">Undefined</span>";        
         }
         else{

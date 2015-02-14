@@ -60,7 +60,7 @@ public class GetLicense {
             while ((linea = br.readLine()) != null) {
                 output=linea;
             }
-//            System.out.println(output);
+//            System.out.println("Get license: " + output);
 
             conn.disconnect();
         } catch (MalformedURLException e) {
@@ -94,7 +94,7 @@ public class GetLicense {
             while ((linea = br.readLine()) != null) {
                 output=linea;
             }
-//            System.out.println(output);
+//            System.out.println("Get license title: " +output);
 
             conn.disconnect();
         } catch (MalformedURLException e) {
