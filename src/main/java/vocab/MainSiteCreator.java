@@ -39,7 +39,7 @@ public class MainSiteCreator {
     public static void main(String[] args) throws IOException{
         String pathVocabsFile = "";
         if(args.length!=2){
-            System.out.println("Say here how this is supposed to be used");
+            System.out.println("Usage: java-jar vocab.jar -i input CSV file path");
             return;
         }
         pathVocabsFile = args[1];
@@ -64,7 +64,9 @@ public class MainSiteCreator {
                 domains.add(v.getTitle());
                     if(currVocDomains!=null){
                         for(String aux:currVocDomains){
-                            domains.add(aux);
+                            if(!domains.contains(aux)){
+                                domains.add(aux);
+                            }
                         }
                 }
                 i++;                  

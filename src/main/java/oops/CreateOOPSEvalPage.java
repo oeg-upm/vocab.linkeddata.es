@@ -16,9 +16,7 @@
 
 package oops;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import vocab.TextConstants;
 import vocab.VocabUtils;
 import vocab.Vocabulary;

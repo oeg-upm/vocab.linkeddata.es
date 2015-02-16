@@ -25,6 +25,7 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -143,35 +144,48 @@ public class VocabUtils {
         //we assume only one ontology per file.
         OntResource onto = currentModel.getOntClass("http://www.w3.org/2002/07/owl#Ontology").listInstances().next();
         Iterator it = onto.listProperties();//model.getResource("http://purl.org/net/wf-motifs").listProperties();
-        String propertyName, value;
+        String propertyName, value, language;
         while(it.hasNext()){
             Statement s = (Statement) it.next();
             propertyName = s.getPredicate().getLocalName();
+            language = "";
             try{
-                value = s.getObject().asLiteral().getString();
+                Literal l = s.getObject().asLiteral();
+                value = l.getString();
+                language = l.getLanguage();
+                
             }catch(Exception e){
                 value = s.getObject().asResource().getURI();
             }
-//            System.out.println(propertyName + " " + value);
             // fill in the properties here.
-            if(propertyName.equals("description")){
-                vocabulary.setDescription(value);
-            }else
-            if(propertyName.equals("abstract")){
-                vocabulary.setDescription(value);
-            }else
-            if(propertyName.equals("title")){
-                vocabulary.setTitle(value);
-            }else
+            switch (propertyName) {
+                case "description":
+                    if(language.equals("en")||vocabulary.getDescription()==null
+                            ||vocabulary.getDescription().equals("")){
+                        vocabulary.setDescription(value);
+                    }
+                    break;
+                case "abstract":
+                    if(language.equals("en")||vocabulary.getDescription()==null
+                            ||vocabulary.getDescription().equals("")){
+                        vocabulary.setDescription(value);
+                    }
+                    break;
+                case "title"://by default we take the english desc
+                    if(language.equals("en")||vocabulary.getTitle()==null
+                            ||vocabulary.getTitle().equals("")){
+                        vocabulary.setTitle(value);
+                    }
+                    break;
 //            if(propertyName.equals("replaces")||propertyName.equals("wasRevisionOf")){
 //                this.previousVersion = value;
 //            }else
 //            if(propertyName.equals("versionInfo")){
 //                this.revision = value;
 //            }else
-            if(propertyName.equals("preferredNamespacePrefix")){
-                vocabulary.setPrefix(value);
-            }else
+                case "preferredNamespacePrefix":
+                    vocabulary.setPrefix(value);
+                    break;
 //            if(propertyName.equals("preferredNamespaceUri")){
 //                this.mainOntology.setNamespaceURI(value);                
 //            }else
@@ -201,12 +215,12 @@ public class VocabUtils {
 //                    this.contributors.add(g);
 //                }
 //            }else
-            if(propertyName.equals("created")){
-                vocabulary.setCreationDate(value);
-            }
-            else
-            if(propertyName.equals("modified")){
-                vocabulary.setLastModifiedDate(value);
+                case "created":
+                    vocabulary.setCreationDate(value);
+                    break;
+                case "modified":
+                    vocabulary.setLastModifiedDate(value);
+                    break;
             }
             
         }
@@ -220,17 +234,15 @@ public class VocabUtils {
         
         //look for languages used in the vocabulary
         
-        ArrayList <String> languagesUsed = new ArrayList<String>();;
+        ArrayList <String> languagesUsed = new ArrayList<>();
         try {
     	    Query languagesQ = QueryFactory.create(Queries.languagesUsed);
             QueryExecution qe = QueryExecutionFactory.create(languagesQ, currentModel);
             ResultSet results = qe.execSelect() ;
-            
-			for ( ; results.hasNext() ; )
+            while( results.hasNext())
             {
               QuerySolution soln = results.nextSolution() ;
               RDFNode x = soln.get("langUsed") ;       // Get a result variable by name.
-              
               if(x != null){
             	  if (!x.toString().isEmpty()){
             		  languagesUsed.add(x.toString());
@@ -238,13 +250,12 @@ public class VocabUtils {
             	  } 
               }
             }
-			vocabulary.setLanguages(languagesUsed);
+            vocabulary.setLanguages(languagesUsed);
             qe.close();
         }
         catch (java.lang.Exception d){
             System.err.println("error when getting the languages: " + d.getMessage());
         }
-        
         //liberate resources    
         currentModel.close();
         //LOV

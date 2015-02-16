@@ -220,7 +220,7 @@ public class Vocabulary {
         String ontURI = this.uri;
         String ontTitle = this.getTitle();
         String localURL = ontURI.replace("https://","").replace("http://","").replace("/", "").replace("#", "").trim();
-        html +=("<td><a href = \""+ ontURI + "\" >" + ontTitle + "</a> <a href = \"ontologies/" + localURL + ".html\" target=\"_blank\"><span class=\"glyphicon glyphicon-info-sign\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"More information about this vocabulary\"/></a></td>\n");
+        html +=("<td><a href = \""+ ontURI + "\" target=\"_blank\">" + ontTitle + "</a> <a href = \"ontologies/" + localURL + ".html\" target=\"_blank\"><span class=\"glyphicon glyphicon-info-sign\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"More information about this vocabulary\"/></a></td>\n");
 
         //Serializations
         html+="<td>\n";
@@ -249,15 +249,16 @@ public class Vocabulary {
         if(languages!=null){
             for(String lang: languages){
             	HashMap <String, String> mapLang = new Languages().getMapLang();
-            	
-            	if (mapLang.containsKey(lang.substring(0, 2))){
-            		String langURI = mapLang.get(lang.substring(0, 2));
+            	String currLang = lang.substring(0, 2);
+            	if (mapLang.containsKey(currLang)){
+                    String langURI = mapLang.get(currLang);
                     html+="<a href=\"" + langURI + "\" target=\"_blank\"> <span class=\"label label-primary\">" + lang + "</span></a> ";
-   				 }
-				 else{
-					//no se reconoce el lenguaje --> avisar e incluir en log
-                                        Report.getInstance().addToReport("Languages could not be recognised for vocab");
-				 }
+                }
+                else{
+                    //language not recognized -> add to log
+                    Report.getInstance().addToReport("\n The following language: "+lang+
+                            " could not be recognized for vocab "+this.prefix+"("+this.uri+")");
+                }
             }
         }else{
             html+="<span class=\"label label-default\">Undefined</span>";
@@ -280,33 +281,23 @@ public class Vocabulary {
         //description
         html+="<td>\n";    
 
-        if (firstPartDesc.length() < description.length()){
-//            html+= firstPartDesc + "..." ;
-//            html+="<a data-toggle=\"collapse\" href=\"#collapse"+id+"\">\n";
-//            html+= " see more" ;
-//            html+= "</a>\n";
-//
-//    		html+= "<div id=\"collapse"+id+"\" class=\"collapse\">\n";
-//            html+= description;
-//    		html+= "</div>\n"; 
-        	
-        	html+= "<p id=\"collapse"+id+"\" data-toggle=\"collapse\" >\n";
-        	html+= firstPartDesc + " ... ";
-        	html+= "<a class=\"more"+id+"\">See more</a>\n";
-        	html+= "</p>\n";
-        	html+= "<script>\n";
-        		html+= "$('#collapse"+id+"').click(function () {\n";
-        		html+= "if($('a').hasClass('more"+id+"'))\n";
-      			html+= "{\n";
-        		html+= "$('#collapse"+id+"').html('"+ description +"  <a class=\"less"+id+"\">See less<a>'); \n";
-				html+= "}\n";
-				html+= "else\n";
-				html+= "{      \n";
-				html+= "$('#collapse"+id+"').html('"+ firstPartDesc + " ... "+" <a  class=\"more"+id+"\">See more</a>'); \n";
-				html+= "}\n";
-				html+= "}); \n";
-			html+= "</script>\n";
-
+        if (firstPartDesc.length() < description.length()){        	
+            html+= "<p id=\"collapse"+id+"\" data-toggle=\"collapse\" >\n";
+            html+= firstPartDesc + " ... ";
+            html+= "<a class=\"more"+id+"\">See more</a>\n";
+            html+= "</p>\n";
+            html+= "<script>\n";
+            html+= "$('#collapse"+id+"').click(function () {\n";
+            html+= "if($('a').hasClass('more"+id+"'))\n";
+            html+= "{\n";
+            html+= "$('#collapse"+id+"').html('"+ description +"  <a class=\"less"+id+"\">See less<a>'); \n";
+                    html+= "}\n";
+                    html+= "else\n";
+                    html+= "{      \n";
+                    html+= "$('#collapse"+id+"').html('"+ firstPartDesc + " ... "+" <a  class=\"more"+id+"\">See more</a>'); \n";
+                    html+= "}\n";
+                    html+= "}); \n";
+            html+= "</script>\n";
         }
         else{
         	html+=description;

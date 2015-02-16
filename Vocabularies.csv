@@ -1,27 +1,27 @@
 VocabURI;domain
-http://purl.org/net/p-plan;e-Science
-http://purl.org/net/wf-motifs;e-Science
-http://purl.org/net/wf-invocation;e-Science
-http://purl.org/net/ro-optimization;e-Science
-http://purl.org/net/wf-fd;e-Science
-http://purl.org/net/SMARTprotocol;e-Science,
+http://purl.org/net/p-plan;e-Science,plan,provenance,scientific workflow
+http://purl.org/net/wf-motifs;e-Science,workflow abstraction
+http://purl.org/net/wf-invocation;e-Science,infrastructure,scientific workflow
+http://purl.org/net/ro-optimization;e-Science,Research Object
+http://purl.org/net/wf-fd;e-Science,workflow abstraction
+http://purl.org/net/SMARTprotocol;e-Science,plan
 http://purl.org/net/wicus;workflow,e-Science,conservation,infrastructure,reproducibility
 http://purl.org/net/wicus-hwspecs;hardware,specification,e-Science,reproducibility
 http://purl.org/net/wicus-sva;virtualmachine,software,hardware,e-Science,reproducibility
 http://purl.org/net/wicus-stack;software,e-Science,reproducibility
 http://purl.org/net/wicus-reqs;requirements,execution,software,hardware,e-Science,reproducibility
-http://www.w3.org/ns/prov;provenance,
+http://www.w3.org/ns/prov;provenance
 http://purl.oclc.org/NET/ldr/ns;license
-http://www.opmw.org/ontology/;provenance,workflows
-http://purl.org/wf4ever/ro;researchobjects,
-http://purl.org/wf4ever/roevo;researchobjects,
-http://purl.org/wf4ever/wfprov;provenance,workflows,e-Science
-http://purl.org/wf4ever/wfdesc;provenance,workflows,e-Science,
+http://www.opmw.org/ontology/;provenance,scientific workflow
+http://purl.org/wf4ever/ro;Research Object
+http://purl.org/wf4ever/roevo;Research Object
+http://purl.org/wf4ever/wfprov;provenance,workflows,e-Science,Research Object
+http://purl.org/wf4ever/wfdesc;provenance,workflows,e-Science,Research Object
 http://aemet.linkeddata.es/ontology;meteorology
 http://webenemasuno.linkeddata.es/ontology/OPMO;news,blogs
 http://rtve.linkeddata.es/def/OntoRTVE;television,radio
-http://vocab.linkeddata.es/normv;Non-OntologicalResource
-http://cerrado.linkeddata.es/ecology/ccon;ecology,e-Science,
-http://cerrado.linkeddata.es/ecology/fire;ecology,e-Science,
+http://vocab.linkeddata.es/normv;Non-Ontological Resource
+http://cerrado.linkeddata.es/ecology/ccon;ecology,e-Science
+http://cerrado.linkeddata.es/ecology/fire;ecology,e-Science
 http://purl.org/net/translation;languages,translation
 http://datos.bne.es/def/;libraries

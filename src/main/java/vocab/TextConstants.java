@@ -353,7 +353,7 @@ public class TextConstants {
             "<dt>Description</dt>\n" +
             "<dd>"+v.getDescription()+"</dd>\n";
             //OPTIONAL METADATA
-            if(!v.getLicenseTitle().equals("Unknown") && 
+            if(!v.getLicenseTitle().toLowerCase().equals("unknown") && 
             		!v.getLicenseTitle().equals("The model could not be loaded")){    
                 eval+="<dt>License</dt>\n" +
                 "<dd><a href=\""+v.getLicense()+"\" target=\"_blank\">"+v.getLicenseTitle()+"</a></dd>\n";
@@ -365,6 +365,13 @@ public class TextConstants {
             if(v.getLastModifiedDate()!=null){
                 eval+="<dt>Last modified</dt>\n" +
                 "<dd>"+v.getLastModifiedDate()+"</dd>\n";
+            }
+            if(v.getLanguage()!=null && !v.getLanguage().isEmpty()){
+                eval+="<dt>Languages</dt>\n<dd>";
+                for(String lang : v.getLanguage()){
+                    eval+=lang+" ";
+                }
+                eval+="</dd>\n";
             }
             if(v.getLovURI()!=null){
                 eval+="<dt>LOV page</dt>\n"
