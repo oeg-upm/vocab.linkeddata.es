@@ -12,9 +12,9 @@ http://purl.org/net/wicus-stack;software,e-Science,reproducibility
 http://purl.org/net/wicus-reqs;requirements,execution,software,hardware,e-Science,reproducibility
 http://www.w3.org/ns/prov;provenance
 http://purl.oclc.org/NET/ldr/ns;license
-http://www.opmw.org/ontology/;provenance,scientific workflow
-http://purl.org/wf4ever/ro;Research Object
-http://purl.org/wf4ever/roevo;Research Object
+http://www.opmw.org/ontology/;e-Science,provenance,scientific workflow
+http://purl.org/wf4ever/ro;e-Science,Research Object
+http://purl.org/wf4ever/roevo;e-Science,Research Object
 http://purl.org/wf4ever/wfprov;provenance,workflows,e-Science,Research Object
 http://purl.org/wf4ever/wfdesc;provenance,workflows,e-Science,Research Object
 http://aemet.linkeddata.es/ontology;meteorology

@@ -56,8 +56,8 @@ public class Vocabulary {
         this.description = description;
         
         String desc = this.description;
-    	if (desc.length() > 360){
-    		int nextSpace = desc.indexOf(" ", 360);
+    	if (desc.length() > TextConstants.shortDescLenght){
+    		int nextSpace = desc.indexOf(" ", TextConstants.shortDescLenght);
     		this.firstPartDesc = this.description.substring(0, nextSpace);
     		this.secondPartDesc = this.description.substring(nextSpace);
     	}

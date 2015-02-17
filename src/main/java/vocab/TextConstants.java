@@ -20,7 +20,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Locale;
+
+import com.hp.hpl.jena.rdf.model.RDFNode;
+
 
 /**
  * Class for defining the constants
@@ -38,7 +42,7 @@ public class TextConstants {
     public static final String licensiusURIServiceLicense = "http://licensius.appspot.com/getLicense?content=";
     public static final String licensiusURIServiceLicenseTitle = "http://licensius.appspot.com/getLicenseTitle?content=";
     
-    public static final int shortDescLenght = 120;
+    public static final int shortDescLenght = 125;
     
     public static final String header = "<!DOCTYPE html>\n" + 
 			"<html lang=\"en\">\n" + 
@@ -336,7 +340,7 @@ public class TextConstants {
                "    </div>\n" + 
                "    <div class=\"collapse navbar-collapse\">\n" + 
                "      <ul class=\"nav navbar-nav\">\n" + 
-               "        <li><a href=\"../test.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
+               "        <li><a href=\"../index.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
                "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
               // "        <li><a href=\"./about.html\">About</a></li>\n" + 
                "      </ul>\n" + 
@@ -367,9 +371,20 @@ public class TextConstants {
                 "<dd>"+v.getLastModifiedDate()+"</dd>\n";
             }
             if(v.getLanguage()!=null && !v.getLanguage().isEmpty()){
+            	
+        		Languages allLanguages = new Languages();
+
                 eval+="<dt>Languages</dt>\n<dd>";
+				
                 for(String lang : v.getLanguage()){
-                    eval+=lang+" ";
+                	HashMap <String, String> mapLang = new Languages().getMapLang();
+                	String currLang = lang.substring(0, 2);
+                	if (mapLang.containsKey(currLang)){
+                        String langURI = mapLang.get(currLang);
+                        String langName = allLanguages.mapLangEnglish.get(currLang);
+                        eval+="<a href=\"" + langURI + "\" target=\"_blank\">" + langName + "</a> ";
+                    }
+                    
                 }
                 eval+="</dd>\n";
             }
