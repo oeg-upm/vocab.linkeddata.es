@@ -34,6 +34,7 @@ Dealing with Vocabulary http://purl.org/net/wicus-reqs
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://www.w3.org/ns/prov
+-->Could not load license title for vocab
 Error: title or description missing from vocabulary. Omitted
 
 Dealing with Vocabulary http://purl.oclc.org/NET/ldr/ns
@@ -43,36 +44,47 @@ Dealing with Vocabulary http://www.opmw.org/ontology/
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/wf4ever/ro
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/wf4ever/roevo
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/wf4ever/wfprov
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/wf4ever/wfdesc
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://aemet.linkeddata.es/ontology
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://webenemasuno.linkeddata.es/ontology/OPMO
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://rtve.linkeddata.es/def/OntoRTVE
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://vocab.linkeddata.es/normv
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://cerrado.linkeddata.es/ecology/ccon
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://cerrado.linkeddata.es/ecology/fire
+-->Could not load license title for vocab
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/net/translation
+-->Could not load license for vocab
+-->Could not load license title for vocab
 -->Error: no serializations available for vocab
 -->Error while dealing with vocab: http://purl.org/net/translation null
 
@@ -83,18 +95,22 @@ Dealing with Vocabulary http://purl.org/net/vgo
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://contsem.unizar.es/def/sector-publico/pproc
+-->Could not load license title for vocab
 Error: title or description missing from vocabulary. Omitted
 
 Dealing with Vocabulary http://purl.org/net/QualityModel
+-->Could not load license for vocab
+-->Could not load license title for vocab
 -->Error: no serializations available for vocab
 -->Error while dealing with vocab: http://purl.org/net/QualityModel null
 
 Dealing with Vocabulary http://purl.org/net/EvaluationResult
+-->Could not load license for vocab
+-->Could not load license title for vocab
 -->Error: no serializations available for vocab
 -->Error while dealing with vocab: http://purl.org/net/EvaluationResult null
 
 Dealing with Vocabulary http://ontosoft.org/software/
--->Error: no serializations available for vocab
--->Error while dealing with vocab: http://ontosoft.org/software/ null
+-->Vocabulary added successfully.
 
  The following language: fecha could not be recognized for vocab bneonto(http://datos.bne.es/def/)
