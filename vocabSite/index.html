@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>vocab.linkeddata.es</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This web provides a catalogue of ontologies useful for smart city data.">
+    <meta name="languaje" content="English">
+    <meta name="keywords" content="ontology, smart city, energy efficiency">
+    <meta name="author" content="Maria Poveda Villalon">
+    
+    <link rel="stylesheet" href="vocab/themes/blue/style.css" type="text/css" media="print, projection, screen" />
+    <script src="vocab/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="vocab/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="vocab/js/jquery.stickytableheaders.js"></script>
+    <script type="text/javascript" src="vocab/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="vocab/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="vocab/css/jquery-ui.css"></link>
+    <script type="text/javascript" id="js">
+	    $(document).ready(function() 
+		    { 
+		    	$("#tablesorter-demo").tablesorter(); 
+		    	$("#tablesorter-demo").stickyTableHeaders(); 
+		    	$('[data-toggle="tooltip"]').tooltip(); 
+		    } 
+	    ); 
+    </script>
+
+    <!-- Le styles -->
+    <link href="vocab/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="vocab/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+  </head>
+
+  <body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Vocabularies</a></li>
+        <li><a href="http://rohub.linkeddata.es">Research Objects</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+ </div>
+    <div class="container">
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>vocab.linkeddata.es</h1>
+        <p class="lead">Here you can find the list of vocabularies that the <a href="http://www.oeg-upm.net">Ontology Engineering Group (OEG)</a> is developing and publishing on the Web.</a></p>
+      </div>
+      <hr>
+<div class="row"> 
+<div class="ui-widget">
+<div class="col-md-3" > 
+<p class="text-right"><label for="tags">Filter by title or domain: </label></p>
+</div>
+<div class="col-md-8" > 
+<input class="form-control" id="tags" >
+<button id="remButt" class="label label-default" onclick="showRows();" style="font-size: 75%; font-weight: bold; line-height: 1; display: none;"><span class="submit glyphicon glyphicon-remove"></span>  Remove filter</button>
+</div>
+</div>
+</div>
+<br>
+<table id="tablesorter-demo" class="tablesorter table table-hover table-responsive">
+<thead>
+<tr>
+<th class="col-md-2">Ontology</th>
+<th class="col-md-2">Serialization</th>
+<th class="col-md-1">License</th>
+<th class="col-md-1">Language</th>
+<th class="col-md-2">Domain</th>
+<th class="col-md-4">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="tr1">
+<td><a href = "http://purl.org/net/p-plan" target="_blank">The P-Plan ontology</a> <a href = "ontologies/purl.orgnetp-plan.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">plan</span>
+<span class="label label-primary">provenance</span>
+<span class="label label-primary">scientific workflow</span>
+</td>
+<td>
+PROV extension for linking Plans and parts of plans to their respective executions.</td>
+<input type="hidden" name="inp1" id="inp1" value="The P-Plan ontology--e-Science--plan--provenance--scientific workflow--"/></tr><tr id="tr2">
+<td><a href = "http://purl.org/net/wf-motifs" target="_blank">The Workflow Motif Ontology</a> <a href = "ontologies/purl.orgnetwf-motifs.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">workflow abstraction</span>
+</td>
+<td>
+<p id="collapse2" data-toggle="collapse" >
+ Ontology for describing Workflow Motifs. Workflow Motifs outline the kinds of data-intensive activities that are observed ... <a class="more2">See more</a>
+</p>
+<script>
+$('#collapse2').click(function () {
+if($('a').hasClass('more2'))
+{
+$('#collapse2').html(' Ontology for describing Workflow Motifs. Workflow Motifs outline the kinds of data-intensive activities that are observed in workflows (data-operation motifs) and the different manners in which activities are implemented within workflows (workflow-oriented motifs).  <a class="less2">See less<a>'); 
+}
+else
+{      
+$('#collapse2').html(' Ontology for describing Workflow Motifs. Workflow Motifs outline the kinds of data-intensive activities that are observed ...  <a  class="more2">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp2" id="inp2" value="The Workflow Motif Ontology--e-Science--workflow abstraction--"/></tr><tr id="tr3">
+<td><a href = "http://purl.org/net/wf-invocation" target="_blank">The Workflow Invocation Ontology</a> <a href = "ontologies/purl.orgnetwf-invocation.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">infrastructure</span>
+<span class="label label-primary">scientific workflow</span>
+</td>
+<td>
+Wf-invoc is a simple profile of the P-plan ontology to describe how workflow steps are invoked within a workflow execution.</td>
+<input type="hidden" name="inp3" id="inp3" value="The Workflow Invocation Ontology--e-Science--infrastructure--scientific workflow--"/></tr><tr id="tr4">
+<td><a href = "http://purl.org/net/ro-optimization" target="_blank">The Research Object Optimization Ontology</a> <a href = "ontologies/purl.orgnetro-optimization.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">Research Object</span>
+</td>
+<td>
+RO-Optimization is an extension of the RO model in order to be able to describe ooptimizations of workflows and their results.</td>
+<input type="hidden" name="inp4" id="inp4" value="The Research Object Optimization Ontology--e-Science--Research Object--"/></tr><tr id="tr5">
+<td><a href = "http://purl.org/net/wf-fd" target="_blank">The Workflow Fragment Description ontology</a> <a href = "ontologies/purl.orgnetwf-fd.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">workflow abstraction</span>
+</td>
+<td>
+P-Plan extension to represent workflow fragments and their relationships to workflow templates</td>
+<input type="hidden" name="inp5" id="inp5" value="The Workflow Fragment Description ontology--e-Science--workflow abstraction--"/></tr><tr id="tr6">
+<td><a href = "http://purl.org/net/SMARTprotocol" target="_blank">SMART Protocols Ontology: Protocol Module</a> <a href = "ontologies/purl.orgnetSMARTprotocol.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">plan</span>
+</td>
+<td>
+Smart PROTOCOL is an ontology designed to describe the minimum information to report a laboratory protocol.</td>
+<input type="hidden" name="inp6" id="inp6" value="SMART Protocols Ontology: Protocol Module--e-Science--plan--"/></tr><tr id="tr7">
+<td><a href = "http://purl.org/net/wicus" target="_blank">The Workflow Infrastructure Conservation Using Semantics ontology</a> <a href = "ontologies/purl.orgnetwicus.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">workflow</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">conservation</span>
+<span class="label label-primary">infrastructure</span>
+<span class="label label-primary">reproducibility</span>
+</td>
+<td>
+<p id="collapse7" data-toggle="collapse" >
+The WICUS ontology network is a set of ontologies designed to represent the information about the computational infrastructure ... <a class="more7">See more</a>
+</p>
+<script>
+$('#collapse7').click(function () {
+if($('a').hasClass('more7'))
+{
+$('#collapse7').html('The WICUS ontology network is a set of ontologies designed to represent the information about the computational infrastructure involved on the execution of computational scientific experiments modelled as scientific workflows.  <a class="less7">See less<a>'); 
+}
+else
+{      
+$('#collapse7').html('The WICUS ontology network is a set of ontologies designed to represent the information about the computational infrastructure ...  <a  class="more7">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp7" id="inp7" value="The Workflow Infrastructure Conservation Using Semantics ontology--workflow--e-Science--conservation--infrastructure--reproducibility--"/></tr><tr id="tr8">
+<td><a href = "http://purl.org/net/wicus-hwspecs" target="_blank">The WICUS Hardware Specs ontology</a> <a href = "ontologies/purl.orgnetwicus-hwspecs.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">hardware</span>
+<span class="label label-primary">specification</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">reproducibility</span>
+</td>
+<td>
+<p id="collapse8" data-toggle="collapse" >
+The WICUS Hardware Specs ontology is describes the hardware characteristics of a computational infrastructure and the hardware ... <a class="more8">See more</a>
+</p>
+<script>
+$('#collapse8').click(function () {
+if($('a').hasClass('more8'))
+{
+$('#collapse8').html('The WICUS Hardware Specs ontology is describes the hardware characteristics of a computational infrastructure and the hardware requirements of a software component. This ontology is part of the WICUS Ontology network.  <a class="less8">See less<a>'); 
+}
+else
+{      
+$('#collapse8').html('The WICUS Hardware Specs ontology is describes the hardware characteristics of a computational infrastructure and the hardware ...  <a  class="more8">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp8" id="inp8" value="The WICUS Hardware Specs ontology--hardware--specification--e-Science--reproducibility--"/></tr><tr id="tr9">
+<td><a href = "http://purl.org/net/wicus-sva" target="_blank">The WICUS Scientific Virtual Appliance ontology</a> <a href = "ontologies/purl.orgnetwicus-sva.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">virtualmachine</span>
+<span class="label label-primary">software</span>
+<span class="label label-primary">hardware</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">reproducibility</span>
+</td>
+<td>
+<p id="collapse9" data-toggle="collapse" >
+The WICUS Scientific Virtual Appliance ontology describes the virtual computational resources used for executing scientific ... <a class="more9">See more</a>
+</p>
+<script>
+$('#collapse9').click(function () {
+if($('a').hasClass('more9'))
+{
+$('#collapse9').html('The WICUS Scientific Virtual Appliance ontology describes the virtual computational resources used for executing scientific experiments, usally as Virtual Machines deployed on a IaaS provider or a virtualization solution. This ontology is part of the WICUS Ontology network.  <a class="less9">See less<a>'); 
+}
+else
+{      
+$('#collapse9').html('The WICUS Scientific Virtual Appliance ontology describes the virtual computational resources used for executing scientific ...  <a  class="more9">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp9" id="inp9" value="The WICUS Scientific Virtual Appliance ontology--virtualmachine--software--hardware--e-Science--reproducibility--"/></tr><tr id="tr10">
+<td><a href = "http://purl.org/net/wicus-stack" target="_blank">The WICUS Software Stack ontology</a> <a href = "ontologies/purl.orgnetwicus-stack.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">software</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">reproducibility</span>
+</td>
+<td>
+<p id="collapse10" data-toggle="collapse" >
+The WICUS Software Stack ontology have been developed to describe the software elements of a computational resource. These ... <a class="more10">See more</a>
+</p>
+<script>
+$('#collapse10').click(function () {
+if($('a').hasClass('more10'))
+{
+$('#collapse10').html('The WICUS Software Stack ontology have been developed to describe the software elements of a computational resource. These descriptions can be used to describe both, the already deployed software components and the software requiremens of a workflow. This ontology is part of the WICUS Ontology network.  <a class="less10">See less<a>'); 
+}
+else
+{      
+$('#collapse10').html('The WICUS Software Stack ontology have been developed to describe the software elements of a computational resource. These ...  <a  class="more10">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp10" id="inp10" value="The WICUS Software Stack ontology--software--e-Science--reproducibility--"/></tr><tr id="tr11">
+<td><a href = "http://purl.org/net/wicus-reqs" target="_blank">The WICUS Workflow Execution Requirements ontology</a> <a href = "ontologies/purl.orgnetwicus-reqs.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">requirements</span>
+<span class="label label-primary">execution</span>
+<span class="label label-primary">software</span>
+<span class="label label-primary">hardware</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">reproducibility</span>
+</td>
+<td>
+<p id="collapse11" data-toggle="collapse" >
+The WICUS Workflow Execution Requirements ontology relates a Scientific Workflow to the execution requirements and dependencies ... <a class="more11">See more</a>
+</p>
+<script>
+$('#collapse11').click(function () {
+if($('a').hasClass('more11'))
+{
+$('#collapse11').html('The WICUS Workflow Execution Requirements ontology relates a Scientific Workflow to the execution requirements and dependencies for executing it. This ontology is part of the WICUS Ontology network.  <a class="less11">See less<a>'); 
+}
+else
+{      
+$('#collapse11').html('The WICUS Workflow Execution Requirements ontology relates a Scientific Workflow to the execution requirements and dependencies ...  <a  class="more11">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp11" id="inp11" value="The WICUS Workflow Execution Requirements ontology--requirements--execution--software--hardware--e-Science--reproducibility--"/></tr><tr id="tr12">
+<td><a href = "http://purl.oclc.org/NET/ldr/ns" target="_blank">Linked Data Rights (LDR)</a> <a href = "ontologies/purl.oclc.orgNETldrns.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><a href="http://creativecommons.org/licenses/by/3.0/" target="_blank"> <span class="label label-success">CC-BY</span> </a></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">license</span>
+</td>
+<td>
+<p id="collapse12" data-toggle="collapse" >
+The Linked Data Rights ontology provides the vocabulary for creating rights expressions for Linked Data resources by extending ... <a class="more12">See more</a>
+</p>
+<script>
+$('#collapse12').click(function () {
+if($('a').hasClass('more12'))
+{
+$('#collapse12').html('The Linked Data Rights ontology provides the vocabulary for creating rights expressions for Linked Data resources by extending the ODRL ontology. 
+								   Linked Data assets (RDF triples, graphs, datasets, mappings...) can be object of protection by the intellectual property law, the database law or its access or publication be restricted by other legal reasons (personal data pro- tection, security reasons, etc.). Publishing a rights expression along with the digital asset, allows the rightsholder waiving some or all of the IP and database rights (leaving the work in the public domain), permitting some operations if certain conditions are satisfied (like giving attribution to the author) or simply reminding the audience that some rights are reserved. Specific vocabulary is given for authorising specific uses of Linked Data.  <a class="less12">See less<a>'); 
+}
+else
+{      
+$('#collapse12').html('The Linked Data Rights ontology provides the vocabulary for creating rights expressions for Linked Data resources by extending ...  <a  class="more12">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp12" id="inp12" value="Linked Data Rights (LDR)--license--"/></tr><tr id="tr13">
+<td><a href = "http://www.opmw.org/ontology/" target="_blank">The OPMW ontology</a> <a href = "ontologies/www.opmw.orgontology.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">provenance</span>
+<span class="label label-primary">scientific workflow</span>
+</td>
+<td>
+OPMW is an OPMV, PROV and P-plan extension to model the executions and definitions of scientific workflows.</td>
+<input type="hidden" name="inp13" id="inp13" value="The OPMW ontology--e-Science--provenance--scientific workflow--"/></tr><tr id="tr14">
+<td><a href = "http://purl.org/wf4ever/ro" target="_blank">The Research Object Ontology</a> <a href = "ontologies/purl.orgwf4everro.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">Research Object</span>
+</td>
+<td>
+<p id="collapse14" data-toggle="collapse" >
+This ontology shows how AO and ORE ontologies can be used together to define a ResearchObject. This ontology is further customized ... <a class="more14">See more</a>
+</p>
+<script>
+$('#collapse14').click(function () {
+if($('a').hasClass('more14'))
+{
+$('#collapse14').html('This ontology shows how AO and ORE ontologies can be used together to define a ResearchObject. This ontology is further customized by the wf4ever ontology.  <a class="less14">See less<a>'); 
+}
+else
+{      
+$('#collapse14').html('This ontology shows how AO and ORE ontologies can be used together to define a ResearchObject. This ontology is further customized ...  <a  class="more14">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp14" id="inp14" value="The Research Object Ontology--e-Science--Research Object--"/></tr><tr id="tr15">
+<td><a href = "http://purl.org/wf4ever/roevo" target="_blank">Research Object Evolution Ontology</a> <a href = "ontologies/purl.orgwf4everroevo.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><a href="This ontology is distributed under Creative Commons Attribution 3.0 License - http://creativecommons.org/licenses/by/3.0" target="_blank"> <span class="label label-success">CC-BY</span> </a></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">e-Science</span>
+<span class="label label-primary">Research Object</span>
+</td>
+<td>
+http://www.wf4ever-project.org/wiki/download/attachments/2065027/ROevo_v0.4%2823%29.png</td>
+<input type="hidden" name="inp15" id="inp15" value="Research Object Evolution Ontology--e-Science--Research Object--"/></tr><tr id="tr16">
+<td><a href = "http://purl.org/wf4ever/wfprov" target="_blank">The Wfprov Ontology</a> <a href = "ontologies/purl.orgwf4everwfprov.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">provenance</span>
+<span class="label label-primary">workflows</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">Research Object</span>
+</td>
+<td>
+<p id="collapse16" data-toggle="collapse" >
+The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using ... <a class="more16">See more</a>
+</p>
+<script>
+$('#collapse16').click(function () {
+if($('a').hasClass('more16'))
+{
+$('#collapse16').html('The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using the wfdesc ontology.   <a class="less16">See less<a>'); 
+}
+else
+{      
+$('#collapse16').html('The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using ...  <a  class="more16">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp16" id="inp16" value="The Wfprov Ontology--provenance--workflows--e-Science--Research Object--"/></tr><tr id="tr17">
+<td><a href = "http://purl.org/wf4ever/wfdesc" target="_blank">The Wfdesc ontology</a> <a href = "ontologies/purl.orgwf4everwfdesc.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">provenance</span>
+<span class="label label-primary">workflows</span>
+<span class="label label-primary">e-Science</span>
+<span class="label label-primary">Research Object</span>
+</td>
+<td>
+<p id="collapse17" data-toggle="collapse" >
+This ontology ("wfdesc") describes an abstract workflow description structure, allowing the description of a scientific workflow ... <a class="more17">See more</a>
+</p>
+<script>
+$('#collapse17').click(function () {
+if($('a').hasClass('more17'))
+{
+$('#collapse17').html('This ontology ("wfdesc") describes an abstract workflow description structure, allowing the description of a scientific workflow as a direct acyclic graph, or a dataflow. This ontology is meant as an upper ontology for more specific workflow definitions, and as a way to express abstract workflows. The wfprov ontology shows how to link these descriptions to a provenance trace of a workflow execution.  <a class="less17">See less<a>'); 
+}
+else
+{      
+$('#collapse17').html('This ontology ("wfdesc") describes an abstract workflow description structure, allowing the description of a scientific workflow ...  <a  class="more17">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp17" id="inp17" value="The Wfdesc ontology--provenance--workflows--e-Science--Research Object--"/></tr><tr id="tr18">
+<td><a href = "http://aemet.linkeddata.es/ontology" target="_blank">The Aemet Ontology Network</a> <a href = "ontologies/aemet.linkeddata.esontology.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/spa" target="_blank"> <span class="label label-primary">es</span></a> <a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">meteorology</span>
+</td>
+<td>
+Ontology network for the AEMET project. This model describes meteorological information.</td>
+<input type="hidden" name="inp18" id="inp18" value="The Aemet Ontology Network--meteorology--"/></tr><tr id="tr19">
+<td><a href = "http://webenemasuno.linkeddata.es/ontology/OPMO" target="_blank">El Viajero Ontology</a> <a href = "ontologies/webenemasuno.linkeddata.esontologyOPMO.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/spa" target="_blank"> <span class="label label-primary">es</span></a> <a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">news</span>
+<span class="label label-primary">blogs</span>
+</td>
+<td>
+OPMO profile for a News and Blogs scenario. Extension for modeling travels and routes.</td>
+<input type="hidden" name="inp19" id="inp19" value="El Viajero Ontology--news--blogs--"/></tr><tr id="tr20">
+<td><a href = "http://rtve.linkeddata.es/def/OntoRTVE" target="_blank">OntoRTVE</a> <a href = "ontologies/rtve.linkeddata.esdefOntoRTVE.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+<span class="label label-primary">turtle</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/spa" target="_blank"> <span class="label label-primary">es</span></a> <a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> <a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en-US</span></a> </td>
+<td><span class="label label-primary">television</span>
+<span class="label label-primary">radio</span>
+</td>
+<td>
+<p id="collapse20" data-toggle="collapse" >
+RTVE Ontology ('Radio Televisión Española' - Spanish Radio and Television) provides concepts that explain the content of ... <a class="more20">See more</a>
+</p>
+<script>
+$('#collapse20').click(function () {
+if($('a').hasClass('more20'))
+{
+$('#collapse20').html('RTVE Ontology ('Radio Televisión Española' - Spanish Radio and Television) provides concepts that explain the content of television and radio of the group. Its purpose is to describe information from RTVE, interconnection of its elements and content, as well as the enrichment of their website (http://www.rtve.es/) thanks to these interrelated data.
+
+In this ontology are important concepts in the definition of audiovisual content, such as Channel, Programme, Audio, Video, Multimedia...
+
+In designing the model mainly uses ontology BBC (Programmes Ontology) and the W3C ontology describing multimedia resources (Ontology for Media Resources).  <a class="less20">See less<a>'); 
+}
+else
+{      
+$('#collapse20').html('RTVE Ontology ('Radio Televisión Española' - Spanish Radio and Television) provides concepts that explain the content of ...  <a  class="more20">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp20" id="inp20" value="OntoRTVE--television--radio--"/></tr><tr id="tr21">
+<td><a href = "http://vocab.linkeddata.es/normv" target="_blank">Non-Ontological Resource Metadata Vocabulary</a> <a href = "ontologies/vocab.linkeddata.esnormv.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+<span class="label label-primary">turtle</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td></td>
+<td><span class="label label-primary">non-Ontological Resource</span>
+</td>
+<td>
+<p id="collapse21" data-toggle="collapse" >
+This vocabulary allows (1) describing the non-ontological resource available, (2) including in the ontology generated the ... <a class="more21">See more</a>
+</p>
+<script>
+$('#collapse21').click(function () {
+if($('a').hasClass('more21'))
+{
+$('#collapse21').html('This vocabulary allows (1) describing the non-ontological resource available, (2) including in the ontology generated the provenance information by extending the Ontology Metadata Vocabulary  <a class="less21">See less<a>'); 
+}
+else
+{      
+$('#collapse21').html('This vocabulary allows (1) describing the non-ontological resource available, (2) including in the ontology generated the ...  <a  class="more21">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp21" id="inp21" value="Non-Ontological Resource Metadata Vocabulary--non-Ontological Resource--"/></tr><tr id="tr22">
+<td><a href = "http://cerrado.linkeddata.es/ecology/ccon" target="_blank">The Ccon Ontology</a> <a href = "ontologies/cerrado.linkeddata.esecologyccon.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> <a href="http://lexvo.org/id/iso639-3/rus" target="_blank"> <span class="label label-primary">ru</span></a> <a href="http://lexvo.org/id/iso639-3/fra" target="_blank"> <span class="label label-primary">fr</span></a> <a href="http://lexvo.org/id/iso639-3/spa" target="_blank"> <span class="label label-primary">es</span></a> <a href="http://lexvo.org/id/iso639-3/por" target="_blank"> <span class="label label-primary">pt</span></a> </td>
+<td><span class="label label-primary">ecology</span>
+<span class="label label-primary">e-Science</span>
+</td>
+<td>
+<p id="collapse22" data-toggle="collapse" >
+The Ccon represents the main concepts about the Cerrado plant communities structure and dynamics. This ontology will be part ... <a class="more22">See more</a>
+</p>
+<script>
+$('#collapse22').click(function () {
+if($('a').hasClass('more22'))
+{
+$('#collapse22').html('The Ccon represents the main concepts about the Cerrado plant communities structure and dynamics. This ontology will be part of the GeoLinked Data Ontology network to enrich the web of data with geospatial information of the Cerrado Biome, especially with regard the wood plant dynamics.  <a class="less22">See less<a>'); 
+}
+else
+{      
+$('#collapse22').html('The Ccon represents the main concepts about the Cerrado plant communities structure and dynamics. This ontology will be part ...  <a  class="more22">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp22" id="inp22" value="The Ccon Ontology--ecology--e-Science--"/></tr><tr id="tr23">
+<td><a href = "http://cerrado.linkeddata.es/ecology/fire" target="_blank">The Fire Ontology</a> <a href = "ontologies/cerrado.linkeddata.esecologyfire.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> <a href="http://lexvo.org/id/iso639-3/por" target="_blank"> <span class="label label-primary">pt</span></a> </td>
+<td><span class="label label-primary">ecology</span>
+<span class="label label-primary">e-Science</span>
+</td>
+<td>
+<p id="collapse23" data-toggle="collapse" >
+The Fire Ontology was developed to represent the scientific knowledge about fire behave focused to describe the characteristics, ... <a class="more23">See more</a>
+</p>
+<script>
+$('#collapse23').click(function () {
+if($('a').hasClass('more23'))
+{
+$('#collapse23').html('The Fire Ontology was developed to represent the scientific knowledge about fire behave focused to describe the characteristics, causes and effects of fire on wood plants in the Brazilian Cerrado Domain. This ontology will be part of the GeoLinked Data Ontology network to enrich the web of data with geospatial data of the Cerrado Domain, especially with regard the wood plant dynamics.  <a class="less23">See less<a>'); 
+}
+else
+{      
+$('#collapse23').html('The Fire Ontology was developed to represent the scientific knowledge about fire behave focused to describe the characteristics, ...  <a  class="more23">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp23" id="inp23" value="The Fire Ontology--ecology--e-Science--"/></tr><tr id="tr24">
+<td><a href = "http://datos.bne.es/def/" target="_blank">BNE ontology</a> <a href = "ontologies/datos.bne.esdef.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">html</span>
+<span class="label label-primary">turtle</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/spa" target="_blank"> <span class="label label-primary">es</span></a> <a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">libraries</span>
+</td>
+<td>
+<p id="collapse24" data-toggle="collapse" >
+The ontology of National Library of Spain (BNE) is the core data model undelying the Linked Data solution of BNE: datos.bne.es. ... <a class="more24">See more</a>
+</p>
+<script>
+$('#collapse24').click(function () {
+if($('a').hasClass('more24'))
+{
+$('#collapse24').html('The ontology of National Library of Spain (BNE) is the core data model undelying the Linked Data solution of BNE: datos.bne.es. datos.bne.es is an open knowledge base that gathers, integrates and delivers the full catalogue in open and semantically enriched formats.
+  <a class="less24">See less<a>'); 
+}
+else
+{      
+$('#collapse24').html('The ontology of National Library of Spain (BNE) is the core data model undelying the Linked Data solution of BNE: datos.bne.es. ...  <a  class="more24">See more</a>'); 
+}
+}); 
+</script>
+</td>
+<input type="hidden" name="inp24" id="inp24" value="BNE ontology--libraries--"/></tr><tr id="tr25">
+<td><a href = "http://purl.org/net/vgo" target="_blank">The Video Game Ontology</a> <a href = "ontologies/purl.orgnetvgo.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="More information about this vocabulary"/></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><span class="label label-default">Undefined</span></td>
+<td><a href="http://lexvo.org/id/iso639-3/eng" target="_blank"> <span class="label label-primary">en</span></a> </td>
+<td><span class="label label-primary">videogames</span>
+</td>
+<td>
+The Video Game Ontology is an ontology designed for describing video games and all the resources related to their game plays.</td>
+<input type="hidden" name="inp25" id="inp25" value="The Video Game Ontology--videogames--"/></tr></tbody></table>
+<hr>
+      <footer class="footer">
+            <div class="row">
+    	<div class="col-md-10">
+    		Developed by 	        <a href = "http://oeg-upm.net" target="_blank">Ontology Engineering Group</a>
+	        <br>
+    	Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
+    	Icons from <a target="_blank" href="http://glyphicons.com/">Glyphicons</a>
+ 	        <br>
+	        Latest revision November, 2015
+           <br><p>&copy; Ontology Engineering Group</p>
+        </div>
+    	<div class="col-md-2">
+    		<a href="http://www.oeg-upm.net/" target="_blank"><img src="vocab/logo.gif" alt="OEG logo" class="img-rounded" class="img-responsive" /></a>
+    	</div>
+      </div>
+      </footer>
+    </div> <!-- /container -->
+<script>
+$(function() {
+var availableTags = [
+"The P-Plan ontology"
+, "e-Science", "plan", "provenance", "scientific workflow", "The Workflow Motif Ontology", "workflow abstraction", "The Workflow Invocation Ontology", "infrastructure", "The Research Object Optimization Ontology", "Research Object", "The Workflow Fragment Description ontology", "SMART Protocols Ontology: Protocol Module", "The Workflow Infrastructure Conservation Using Semantics ontology", "workflow", "conservation", "reproducibility", "The WICUS Hardware Specs ontology", "hardware", "specification", "The WICUS Scientific Virtual Appliance ontology", "virtualmachine", "software", "The WICUS Software Stack ontology", "The WICUS Workflow Execution Requirements ontology", "requirements", "execution", "Linked Data Rights (LDR)", "license", "The OPMW ontology", "The Research Object Ontology", "Research Object Evolution Ontology", "The Wfprov Ontology", "workflows", "The Wfdesc ontology", "The Aemet Ontology Network", "meteorology", "El Viajero Ontology", "news", "blogs", "OntoRTVE", "television", "radio", "Non-Ontological Resource Metadata Vocabulary", "non-Ontological Resource", "The Ccon Ontology", "ecology", "The Fire Ontology", "BNE ontology", "libraries", "The Video Game Ontology", "videogames"];
+$( "#tags" ).autocomplete({
+source: availableTags,
+select: function(event, ui) {
+hideRows(ui.item.value);
+}
+});
+});
+</script>
+<script>
+function hideRows(text) {
+index = 1;
+tr = document.getElementById('tr'+index);
+while (tr!=null){
+valores = document.getElementById('inp'+index).value;
+if (!valores.contains(text+'--')){
+tr.style.display='none';
+}
+index++;
+tr = document.getElementById('tr'+index);
+}
+document.getElementById('remButt').style.display='';
+}
+
+function showRows() {	
+index = 1;
+tr = document.getElementById('tr'+index);
+while (tr!=null){
+tr.style.display='';
+index++;
+tr = document.getElementById('tr'+index);
+}
+butt = document.getElementById('remButt').style.display='none';
+}
+</script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-48904250-1', 'linkeddata.es');
+ga('send', 'pageview');
+</script>
+  </body>
+</html>

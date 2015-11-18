@@ -1,0 +1,100 @@
+Vocabulary report 
+
+Dealing with Vocabulary http://purl.org/net/p-plan
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wf-motifs
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wf-invocation
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/ro-optimization
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wf-fd
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/SMARTprotocol
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wicus
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wicus-hwspecs
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wicus-sva
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wicus-stack
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/wicus-reqs
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://www.w3.org/ns/prov
+Error: title or description missing from vocabulary. Omitted
+
+Dealing with Vocabulary http://purl.oclc.org/NET/ldr/ns
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://www.opmw.org/ontology/
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/wf4ever/ro
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/wf4ever/roevo
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/wf4ever/wfprov
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/wf4ever/wfdesc
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://aemet.linkeddata.es/ontology
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://webenemasuno.linkeddata.es/ontology/OPMO
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://rtve.linkeddata.es/def/OntoRTVE
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://vocab.linkeddata.es/normv
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://cerrado.linkeddata.es/ecology/ccon
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://cerrado.linkeddata.es/ecology/fire
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/translation
+-->Error: no serializations available for vocab
+-->Error while dealing with vocab: http://purl.org/net/translation null
+
+Dealing with Vocabulary http://datos.bne.es/def/
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://purl.org/net/vgo
+-->Vocabulary added successfully.
+
+Dealing with Vocabulary http://contsem.unizar.es/def/sector-publico/pproc
+Error: title or description missing from vocabulary. Omitted
+
+Dealing with Vocabulary http://purl.org/net/QualityModel
+-->Error: no serializations available for vocab
+-->Error while dealing with vocab: http://purl.org/net/QualityModel null
+
+Dealing with Vocabulary http://purl.org/net/EvaluationResult
+-->Error: no serializations available for vocab
+-->Error while dealing with vocab: http://purl.org/net/EvaluationResult null
+
+Dealing with Vocabulary http://ontosoft.org/software/
+-->Error: no serializations available for vocab
+-->Error while dealing with vocab: http://ontosoft.org/software/ null
+
+ The following language: fecha could not be recognized for vocab bneonto(http://datos.bne.es/def/)
