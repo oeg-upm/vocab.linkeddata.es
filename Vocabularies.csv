@@ -15,15 +15,18 @@ http://purl.oclc.org/NET/ldr/ns;license
 http://www.opmw.org/ontology/;e-Science,provenance,scientific workflow
 http://purl.org/wf4ever/ro;e-Science,Research Object
 http://purl.org/wf4ever/roevo;e-Science,Research Object
-http://purl.org/wf4ever/wfprov;provenance,workflows,e-Science,Research Object
-http://purl.org/wf4ever/wfdesc;provenance,workflows,e-Science,Research Object
+http://purl.org/wf4ever/wfprov;provenance,scientific workflow,e-Science,Research Object
+http://purl.org/wf4ever/wfdesc;provenance,scientific workflow,e-Science,Research Object
 http://aemet.linkeddata.es/ontology;meteorology
 http://webenemasuno.linkeddata.es/ontology/OPMO;news,blogs
 http://rtve.linkeddata.es/def/OntoRTVE;television,radio
-http://vocab.linkeddata.es/normv;Non-Ontological Resource
+http://vocab.linkeddata.es/normv;non-Ontological Resource
 http://cerrado.linkeddata.es/ecology/ccon;ecology,e-Science
 http://cerrado.linkeddata.es/ecology/fire;ecology,e-Science
 http://purl.org/net/translation;languages,translation
 http://datos.bne.es/def/;libraries
 http://purl.org/net/vgo;videogames
 http://contsem.unizar.es/def/sector-publico/pproc;open government,public procurement,contract
+http://purl.org/net/QualityModel;quality,evaluation
+http://purl.org/net/EvaluationResult;quality,evaluation
+http://ontosoft.org/software/;e-Science,software
