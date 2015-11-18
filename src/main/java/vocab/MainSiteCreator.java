@@ -43,6 +43,7 @@ public class MainSiteCreator {
             return;
         }
         pathVocabsFile = args[1];
+//        pathVocabsFile = "C:\\Users\\dgarijo\\Dropbox\\NetBeansProjects\\vocab\\VocabulariesReduced.csv";
         String urlOut = "";
         File auxF = new File(urlOut);
         auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.siteFolderName);
