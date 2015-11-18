@@ -56,8 +56,8 @@ public class Vocabulary {
         this.description = description;
         
         String desc = this.description;
-    	if (desc.length() > TextConstants.shortDescLenght){
-    		int nextSpace = desc.indexOf(" ", TextConstants.shortDescLenght);
+    	if (desc.length() > 360){
+    		int nextSpace = desc.indexOf(" ", 360);
     		this.firstPartDesc = this.description.substring(0, nextSpace);
     		this.secondPartDesc = this.description.substring(nextSpace);
     	}
@@ -152,21 +152,30 @@ public class Vocabulary {
         this.domains = domains;
     }
 
-//    public void setLicense(String license) {
-////      this.license = license;
-//      this.license = GetLicense.getLicense(license);
+    public void setLicense(String license) {
+      this.license = license;
+    }
+    
+    public void setLicenseTitle(String licenseT) {
+      this.licenseTitle = licenseT;
+    }
+    
+    public void setLicenseWithService(String uri) {        
+        license = GetLicense.getFirstLicenseFound(uri);
+        if (!license.isEmpty()&&license!=null){
+            licenseTitle = GetLicense.getTitle(license);
+        }else{
+            license = "unknown";
+            licenseTitle = "unknown";
+        }
+//        System.out.println(licenseTitle);
+    }
+    
+//    public void setLicenseTitle(String uri) {
+//    	//this.license = license;
+//    	this.licenseTitle = GetLicense.getLicenseTitle(uri);
+////    	System.out.println("License: " + this.licenseTitle);
 //    }
-    
-    public void setLicense(String uri) {
-    	//this.license = license;
-    	this.license = GetLicense.getLicense(uri);
-    }
-    
-    public void setLicenseTitle(String uri) {
-    	//this.license = license;
-    	this.licenseTitle = GetLicense.getLicenseTitle(uri);
-//    	System.out.println("License: " + this.licenseTitle);
-    }
     
     public void setSupportedSerializations(ArrayList<String> supportedSerializations) {
         this.supportedSerializations = supportedSerializations;

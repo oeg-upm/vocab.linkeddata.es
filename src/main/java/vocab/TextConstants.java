@@ -20,11 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Locale;
-
-import com.hp.hpl.jena.rdf.model.RDFNode;
-
 
 /**
  * Class for defining the constants
@@ -39,10 +35,10 @@ public class TextConstants {
     public static final String oopsResources= "/oops.zip";
     public static final String vocabResources = "/vocab.zip";
     public static final String ontologyFolder = "ontologies";
-    public static final String licensiusURIServiceLicense = "http://licensius.appspot.com/getLicense?content=";
-    public static final String licensiusURIServiceLicenseTitle = "http://licensius.appspot.com/getLicenseTitle?content=";
+    public static final String licensiusURIServiceLicense = "http://www.licensius.com/api/license/findlicenseinrdf?uri=";//"http://licensius.appspot.com/getLicense?content=";
+    public static final String licensiusURIServiceLicenseInfo = "http://www.licensius.com/api/license/getlicenseinfo?uri=";//"http://licensius.appspot.com/getLicenseTitle?content=";
     
-    public static final int shortDescLenght = 125;
+    public static final int shortDescLenght = 120;
     
     public static final String header = "<!DOCTYPE html>\n" + 
 			"<html lang=\"en\">\n" + 
@@ -55,7 +51,7 @@ public class TextConstants {
 			"    <meta name=\"keywords\" content=\"ontology, smart city, energy efficiency\">\n" + 
 			"    <meta name=\"author\" content=\"Maria Poveda Villalon\">\n" + 
 			"    \n" + 
-			"    <script src=\"vocab/js/jquery.js\"></script>\n" + 
+		//	"    <script src=\"vocab/js/jquery.js\"></script>\n" + 
 			"    <link rel=\"stylesheet\" href=\"vocab/themes/blue/style.css\" type=\"text/css\" media=\"print, projection, screen\" />\n" +
 		    "    <script src=\"vocab/js/jquery-1.11.0.js\"></script>\n" +
 			"    <script type=\"text/javascript\" src=\"vocab/js/jquery.tablesorter.min.js\"></script>\n" +
@@ -83,7 +79,7 @@ public class TextConstants {
 			"        padding-bottom: 40px;\n" + 
 			"      }\n" + 
 			"    </style>\n" + 
-			"    <link href=\"vocab/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n" + 
+			//"    <link href=\"vocab/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n" + 
 			"    \n" + 
 			"    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->\n" + 
 			"    <!--[if lt IE 9]>\n" + 
@@ -357,8 +353,7 @@ public class TextConstants {
             "<dt>Description</dt>\n" +
             "<dd>"+v.getDescription()+"</dd>\n";
             //OPTIONAL METADATA
-            if(!v.getLicenseTitle().toLowerCase().equals("unknown") && 
-            		!v.getLicenseTitle().equals("The model could not be loaded")){    
+            if(!v.getLicenseTitle().toLowerCase().equals("unknown")){    
                 eval+="<dt>License</dt>\n" +
                 "<dd><a href=\""+v.getLicense()+"\" target=\"_blank\">"+v.getLicenseTitle()+"</a></dd>\n";
             }
@@ -371,20 +366,9 @@ public class TextConstants {
                 "<dd>"+v.getLastModifiedDate()+"</dd>\n";
             }
             if(v.getLanguage()!=null && !v.getLanguage().isEmpty()){
-            	
-        		Languages allLanguages = new Languages();
-
                 eval+="<dt>Languages</dt>\n<dd>";
-				
                 for(String lang : v.getLanguage()){
-                	HashMap <String, String> mapLang = new Languages().getMapLang();
-                	String currLang = lang.substring(0, 2);
-                	if (mapLang.containsKey(currLang)){
-                        String langURI = mapLang.get(currLang);
-                        String langName = allLanguages.mapLangEnglish.get(currLang);
-                        eval+="<a href=\"" + langURI + "\" target=\"_blank\">" + langName + "</a> ";
-                    }
-                    
+                    eval+=lang+" ";
                 }
                 eval+="</dd>\n";
             }

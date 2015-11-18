@@ -129,8 +129,17 @@ public class VocabUtils {
      * @return 
      */
     public static Vocabulary getVocabularyMetadata(String vocabURI){
+        
         OntModel currentModel = ModelFactory.createOntologyModel();
         Vocabulary vocabulary = new Vocabulary(vocabURI);
+        
+        //Licensius call to retrieve the license
+        try{
+            vocabulary.setLicenseWithService(vocabURI);
+        }catch(Exception e){
+            Report.getInstance().addToReport("-->Warning: could not load license from vocab");
+        }
+        
         try{
             readOnlineModel(currentModel, vocabulary);
             if(currentModel==null){
@@ -186,6 +195,18 @@ public class VocabUtils {
                 case "preferredNamespacePrefix":
                     vocabulary.setPrefix(value);
                     break;
+                case "license":
+                    if(vocabulary.getLicense().equals("unknown")){
+                        vocabulary.setLicense(value);
+                        vocabulary.setLicenseTitle(value);
+                    }
+                    break;
+                case "rights":
+                    if(vocabulary.getLicense().equals("unknown")){
+                        vocabulary.setLicense(value);
+                        vocabulary.setLicenseTitle(value);
+                    }
+                    break;
 //            if(propertyName.equals("preferredNamespaceUri")){
 //                this.mainOntology.setNamespaceURI(value);                
 //            }else
@@ -224,14 +245,6 @@ public class VocabUtils {
             }
             
         }
-        //since the webservice extracts the license, we don't need to find it
-        try{
-            vocabulary.setLicense(vocabURI);
-            vocabulary.setLicenseTitle(vocabURI);
-        }catch(Exception e){
-            Report.getInstance().addToReport("-->Warning: could not load license from vocab");
-        }
-        
         //look for languages used in the vocabulary
         
         ArrayList <String> languagesUsed = new ArrayList<>();
@@ -284,9 +297,17 @@ public class VocabUtils {
             if(s.contains("text/n3")){
                 model.read(v.getUri(), null, "N3");
             }else{
-                System.err.println("Error: no serializations available!!");
-                Report.getInstance().addToReport("-->Error: no serializations available for vocab");
-                return;
+                //try the application/rdf+xml anyways. It is the most typical, 
+                //and sometimes it may not have been recognized because they 
+                //don't add a content header
+                try{
+                    model.read(v.getUri(), null, "RDF/XML");
+                    v.getSupportedSerializations().add("application/rdf+xml");
+                }catch(Exception e){
+                    System.err.println("Error: no serializations available!!");
+                    Report.getInstance().addToReport("-->Error: no serializations available for vocab");
+                    return;
+                }
             }
             System.out.println("Vocab "+v.getUri()+" loaded successfully!");
         }
@@ -352,5 +373,12 @@ public class VocabUtils {
         System.err.println("Error while extracting the reosurces: "+ex.getMessage());
     }
    } 
+    
+    public static void main(String [] args){
+        Vocabulary v = getVocabularyMetadata("http://purl.org/net/p-plan");
+//        Vocabulary v = getVocabularyMetadata("http://ontosoft.org/software");
+        System.out.println(v.getLicense());
+        System.out.println(v.getLicenseTitle());
+    }
     
 }
