@@ -15,8 +15,8 @@ http://purl.oclc.org/NET/ldr/ns;license
 http://www.opmw.org/ontology/;e-Science,provenance,scientific workflow
 http://purl.org/wf4ever/ro;e-Science,Research Object
 http://purl.org/wf4ever/roevo;e-Science,Research Object
-http://purl.org/wf4ever/wfprov;provenance,workflows,e-Science,Research Object
-http://purl.org/wf4ever/wfdesc;provenance,workflows,e-Science,Research Object
+http://purl.org/wf4ever/wfprov;provenance,scientific workflow,e-Science,Research Object
+http://purl.org/wf4ever/wfdesc;provenance,scientific workflow,e-Science,Research Object
 http://aemet.linkeddata.es/ontology;meteorology
 http://webenemasuno.linkeddata.es/ontology/OPMO;news,blogs
 http://rtve.linkeddata.es/def/OntoRTVE;television,radio
