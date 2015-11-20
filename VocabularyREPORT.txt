@@ -83,10 +83,7 @@ Dealing with Vocabulary http://cerrado.linkeddata.es/ecology/fire
 -->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/net/translation
--->Could not load license for vocab
--->Could not load license title for vocab
--->Error: no serializations available for vocab
--->Error while dealing with vocab: http://purl.org/net/translation null
+-->Vocabulary added successfully.
 
 Dealing with Vocabulary http://datos.bne.es/def/
 -->Vocabulary added successfully.
@@ -99,16 +96,10 @@ Dealing with Vocabulary http://contsem.unizar.es/def/sector-publico/pproc
 Error: title or description missing from vocabulary. Omitted
 
 Dealing with Vocabulary http://purl.org/net/QualityModel
--->Could not load license for vocab
--->Could not load license title for vocab
--->Error: no serializations available for vocab
--->Error while dealing with vocab: http://purl.org/net/QualityModel null
+Error: title or description missing from vocabulary. Omitted
 
 Dealing with Vocabulary http://purl.org/net/EvaluationResult
--->Could not load license for vocab
--->Could not load license title for vocab
--->Error: no serializations available for vocab
--->Error while dealing with vocab: http://purl.org/net/EvaluationResult null
+Error: title or description missing from vocabulary. Omitted
 
 Dealing with Vocabulary http://ontosoft.org/software/
 -->Vocabulary added successfully.
