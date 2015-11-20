@@ -96,10 +96,10 @@ Dealing with Vocabulary http://contsem.unizar.es/def/sector-publico/pproc
 Error: title or description missing from vocabulary. Omitted
 
 Dealing with Vocabulary http://purl.org/net/QualityModel
-Error: title or description missing from vocabulary. Omitted
+-->Vocabulary added successfully.
 
 Dealing with Vocabulary http://purl.org/net/EvaluationResult
-Error: title or description missing from vocabulary. Omitted
+-->Vocabulary added successfully.
 
 Dealing with Vocabulary http://ontosoft.org/software/
 -->Vocabulary added successfully.
