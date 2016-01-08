@@ -244,7 +244,7 @@ public class TextConstants {
 		"tr = document.getElementById('tr'+index);\n"+
 		"while (tr!=null){\n"+
 		"valores = document.getElementById('inp'+index).value;\n"+
-		"if (!valores.contains(text+'--')){\n"+
+		"if (valores.indexOf(text+'--')==-1){\n"+
 		"tr.style.display='none';\n"+
 		"}\n"+
 		"index++;\n"+
