@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY voaf "http://purl.org/vocommons/voaf#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY report "http://vocab.linkeddata.es/ontology/report#" >
+]>
+
+
+<rdf:RDF xmlns="http://vocab.linkeddata.es/ontology/report#"
+     xml:base="http://vocab.linkeddata.es/ontology/report"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:report="http://vocab.linkeddata.es/ontology/report#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://vocab.linkeddata.es/ontology/report">
+        <rdfs:label xml:lang="en">Report ontology for vocab.linkeddata.es</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/4.0/</rdfs:comment>
+        <rdfs:comment xml:lang="en">Dani add a description</rdfs:comment>
+        <dc:creator>http://purl.org/net/mpoveda</dc:creator>
+        <dc:creator>http://delicias.dia.fi.upm.es/members/DGarijo/#me</dc:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    <owl:AnnotationProperty rdf:about="&terms;created"/>
+    <owl:AnnotationProperty rdf:about="&terms;license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:ObjectProperty rdf:about="&dc;subject"/>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#detectedProblem -->
+
+    <owl:ObjectProperty rdf:about="&report;detectedProblem">
+        <rdfs:label xml:lang="en">detectedProblem</rdfs:label>
+        <rdfs:domain rdf:resource="&report;Entry"/>
+        <rdfs:range rdf:resource="&report;Problem"/>
+        <owl:inverseOf rdf:resource="&report;problemDetectedInEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#entrySubject -->
+
+    <owl:ObjectProperty rdf:about="&report;entrySubject">
+        <rdfs:label xml:lang="en">entrySubject</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&dc;subject"/>
+        <rdfs:range rdf:resource="&voaf;Vocabulary"/>
+        <rdfs:domain rdf:resource="&report;Entry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#hasEntry -->
+
+    <owl:ObjectProperty rdf:about="&report;hasEntry">
+        <rdfs:label xml:lang="en">hasEntry</rdfs:label>
+        <rdfs:range rdf:resource="&report;Entry"/>
+        <rdfs:domain rdf:resource="&report;Report"/>
+        <owl:inverseOf rdf:resource="&report;isEntryOfReport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#isEntryOfReport -->
+
+    <owl:ObjectProperty rdf:about="&report;isEntryOfReport">
+        <rdfs:label xml:lang="en">isEntryOfReport</rdfs:label>
+        <rdfs:domain rdf:resource="&report;Entry"/>
+        <rdfs:range rdf:resource="&report;Report"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry -->
+
+    <owl:ObjectProperty rdf:about="&report;problemDetectedInEntry">
+        <rdfs:label xml:lang="en">problemDetectedInEntry</rdfs:label>
+        <rdfs:range rdf:resource="&report;Entry"/>
+        <rdfs:domain rdf:resource="&report;Problem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#vocabularyStatus -->
+
+    <owl:ObjectProperty rdf:about="&report;vocabularyStatus">
+        <rdfs:label xml:lang="en">vocabularyStatus</rdfs:label>
+        <rdfs:domain rdf:resource="&report;Entry"/>
+        <rdfs:range rdf:resource="&report;VocabularyStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#numberVocabsError -->
+
+    <owl:DatatypeProperty rdf:about="&report;numberVocabsError">
+        <rdfs:label xml:lang="en">number vocabs error</rdfs:label>
+        <rdfs:comment xml:lang="en">number of vocabularies that had errors (and had no warnings) during the generation of the site</rdfs:comment>
+        <rdfs:domain rdf:resource="&report;Report"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#numberVocabsOK -->
+
+    <owl:DatatypeProperty rdf:about="&report;numberVocabsOK">
+        <rdfs:label xml:lang="en">number vocabs ok</rdfs:label>
+        <rdfs:comment xml:lang="en">number of vocabularies that did not have errors or warnings during the generation of the site</rdfs:comment>
+        <rdfs:domain rdf:resource="&report;Report"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#numberVocabsWarning -->
+
+    <owl:DatatypeProperty rdf:about="&report;numberVocabsWarning">
+        <rdfs:label xml:lang="en">number vocabs warning</rdfs:label>
+        <rdfs:comment xml:lang="en">number of vocabularies that had warnings (and had no erros) during the generation of the site </rdfs:comment>
+        <rdfs:domain rdf:resource="&report;Report"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#reportDate -->
+
+    <owl:DatatypeProperty rdf:about="&report;reportDate">
+        <rdfs:label xml:lang="en">report date</rdfs:label>
+        <rdfs:comment xml:lang="en">timestamp indicating when the report was created</rdfs:comment>
+        <rdfs:domain rdf:resource="&report;Report"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="&voaf;Vocabulary">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#Entry -->
+
+    <owl:Class rdf:about="&report;Entry">
+        <rdfs:label xml:lang="en">Entry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#Error -->
+
+    <owl:Class rdf:about="&report;Error">
+        <rdfs:label xml:lang="en">Error</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&report;Problem"/>
+        <rdfs:comment xml:lang="en">Errors prevent vocabularies from appearing in the website.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#Problem -->
+
+    <owl:Class rdf:about="&report;Problem">
+        <rdfs:label xml:lang="en">Problem</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#Report -->
+
+    <owl:Class rdf:about="&report;Report">
+        <rdfs:label xml:lang="en">Report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#VocabularyStatus -->
+
+    <owl:Class rdf:about="&report;VocabularyStatus">
+        <rdfs:label xml:lang="en">VocabularyStatus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#Warning -->
+
+    <owl:Class rdf:about="&report;Warning">
+        <rdfs:label xml:lang="en">Warning</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&report;Problem"/>
+        <rdfs:comment xml:lang="en">Warnings do not prevent vocabularies from appearing in the website.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#error -->
+
+    <owl:NamedIndividual rdf:about="&report;error">
+        <rdf:type rdf:resource="&report;VocabularyStatus"/>
+        <rdfs:label xml:lang="en">error</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#success -->
+
+    <owl:NamedIndividual rdf:about="&report;success">
+        <rdf:type rdf:resource="&report;VocabularyStatus"/>
+        <rdfs:label xml:lang="en">success</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.linkeddata.es/ontology/report#warning -->
+
+    <owl:NamedIndividual rdf:about="&report;warning">
+        <rdf:type rdf:resource="&report;VocabularyStatus"/>
+        <rdfs:label xml:lang="en">warning</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
