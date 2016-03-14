@@ -1,0 +1,17 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1501"
+node [shape = rectangle, color="orange"]; "report:VocabularyStatus" "report:Report" "report:Problem" "report:Entry" "voaf:Vocabulary" ; /*classes style*/
+	"report:entrySubject" -> "dc:subject" [ label = "rdfs:subPropertyOf" ];
+	"report:Report" -> "xsd:nonNegativeInteger" [ label = "report:numberVocabsWarning" ];
+	"report:Problem" -> "report:Entry" [ label = "report:problemDetectedInEntry" ];
+	"report:Report" -> "report:Entry" [ label = "report:hasEntry" ];
+	"report:Report" -> "xsd:nonNegativeInteger" [ label = "report:numberVocabsError" ];
+	"report:Entry" -> "report:Report" [ label = "report:isEntryOfReport" ];
+	"report:Entry" -> "report:VocabularyStatus" [ label = "report:vocabularyStatus" ];
+	"report:Entry" -> "voaf:Vocabulary" [ label = "report:entrySubject" ];
+	"report:Report" -> "xsd:nonNegativeInteger" [ label = "report:numberVocabsOK" ];
+	"report:Entry" -> "report:Problem" [ label = "report:detectedProblem" ];
+	"report:Report" -> "xsd:dateTimeStamp" [ label = "report:reportDate" ];
+
+}

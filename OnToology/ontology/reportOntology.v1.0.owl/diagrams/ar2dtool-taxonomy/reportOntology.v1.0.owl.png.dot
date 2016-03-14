@@ -1,0 +1,10 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "report:Warning" "report:Problem" "report:Error" "voaf:Vocabulary" ; /*classes style*/
+	"report:Warning" -> "report:Problem" [ label = "rdfs:subClassOf" ];
+	"report:Error" -> "report:Problem" [ label = "rdfs:subClassOf" ];
+	"voaf:Vocabulary" -> "owl:Thing" [ label = "rdfs:subClassOf" ];
+	"report:Problem" -> "owl:Thing" [ label = "rdfs:subClassOf" ];
+
+}
