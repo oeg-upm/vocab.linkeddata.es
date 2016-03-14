@@ -22,13 +22,18 @@
      xmlns:report="http://vocab.linkeddata.es/ontology/report#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	 xmlns:vann="http://purl.org/vocab/vann/">
     <owl:Ontology rdf:about="http://vocab.linkeddata.es/ontology/report">
         <rdfs:label xml:lang="en">Report ontology for vocab.linkeddata.es</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/4.0/</rdfs:comment>
-        <rdfs:comment xml:lang="en">Dani add a description</rdfs:comment>
+        <dc:license>Ontology for describing a vocabulary report and the issues and warnings found</dc:license>
         <dc:creator>http://purl.org/net/mpoveda</dc:creator>
         <dc:creator>http://delicias.dia.fi.upm.es/members/DGarijo/#me</dc:creator>
+		<owl:versionInfo>1.0.0</owl:versionInfo>
+		<dc:title xml:lang="en">Vocab report ontology</dc:title>
+		<vann:preferredNamespacePrefix>err</vann:preferredNamespacePrefix>
+		<vann:preferredNamespaceUri>http://vocab.linkeddata.es/ontology/report#</vann:preferredNamespaceUri>
     </owl:Ontology>
     
 
