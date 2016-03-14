@@ -1,0 +1,592 @@
+<h2>4. Cross reference for [Ontology Name] classes, properties and dataproperties</h2>
+This section provides details for each class and property defined by [Ontology Name].
+<div id="classes">
+   <h2>Classes</h2>
+   <ul class="hlist">
+      <li>
+         <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+      </li>
+      <li>
+         <a href="#Error" title="http://vocab.linkeddata.es/ontology/report#Error">Error</a>
+      </li>
+      <li>
+         <a href="#Problem"
+            title="http://vocab.linkeddata.es/ontology/report#Problem">Problem</a>
+      </li>
+      <li>
+         <a href="#Report"
+            title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+      </li>
+      <li>
+         <a href="#http://purl.org/vocommons/voaf#Vocabulary" title="http://purl.org/vocommons/voaf#Vocabulary">
+            <span>vocabulary</span>
+         </a>
+      </li>
+      <li>
+         <a href="#VocabularyStatus"
+            title="http://vocab.linkeddata.es/ontology/report#VocabularyStatus">VocabularyStatus</a>
+      </li>
+      <li>
+         <a href="#Warning"
+            title="http://vocab.linkeddata.es/ontology/report#Warning">Warning</a>
+      </li>
+   </ul>
+   <div class="entity" id="Entry">
+      <h3>Entry<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#Entry</p>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#detectedProblem"
+               title="http://vocab.linkeddata.es/ontology/report#detectedProblem">detectedProblem</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#entrySubject"
+               title="http://vocab.linkeddata.es/ontology/report#entrySubject">entrySubject</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isEntryOfReport"
+               title="http://vocab.linkeddata.es/ontology/report#isEntryOfReport">isEntryOfReport</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#vocabularyStatus"
+               title="http://vocab.linkeddata.es/ontology/report#vocabularyStatus">vocabularyStatus</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasEntry"
+               title="http://vocab.linkeddata.es/ontology/report#hasEntry">hasEntry</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#problemDetectedInEntry"
+               title="http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry">problemDetectedInEntry</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Error">
+      <h3>Error<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#Error</p>
+      <div class="comment">
+         <p>Errors prevent vocabularies from appearing in the website.</p>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Problem"
+               title="http://vocab.linkeddata.es/ontology/report#Problem">Problem</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Problem">
+      <h3>Problem<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#Problem</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Error" title="http://vocab.linkeddata.es/ontology/report#Error">Error</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Warning"
+               title="http://vocab.linkeddata.es/ontology/report#Warning">Warning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#problemDetectedInEntry"
+               title="http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry">problemDetectedInEntry</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#detectedProblem"
+               title="http://vocab.linkeddata.es/ontology/report#detectedProblem">detectedProblem</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Report">
+      <h3>Report<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#Report</p>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasEntry"
+               title="http://vocab.linkeddata.es/ontology/report#hasEntry">hasEntry</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#numberVocabsError"
+               title="http://vocab.linkeddata.es/ontology/report#numberVocabsError">number vocabs error</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#numberVocabsOK"
+               title="http://vocab.linkeddata.es/ontology/report#numberVocabsOK">number vocabs ok</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#numberVocabsWarning"
+               title="http://vocab.linkeddata.es/ontology/report#numberVocabsWarning">number vocabs warning</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#reportDate"
+               title="http://vocab.linkeddata.es/ontology/report#reportDate">report date</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isEntryOfReport"
+               title="http://vocab.linkeddata.es/ontology/report#isEntryOfReport">isEntryOfReport</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://purl.org/vocommons/voaf#Vocabulary">
+      <h3>vocabulary<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/vocommons/voaf#Vocabulary</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#entrySubject"
+               title="http://vocab.linkeddata.es/ontology/report#entrySubject">entrySubject</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="VocabularyStatus">
+      <h3>VocabularyStatus<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#VocabularyStatus</p>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#vocabularyStatus"
+               title="http://vocab.linkeddata.es/ontology/report#vocabularyStatus">vocabularyStatus</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#error" title="http://vocab.linkeddata.es/ontology/report#error">error</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#success"
+               title="http://vocab.linkeddata.es/ontology/report#success">success</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#warning"
+               title="http://vocab.linkeddata.es/ontology/report#warning">warning</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Warning">
+      <h3>Warning<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#Warning</p>
+      <div class="comment">
+         <p>Warnings do not prevent vocabularies from appearing in the website.</p>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Problem"
+               title="http://vocab.linkeddata.es/ontology/report#Problem">Problem</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="objectproperties">
+   <h2>Object Properties</h2>
+   <ul class="hlist">
+      <li>
+         <a href="#detectedProblem"
+            title="http://vocab.linkeddata.es/ontology/report#detectedProblem">detectedProblem</a>
+      </li>
+      <li>
+         <a href="#entrySubject"
+            title="http://vocab.linkeddata.es/ontology/report#entrySubject">entrySubject</a>
+      </li>
+      <li>
+         <a href="#hasEntry"
+            title="http://vocab.linkeddata.es/ontology/report#hasEntry">hasEntry</a>
+      </li>
+      <li>
+         <a href="#isEntryOfReport"
+            title="http://vocab.linkeddata.es/ontology/report#isEntryOfReport">isEntryOfReport</a>
+      </li>
+      <li>
+         <a href="#problemDetectedInEntry"
+            title="http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry">problemDetectedInEntry</a>
+      </li>
+      <li>
+         <a href="#vocabularyStatus"
+            title="http://vocab.linkeddata.es/ontology/report#vocabularyStatus">vocabularyStatus</a>
+      </li>
+   </ul>
+   <div class="entity" id="detectedProblem">
+      <h3>detectedProblem<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#detectedProblem</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Problem"
+                  title="http://vocab.linkeddata.es/ontology/report#Problem">Problem</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#problemDetectedInEntry"
+                  title="http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry">problemDetectedInEntry</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="entrySubject">
+      <h3>entrySubject<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#entrySubject</p>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://purl.org/dc/elements/1.1/subject">subject</span>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://purl.org/vocommons/voaf#Vocabulary" title="http://purl.org/vocommons/voaf#Vocabulary">vocabulary</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasEntry">
+      <h3>hasEntry<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#hasEntry</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Report"
+                  title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isEntryOfReport"
+                  title="http://vocab.linkeddata.es/ontology/report#isEntryOfReport">isEntryOfReport</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isEntryOfReport">
+      <h3>isEntryOfReport<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#isEntryOfReport</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Report"
+                  title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasEntry"
+                  title="http://vocab.linkeddata.es/ontology/report#hasEntry">hasEntry</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="problemDetectedInEntry">
+      <h3>problemDetectedInEntry<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Problem"
+                  title="http://vocab.linkeddata.es/ontology/report#Problem">Problem</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#detectedProblem"
+                  title="http://vocab.linkeddata.es/ontology/report#detectedProblem">detectedProblem</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="vocabularyStatus">
+      <h3>vocabularyStatus<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#vocabularyStatus</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Entry" title="http://vocab.linkeddata.es/ontology/report#Entry">Entry</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#VocabularyStatus"
+                  title="http://vocab.linkeddata.es/ontology/report#VocabularyStatus">VocabularyStatus</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="dataproperties">
+   <h2>Data Properties</h2>
+   <ul class="hlist">
+      <li>
+         <a href="#numberVocabsError"
+            title="http://vocab.linkeddata.es/ontology/report#numberVocabsError">number vocabs error</a>
+      </li>
+      <li>
+         <a href="#numberVocabsOK"
+            title="http://vocab.linkeddata.es/ontology/report#numberVocabsOK">number vocabs ok</a>
+      </li>
+      <li>
+         <a href="#numberVocabsWarning"
+            title="http://vocab.linkeddata.es/ontology/report#numberVocabsWarning">number vocabs warning</a>
+      </li>
+      <li>
+         <a href="#reportDate"
+            title="http://vocab.linkeddata.es/ontology/report#reportDate">report date</a>
+      </li>
+   </ul>
+   <div class="entity" id="numberVocabsError">
+      <h3>number vocabs error<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#numberVocabsError</p>
+      <div class="comment">
+         <p>number of vocabularies that had errors (and had no warnings) during the generation of the site</p>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Report"
+                  title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted"
+                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="numberVocabsOK">
+      <h3>number vocabs ok<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#numberVocabsOK</p>
+      <div class="comment">
+         <p>number of vocabularies that did not have errors or warnings during the generation of the site</p>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Report"
+                  title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted"
+                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="numberVocabsWarning">
+      <h3>number vocabs warning<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#numberVocabsWarning</p>
+      <div class="comment">
+         <p>number of vocabularies that had warnings (and had no erros) during the generation of the site </p>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Report"
+                  title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted"
+                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="reportDate">
+      <h3>report date<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#reportDate</p>
+      <div class="comment">
+         <p>timestamp indicating when the report was created</p>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Report"
+                  title="http://vocab.linkeddata.es/ontology/report#Report">Report</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#dateTimeStamp">date time stamp</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="namedindividuals">
+   <h2>Named Individuals</h2>
+   <ul class="hlist">
+      <li>
+         <a href="#error" title="http://vocab.linkeddata.es/ontology/report#error">error</a>
+      </li>
+      <li>
+         <a href="#success"
+            title="http://vocab.linkeddata.es/ontology/report#success">success</a>
+      </li>
+      <li>
+         <a href="#warning"
+            title="http://vocab.linkeddata.es/ontology/report#warning">warning</a>
+      </li>
+   </ul>
+   <div class="entity" id="error">
+      <h3>error<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#error</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#VocabularyStatus"
+               title="http://vocab.linkeddata.es/ontology/report#VocabularyStatus">VocabularyStatus</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="success">
+      <h3>success<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#success</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#VocabularyStatus"
+               title="http://vocab.linkeddata.es/ontology/report#VocabularyStatus">VocabularyStatus</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="warning">
+      <h3>warning<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://vocab.linkeddata.es/ontology/report#warning</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#VocabularyStatus"
+               title="http://vocab.linkeddata.es/ontology/report#VocabularyStatus">VocabularyStatus</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div>
