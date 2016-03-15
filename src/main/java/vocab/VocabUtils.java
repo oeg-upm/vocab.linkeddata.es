@@ -16,7 +16,11 @@
 package vocab;
 
 
+import com.hp.hpl.jena.datatypes.RDFDatatype;
+import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -28,13 +32,16 @@ import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.zip.ZipEntry;
@@ -137,7 +144,7 @@ public class VocabUtils {
         try{
             vocabulary.setLicenseWithService(vocabURI);
         }catch(Exception e){
-            Report.getInstance().addToReport("-->Warning: could not load license from vocab");
+            Report.getInstance().addWarningForVocab(vocabURI, TextConstants.Warning.LICENCE_NOT_FOUND);
         }
         
         try{
@@ -286,7 +293,7 @@ public class VocabUtils {
         ArrayList<String> s = v.getSupportedSerializations();
         if (s.isEmpty()){
             System.err.println("Error: no serializations available!!");
-            Report.getInstance().addToReport("-->Error: no serializations available for vocab");
+            Report.getInstance().addErrorForVocab(v.getUri(), TextConstants.Error.NO_SERIALIZATIONS_FOR_VOCAB);
         }else{
             if(s.contains("application/rdf+xml")){
                 model.read(v.getUri(), null, "RDF/XML");
@@ -305,11 +312,10 @@ public class VocabUtils {
                     v.getSupportedSerializations().add("application/rdf+xml");
                 }catch(Exception e){
                     System.err.println("Error: no serializations available!!");
-                    Report.getInstance().addToReport("-->Error: no serializations available for vocab");
-                    return;
+                    Report.getInstance().addErrorForVocab(v.getUri(), TextConstants.Error.NO_SERIALIZATIONS_FOR_VOCAB);
                 }
             }
-            System.out.println("Vocab "+v.getUri()+" loaded successfully!");
+//            System.out.println("Vocab "+v.getUri()+" loaded successfully!");
         }
     }
     
@@ -374,11 +380,135 @@ public class VocabUtils {
     }
    } 
     
-    public static void main(String [] args){
-        Vocabulary v = getVocabularyMetadata("http://purl.org/net/p-plan");
-//        Vocabulary v = getVocabularyMetadata("http://ontosoft.org/software");
-        System.out.println(v.getLicense());
-        System.out.println(v.getLicenseTitle());
+    /**
+     * FUNCTIONS TO ADD RELATIONSHIPS TO THE MODEL
+     */
+
+    /**
+     * Funtion to insert an individual as an instance of a class. If the class does not exist, it is created.
+     * @param individualId Instance id. If exists it won't be created.
+     * @param classURL URL of the class from which we want to create the instance
+     */
+    public static void addIndividual(OntModel m,String individualId, String classURL, String label){
+        String nameOfIndividualEnc = encode(individualId);
+        OntClass c = m.createClass(classURL);
+        c.createIndividual(TextConstants.reportNS+nameOfIndividualEnc);
+        if(label!=null){
+            addDataProperty(m,nameOfIndividualEnc,label,TextConstants.RDFS_LABEL);
+        }
     }
+
+    /**
+     * Funtion to add a property between two individuals. If the property does not exist, it is created.
+     * @param orig Domain of the property (Id, not complete URI)
+     * @param dest Range of the property (Id, not complete URI)
+     * @param property URI of the property
+     */
+    public static void addProperty(OntModel m, String orig, String dest, String property){
+        OntProperty propSelec = m.createOntProperty(property);
+        Resource source = m.getResource(TextConstants.reportNS+ encode(orig) );
+        Individual instance = (Individual) source.as( Individual.class );
+        if(dest.contains("http://")){//it is a URI
+            instance.addProperty(propSelec,dest);            
+        }else{//it is a local resource
+            instance.addProperty(propSelec, m.getResource(TextConstants.reportNS+encode(dest)));
+        }
+        //System.out.println("Creada propiedad "+ propiedad+" que relaciona los individuos "+ origen + " y "+ destino);
+    }
+
+    /**
+     * Function to add dataProperties. Similar to addProperty
+     * @param origen Domain of the property (Id, not complete URI)
+     * @param literal literal to be asserted
+     * @param dataProperty URI of the data property to assign.
+     */
+    public static void addDataProperty(OntModel m, String origen, String literal, String dataProperty){
+        OntProperty propSelec;
+        //lat y long son de otra ontologia, tienen otro prefijo distinto
+        propSelec = m.createDatatypeProperty(dataProperty);
+        //propSelec = (modeloOntologia.getResource(dataProperty)).as(OntProperty.class);
+        Resource orig = m.getResource(TextConstants.reportNS+ encode(origen) );
+        m.add(orig, propSelec, literal); 
+    }
+
+    /**
+     * Function to add dataProperties. Similar to addProperty
+     * @param m Model of the propery to be added
+     * @param origen Domain of the property
+     * @param dato literal to be asserted
+     * @param dataProperty URI of the dataproperty to assert
+     * @param tipo type of the literal (String, int, double, etc.).
+     */
+    public static void addDataProperty(OntModel m, String origen, String dato, String dataProperty,RDFDatatype tipo) {
+        OntProperty propSelec;
+        //lat y long son de otra ontologia, tienen otro prefijo distinto
+        propSelec = m.createDatatypeProperty(dataProperty);
+        Resource orig = m.getResource(TextConstants.reportNS+ encode(origen));
+        m.add(orig, propSelec, dato,tipo);
+    }
+    
+    /**
+     * Encoding of the name to avoid any trouble with spacial characters and spaces
+     * @param name
+     */
+    private static String encode(String name){
+        name = name.replace("http://","");
+        String prenom = name.substring(0, name.indexOf("/")+1);
+        //remove tabs and new lines
+        String nom = name.replace(prenom, "");
+        if(name.length()>255){
+            try {
+                nom = MD5.MD5(name);
+            } catch (Exception ex) {
+                System.err.println("Error when encoding in MD5: "+ex.getMessage() );
+            }
+        }        
+
+        nom = nom.replace("\\n", "");
+        nom = nom.replace("\n", "");
+        nom = nom.replace("\b", "");
+        //quitamos "/" de las posibles urls
+        nom = nom.replace("/","_");
+        nom = nom.replace("=","_");
+        nom = nom.trim();
+        //espacios no porque ya se urlencodean
+        //nom = nom.replace(" ","_");
+        //a to uppercase
+        nom = nom.toUpperCase();
+        try {
+            //urlencodeamos para evitar problemas de espacios y acentos
+            nom = new URI(null,nom,null).toASCIIString();//URLEncoder.encode(nom, "UTF-8");
+        }
+        catch (Exception ex) {
+            try {
+                System.err.println("Problem encoding the URI:" + nom + " " + ex.getMessage() +". We encode it in MD5");
+                nom = MD5.MD5(name);
+                System.err.println("MD5 encoding: "+nom);
+            } catch (Exception ex1) {
+                System.err.println("Could not encode in MD5:" + name + " " + ex1.getMessage());
+            }
+        }
+        return prenom+nom;
+    }
+
+    public static void exportRDFFile(String outFile, OntModel model){
+        OutputStream out;
+        try {
+            out = new FileOutputStream(outFile);
+            model.write(out,"TURTLE");
+//            model.write(out,"RDF/XML");
+            out.close();
+        } catch (Exception ex) {
+            System.out.println("Error while writing the model to file "+ex.getMessage());
+        }
+    }
+    
+    
+//    public static void main(String [] args){
+//        Vocabulary v = getVocabularyMetadata("http://purl.org/net/p-plan");
+////        Vocabulary v = getVocabularyMetadata("http://ontosoft.org/software");
+//        System.out.println(v.getLicense());
+//        System.out.println(v.getLicenseTitle());
+//    }
     
 }

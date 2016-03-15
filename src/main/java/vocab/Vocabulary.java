@@ -168,14 +168,11 @@ public class Vocabulary {
             license = "unknown";
             licenseTitle = "unknown";
         }
-//        System.out.println(licenseTitle);
+        if(license.equals("unknown")){
+            Report.getInstance().addWarningForVocab(uri, TextConstants.Warning.LICENCE_NOT_FOUND);
+        }
     }
     
-//    public void setLicenseTitle(String uri) {
-//    	//this.license = license;
-//    	this.licenseTitle = GetLicense.getLicenseTitle(uri);
-////    	System.out.println("License: " + this.licenseTitle);
-//    }
     
     public void setSupportedSerializations(ArrayList<String> supportedSerializations) {
         this.supportedSerializations = supportedSerializations;
@@ -265,8 +262,7 @@ public class Vocabulary {
                 }
                 else{
                     //language not recognized -> add to log
-                    Report.getInstance().addToReport("\n The following language: "+lang+
-                            " could not be recognized for vocab "+this.prefix+"("+this.uri+")");
+                    Report.getInstance().addWarningForVocab(uri, TextConstants.Warning.LANG_NOT_FOUND);
                 }
             }
         }else{
@@ -299,17 +295,17 @@ public class Vocabulary {
             html+= "$('#collapse"+id+"').click(function () {\n";
             html+= "if($('a').hasClass('more"+id+"'))\n";
             html+= "{\n";
-            html+= "$('#collapse"+id+"').html('"+ description +"  <a class=\"less"+id+"\">See less<a>'); \n";
+            html+= "$('#collapse"+id+"').html('"+ description.replace("\n", "<br>") +"  <a class=\"less"+id+"\">See less<a>'); \n";
                     html+= "}\n";
                     html+= "else\n";
                     html+= "{      \n";
-                    html+= "$('#collapse"+id+"').html('"+ firstPartDesc + " ... "+" <a  class=\"more"+id+"\">See more</a>'); \n";
+                    html+= "$('#collapse"+id+"').html('"+ firstPartDesc.replace("\n", "<br>") + " ... "+" <a  class=\"more"+id+"\">See more</a>'); \n";
                     html+= "}\n";
                     html+= "}); \n";
             html+= "</script>\n";
         }
         else{
-        	html+=description;
+        	html+=description.replace("\n", "<br>");
         } 
 
         html+= "</td>\n";

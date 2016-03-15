@@ -35,6 +35,10 @@ public class MainSiteCreator {
         File ont = new File( savePath+File.separator+TextConstants.ontologyFolder);
         ont.mkdirs();
         VocabUtils.unZipIt(TextConstants.oopsResources, ont.getAbsolutePath());
+        
+//        File reportFolder = new File (savePath+File.separator+TextConstants.reportFolder);
+//        reportFolder.mkdirs(); 
+//        VocabUtils.unZipIt(TextConstants.vocabResources, reportFolder.getAbsolutePath());
     }
     public static void main(String[] args) throws IOException{
         String pathVocabsFile = "";
@@ -46,13 +50,13 @@ public class MainSiteCreator {
 //        pathVocabsFile = "C:\\Users\\dgarijo\\Dropbox\\NetBeansProjects\\vocab\\VocabulariesReduced.csv";
         String urlOut = "";
         File auxF = new File(urlOut);
-        auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.siteFolderName);
+        auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.getsiteFolderName());
         auxF.mkdirs();
         MainSiteCreator.createFolderStructure(auxF.getAbsolutePath());
-        String catalogOutPath=auxF.getAbsolutePath()+File.separator+TextConstants.siteName;
-        String urlReportOut = TextConstants.reportName;
-        String html = TextConstants.header;
-        html+=TextConstants.tableHead;
+        String catalogOutPath = auxF.getAbsolutePath()+File.separator+TextConstants.siteName;
+        String urlReportOut = auxF.getAbsolutePath()+File.separator+TextConstants.reportName;
+        String html = TextConstants.header+TextConstants.navBarVocab;
+        html+=TextConstants.tableHeadVocab;
         try{
             //ArrayList<Vocabulary> vocs = processCSV(ProcessCSVFile.class.getResource("/vocab/test.csv").getPath());
             ArrayList<Vocabulary> vocs = processCSV(pathVocabsFile);

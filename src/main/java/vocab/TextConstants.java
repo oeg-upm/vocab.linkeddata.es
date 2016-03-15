@@ -29,9 +29,12 @@ import java.util.Locale;
 public class TextConstants {
 	
     public static final String outPath = "";
-    public static final String reportName = "VocabularyREPORT.txt";
+    //public static final String reportFolder = "report"; //since the report has the same css etc, it will be exported on the same folder
+    public static final String reportName = "report";
     public static final String siteName = "index.html";
-    public static final String siteFolderName = "vocabSite";
+    public static final String getsiteFolderName(){
+        return "site_"+new Date().getTime();
+    }
     public static final String oopsResources= "/oops.zip";
     public static final String vocabResources = "/vocab.zip";
     public static final String ontologyFolder = "ontologies";
@@ -46,12 +49,11 @@ public class TextConstants {
 			"    <meta charset=\"UTF-8\">\n" + 
 			"    <title>vocab.linkeddata.es</title>\n" + 
 			"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" + 
-			"    <meta name=\"description\" content=\"This web provides a catalogue of ontologies useful for smart city data.\">\n" + 
+			"    <meta name=\"description\" content=\"This describes a catalog of vocabularies authored or contributed to by the members of the OEG.\">\n" + 
 			"    <meta name=\"languaje\" content=\"English\">\n" + 
-			"    <meta name=\"keywords\" content=\"ontology, smart city, energy efficiency\">\n" + 
 			"    <meta name=\"author\" content=\"Maria Poveda Villalon\">\n" + 
+                        "    <meta name=\"author\" content=\"Daniel Garijo\">\n" + 
 			"    \n" + 
-		//	"    <script src=\"vocab/js/jquery.js\"></script>\n" + 
 			"    <link rel=\"stylesheet\" href=\"vocab/themes/blue/style.css\" type=\"text/css\" media=\"print, projection, screen\" />\n" +
 		    "    <script src=\"vocab/js/jquery-1.11.0.js\"></script>\n" +
 			"    <script type=\"text/javascript\" src=\"vocab/js/jquery.tablesorter.min.js\"></script>\n" +
@@ -87,17 +89,12 @@ public class TextConstants {
 			"    <![endif]-->\n" + 
 			"\n" + 
 			"    <!-- Fav and touch icons -->\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"vocab/ico/apple-touch-icon-144-precomposed.png\">\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"vocab/ico/apple-touch-icon-114-precomposed.png\">\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"vocab/ico/apple-touch-icon-72pcomposed.png\">\n" + 
-//			"    <link rel=\"apple-touch-icon-precomposed\" href=\"vocab/ico/apple-touch-icon-57-precomposed.png\">\n" + 
-//			"    <link rel=\"shortcut icon\" href=\"vocab/ico/favicon.png\">\n" + 
 			"  </head>\n" + 
 			"\n" + 
 			"  <body>\n" + 
-			"\n" + 
+			"\n"; 
 			
-		    "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n" + 
+    public static final String navBarVocab = "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n" + 
 		    "  <div class=\"container\">\n" + 
 		    "    <div class=\"navbar-header\">\n" + 
 		    "      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\n" + 
@@ -111,7 +108,7 @@ public class TextConstants {
 		    "      <ul class=\"nav navbar-nav\">\n" + 
 		    "        <li class=\"active\"><a href=\"#\">Vocabularies</a></li>\n" + 
 		    "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
-		    //"        <li><a href=\"./about.html\">About</a></li>\n" + 
+		    "        <li><a href=\"report.html\">Vocabulary report</a></li>\n" + 
 		    "      </ul>\n" + 
 		    "    </div><!--/.nav-collapse -->\n" + 
 		    "  </div>\n" + 
@@ -127,26 +124,42 @@ public class TextConstants {
             + "developing and publishing on the Web.</a></p>\n" +
 			"      </div>\n" + 
 			"      <hr>\n";
+    
+    public static final String navBarReport = "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n" +
+            "  <div class=\"container\">\n" +
+            "    <div class=\"navbar-header\">\n" +
+            "      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\n" +
+            "        <span class=\"sr-only\">Toggle navigation</span>\n" +
+            "        <span class=\"icon-bar\"></span>\n" +
+            "        <span class=\"icon-bar\"></span>\n" +
+            "        <span class=\"icon-bar\"></span>\n" +
+            "      </button>\n" +
+            "    </div>\n" +
+            "    <div class=\"collapse navbar-collapse\">\n" +
+            "      <ul class=\"nav navbar-nav\">\n" +
+            "        <li ><a href=\"./index.html\">Vocabularies</a></li>\n" +
+            "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" +
+            "        <li class=\"active\"><a href=\"#\">Vocabulary report</a></li>\n" +
+            "      </ul>\n" +
+            "    </div><!--/.nav-collapse -->\n" +
+            "  </div>\n" +
+            " </div>\n" +
+            "    <div class=\"container\">\n" +
+            "\n" +
+            "      <!-- Jumbotron -->\n" +
+            "      <div class=\"jumbotron\">\n" +
+            "        <h1>Vocabulary report</h1>\n" +
+            "        <p class=\"lead\">Below you can see the status report for the vocabularies included in the last generation of vocab.linkeddata.es.</a></p>\n" +
+            "      </div>";
 	
-    public static final String colorCode = 
-            "<p>Along the catalogue the following color code is used to represent different information. Furthermore, in addition to the color, each cell contains detailed information when available.</p>\n" + 
-                    "<ul class=\"list-inline\">\n" + 
-                    "	<li><span class=\"label label-success\">Green for open licenses</span></li>\n" + 
-                    "	<li><span class=\"label label-warning\">Orange non-open</span></li>\n" + 
-                    //"	<li><span class=\"label label-danger\">Red for negative indicators</span></li>\n" + 
-                    "	<li><span class=\"label label-primary\">Blue for plain information</span></li>\n" + 
-                    "	<li><span class=\"label label-default\">Grey for undefined fields</span></li>\n" + 
-                    "</ul>\n";
-//                    "<p>The first columnn of indicators shows whether the ontology is available online in " +
-//                    "<a href=\"http://www.w3.org/TR/rdf11-primer/\" target=\"_blank\">RDF</a> and " +
-//                    "<a href=\"http://www.w3.org/html/\" target=\"_blank\">HTML</a> formats. For each format, RDF or HTML, " +
-//                    "we use the following colors and text tags: <span class=\"label label-success\">CN OK</span> " +
-//                    "(for &ldquo;Content Negotiation OK&rdquo;) if the corresponding content can be retrieved in the given format " +
-//                    "according to <a href=\"http://www.w3.org/TR/swbp-vocab-pub/\" target=\"_blank\">content negotiation best " +
-//                    "practices for publishing RDF vocabularies</a>, <span class=\"label label-warning\">NO CN</span> " +
-//                    "(for &ldquo;NO Content Negotiation&rdquo;) if the content can be retrieved even though no content negotiation " +
-//                    "mechanisms are properly set up, and <span class=\"label label-danger\">Not Av</span> (for &ldquo;Not Available&rdquo;) " +
-//                    "if the content can not be retrieved.</p>";
+//    public static final String colorCode = 
+//            "<p>Along the catalogue the following color code is used to represent different information. Furthermore, in addition to the color, each cell contains detailed information when available.</p>\n" + 
+//                    "<ul class=\"list-inline\">\n" + 
+//                    "	<li><span class=\"label label-success\">Green for open licenses</span></li>\n" + 
+//                    "	<li><span class=\"label label-warning\">Orange non-open</span></li>\n" + 
+//                    "	<li><span class=\"label label-primary\">Blue for plain information</span></li>\n" + 
+//                    "	<li><span class=\"label label-default\">Grey for undefined fields</span></li>\n" + 
+//                    "</ul>\n";
 
     public static final String end = "<hr>\n" +
                     "" +
@@ -156,8 +169,6 @@ public class TextConstants {
                     "    	<div class=\"col-md-10\">\n" +
                     "    		Developed by " +
                     "	        <a href = \"http://oeg-upm.net\" target=\"_blank\">Ontology Engineering Group</a>\n" +
-//			"	        <br>\n" +
-//			"	        Contact email: mpoveda(at)fi.upm.es\n" +
                     "	        <br>\n" +
                     "    	Built with <a target=\"_blank\" href=\"http://getbootstrap.com/\">Bootstrap</a>\n" +
                     "    	Icons from <a target=\"_blank\" href=\"http://glyphicons.com/\">Glyphicons</a>\n " +			
@@ -172,26 +183,10 @@ public class TextConstants {
                     "" +
                     "      </footer>\n" +
                     "" +
-                    "    </div> <!-- /container -->\n" +
-//                    "    <!-- Le javascript\n" +
-//                    "    ================================================== -->\n" +
-//                    "    <!-- Placed at the end of the document so the pages load faster -->\n" +
-//                    "    <script src=\"assets/js/bootstrap-transition.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-alert.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-modal.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-dropdown.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-scrollspy.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-tab.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-tooltip.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-popover.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-button.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-collapse.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-carousel.js\"></script>\n" +
-//                    "    <script src=\"assets/js/bootstrap-typeahead.js\"></script>\n" +
-                    "" ;
+                    "    </div> <!-- /container -->\n";
                     
     
-    public static final String tableHead= 
+    public static final String tableHeadVocab= 
                     
                     "<div class=\"row\"> \n"+    
                     "<div class=\"ui-widget\">\n"+
@@ -218,7 +213,19 @@ public class TextConstants {
                     "</thead>\n"+
                     "<tbody>\n";
     
+     public static final String tableHeadReport=
+                    "<table class=\"table table-hover table-responsive\">\n" +
+                    "<thead>\n" +
+                    "<tr>\n" +
+                    "<th class=\"col-md-4\">Ontology</th>\n" +
+                    "<th class=\"col-md-2\">Status</th>\n" +
+                    "<th class=\"col-md-6\">Problem</th>\n" +
+                    "</tr>\n" +
+                    "</thead>\n" +
+                    "<tbody>\n";
+    
     public static final String tableEnd = "</tbody></table>\n";
+    
 
     public static String getScriptForFilteringAndEndDocument(ArrayList<String> domains){
         String s = "<script>\n"+
@@ -285,7 +292,7 @@ public class TextConstants {
         "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
         "    <meta name=\"description\" content=\"Evaluation of the ontology with the OOPS tool.\">\n" +
         "    <meta name=\"Languaje\" content=\"English\">\n" +
-        "    <meta name=\"Keywords\" content=\"ontology, smart city, energy efficiency\">\n" +
+        "    <meta name=\"Keywords\" content=\"ontology, vocabulary, good practice\">\n" +
         "    \n" +
         "    <script src=\"oops/js/jquery-1.11.0.js\"></script>\n" +
         "    <script src=\"oops/js/bootstrap.min.js\"></script>\n" +
@@ -316,12 +323,6 @@ public class TextConstants {
         "      <script src=\"/vocab/js/html5shiv.js\"></script>\n" +
         "    <![endif]-->\n" +
         "\n" +
-        //"    <!-- Fav and touch icons -->\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"../vocab/ico/apple-touch-icon-144-precomposed.png\">\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"../vocab/ico/apple-touch-icon-114-precomposed.png\">\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"../vocab/ico/apple-touch-icon-72pcomposed.png\">\n" +
-        //"    <link rel=\"apple-touch-icon-precomposed\" href=\"vocab/ico/apple-touch-icon-57-precomposed.png\">\n" +
-        //"    <link rel=\"shortcut icon\" href=\"../vocab/ico/favicon.png\">\n" +
         "  </head>\n"
         + "<div class=\"container\">\n" +
         "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n" + 
@@ -338,7 +339,7 @@ public class TextConstants {
                "      <ul class=\"nav navbar-nav\">\n" + 
                "        <li><a href=\"../index.html\">Vocabularies</a></li>\n" + //cambiar por index o solo ./ si en el servidor hay redireccion al index
                "        <li><a href=\"http://rohub.linkeddata.es\">Research Objects</a></li>\n" + 
-              // "        <li><a href=\"./about.html\">About</a></li>\n" + 
+              "         <li><a href=\"../report.html\">Vocabulary report</a></li>\n" +  
                "      </ul>\n" + 
                "    </div><!--/.nav-collapse -->\n" + 
                "  </div>\n" + 
@@ -433,7 +434,7 @@ public class TextConstants {
 //            "	        <br>\n" +
 //            "           Integration with vocab by <a href=\"http://purl.org/net/dgarijo\">Daniel Garijo</a>"+
 			"	        <br>\n" +
-			"	        Latest revision "+(new SimpleDateFormat("MMMM", Locale.UK).format(new Date(Calendar.getInstance().getTimeInMillis())))+", "+new GregorianCalendar().get(Calendar.YEAR)+"\n" +
+			"	        Latest revision: "+(new SimpleDateFormat("MMMM", Locale.UK).format(new Date(Calendar.getInstance().getTimeInMillis())))+", "+new GregorianCalendar().get(Calendar.YEAR)+"\n" +
 			"           <br><p>&copy; Ontology Engineering Group</p>\n"+              
             "        </div>\n" +
             "    	<div class=\"col-md-2\">\n" +
@@ -450,6 +451,37 @@ public class TextConstants {
             "    </div> <!-- /container -->\n";
         return eval;
     }
-		
-		
+    
+    public static String getErrorReportHTML(){
+        String s ="";
+        return s;
+    }
+    
+    
+    //reporting classes, properties, errors
+    public enum Warning{LICENCE_NOT_FOUND, LANG_NOT_FOUND, NO_DOMAINS_FOUND_FOR_VOCAB}
+    public enum Error{NO_SERIALIZATIONS_FOR_VOCAB, MISSING_TITLE_OR_DESC_FOR_VOCAB, PARSING_ERR, EXCEPTION_ERROR}
+    
+    public static final String reportNS = "http://vocab.linkeddata.es/ontology/report#";
+    public static final String entry = reportNS+"Entry";
+    public static final String report = reportNS+ "Report";
+    public static final String warning = reportNS + "Warning";
+    public static final String error = reportNS +"Error";
+    public static final String vocabulary = "http://purl.org/vocommons/voaf#Vocabulary";
+    //properties
+    public static final String hasEntry = reportNS+ "hasEntry";
+    public static final String isEntryOfReport = reportNS+ "isEntryOfReport";
+    public static final String detectedProblem = reportNS+ "detectedProblem";
+    public static final String vocabularyStatus = reportNS+ "vocabularyStatus";
+    public static final String entrySubject = reportNS+ "entrySubject";
+    public static final String numberVocabsWarning = reportNS+ "numberVocabsWarning";
+    public static final String numberVocabsError = reportNS+ "numberVocabsError";
+    public static final String numberVocabsOK = reportNS+ "numberVocabsOK";
+    public static final String reportDate = reportNS+ "reportDate";  
+    public static final String RDFS_LABEL = "http://www.w3.org/2000/01/rdf-schema#label";
+    //status
+    public static final String errorStatus = reportNS+"error";
+    public static final String warningStatus = reportNS+"warning";
+    public static final String successStatus = reportNS+"success";
+    
 }

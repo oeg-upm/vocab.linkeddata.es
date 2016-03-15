@@ -38,11 +38,11 @@ import vocab.TextConstants;
 public class GetLicense {
     
     
-   public static String getTitle(String uriToScan) {
+   public static String getTitle(String licenseURI) {
     String output="unknown";
     try {
         String uri=TextConstants.licensiusURIServiceLicenseInfo;
-        String encodedData = URLEncoder.encode(uriToScan);
+        String encodedData = URLEncoder.encode(licenseURI);
         uri+=encodedData;
 //        System.out.println(uri);
         URL url = new URL(uri);
@@ -68,7 +68,7 @@ public class GetLicense {
                 output = (String) array.get("label");
         conn.disconnect();
     } catch (Exception e) {
-        Report.getInstance().addToReport("-->Could not load license title for vocab");
+        //Report.getInstance().addWarningForVocab(licenseURI, TextConstants.Warning.LICENCE_NOT_FOUND);
     }
     return output;
 }
@@ -110,7 +110,7 @@ public static String getFirstLicenseFound(String uriToScan) {
         }
         conn.disconnect();
     } catch (Exception e) {
-        Report.getInstance().addToReport("-->Could not load license for vocab");
+        Report.getInstance().addWarningForVocab(uriToScan, TextConstants.Warning.LICENCE_NOT_FOUND);
     }
     return output;
 }
