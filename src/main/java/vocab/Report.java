@@ -122,7 +122,7 @@ public class Report {
         switch (err){
             case EXCEPTION_ERROR:
                 error = "GenericError";
-                errorLabel = "Error while processing the vocabulary";
+                errorLabel = "Error: the vocabulary could not be loaded or processed";
                 break;
             case MISSING_TITLE_OR_DESC_FOR_VOCAB: 
                 error = "MissingTitleOrDesc";

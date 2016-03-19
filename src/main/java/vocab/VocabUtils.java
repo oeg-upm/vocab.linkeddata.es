@@ -38,10 +38,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.zip.ZipEntry;
@@ -294,28 +297,61 @@ public class VocabUtils {
         if (s.isEmpty()){
             System.err.println("Error: no serializations available!!");
             Report.getInstance().addErrorForVocab(v.getUri(), TextConstants.Error.NO_SERIALIZATIONS_FOR_VOCAB);
-        }else{
-            if(s.contains("application/rdf+xml")){
-                model.read(v.getUri(), null, "RDF/XML");
-            }else 
-            if(s.contains("text/turtle")){
-                model.read(v.getUri(), null, "TURTLE");
-            }else
-            if(s.contains("text/n3")){
-                model.read(v.getUri(), null, "N3");
-            }else{
-                //try the application/rdf+xml anyways. It is the most typical, 
-                //and sometimes it may not have been recognized because they 
-                //don't add a content header
-                try{
+            //try the application/rdf+xml anyways. It is the most typical, 
+            //and sometimes it may not have been recognized because they 
+            //don't add a content header
+            try{
                     model.read(v.getUri(), null, "RDF/XML");
                     v.getSupportedSerializations().add("application/rdf+xml");
                 }catch(Exception e){
                     System.err.println("Error: no serializations available!!");
                     Report.getInstance().addErrorForVocab(v.getUri(), TextConstants.Error.NO_SERIALIZATIONS_FOR_VOCAB);
                 }
+        }else{
+            if(s.contains("application/rdf+xml")){
+                doContentNegotiation(model, v, "application/rdf+xml", "RDF/XML");
+            }else 
+            if(s.contains("text/turtle")){
+                doContentNegotiation(model, v, "text/turtle", "TURTLE");
+            }else
+            if(s.contains("text/n3")){
+                doContentNegotiation(model, v, "text/n3", "N3");
             }
 //            System.out.println("Vocab "+v.getUri()+" loaded successfully!");
+        }
+    }
+    
+    /**
+     * Jena fails to load models in https with content negotiation. Therefore I do
+     * the negotiation here directly
+     */
+    private static void doContentNegotiation(OntModel model,Vocabulary v, String accept, String serialization){
+        try{
+            model.read(v.getUri(), null, serialization);
+
+        }catch(Exception e){
+            try{
+            System.out.println("Failed to read the ontology. Doing content negotiation");
+            URL url = new URL(v.getUri());
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setInstanceFollowRedirects(true);
+            connection.setRequestProperty("Accept", accept);
+
+            int status = connection.getResponseCode();
+            if(status == HttpURLConnection.HTTP_SEE_OTHER ||
+                    status == HttpURLConnection.HTTP_MOVED_TEMP || 
+                    status == HttpURLConnection.HTTP_MOVED_PERM){
+                String newUrl = connection.getHeaderField("Location");
+                //v.setUri(newUrl);
+                connection = (HttpURLConnection) new URL(newUrl).openConnection();
+                connection.setRequestProperty("Accept", accept);
+                InputStream in = (InputStream) connection.getInputStream();
+                model.read(in, null, serialization);
+            }
+            }catch(Exception e2){
+                System.out.println("Failed to read the ontology");
+            }
         }
     }
     
