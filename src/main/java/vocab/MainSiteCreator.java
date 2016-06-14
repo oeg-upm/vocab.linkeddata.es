@@ -42,16 +42,26 @@ public class MainSiteCreator {
     }
     public static void main(String[] args) throws IOException{
         String pathVocabsFile = "";
-        if(args.length!=2){
-            System.out.println("Usage: java-jar vocab.jar -i input CSV file path");
+        if(args.length<2){
+            System.out.println("Usage: java-jar vocab.jar -i input CSV file path [-o outputDirectoryPath]");
             return;
         }
         pathVocabsFile = args[1];
+        String outputFile = null;
+        if(args.length==4 && args[2].equals("-o")){
+            outputFile = args[3];
+        }
 //        pathVocabsFile = "C:\\Users\\dgarijo\\Dropbox (OEG-UPM)\\NetBeansProjects\\vocab\\VocabulariesReduced.csv";
         String urlOut = "";
-        File auxF = new File(urlOut);
-        auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.getsiteFolderName());
-        auxF.mkdirs();
+        File auxF;
+        if(outputFile==null){
+            auxF = new File(urlOut);
+            auxF = new File (auxF.getAbsolutePath()+File.separator+TextConstants.getsiteFolderName());
+            auxF.mkdirs();
+        }else{
+            auxF = new File(outputFile);
+            auxF.mkdirs();
+        }
         MainSiteCreator.createFolderStructure(auxF.getAbsolutePath());
         String catalogOutPath = auxF.getAbsolutePath()+File.separator+TextConstants.siteName;
         String urlReportOut = auxF.getAbsolutePath()+File.separator+TextConstants.reportName;

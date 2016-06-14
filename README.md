@@ -9,4 +9,6 @@ Main developers: María Poveda and Daniel Garijo
 
 Other contributors: Miguel Angel García, Victor Rodríguez Doncel
 
-Usage: java-jar vocab.jar -i input CSV file path
+Usage: java-jar vocab.jar -i input CSV file path [-o outputDirectoryPath]
+
+If the -o flag is not inserted, a folder called site_+actualdate will be created.
