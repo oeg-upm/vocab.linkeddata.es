@@ -56,58 +56,7 @@
 <dt><span class="label label-warning">Important</span></dt> <dd> Though not critical for ontology function, it is important to correct this type of pitfall.</dd>
 
 <dt><span class="label label-minor">Minor</span></dt> <dd>It is not really a problem, but by correcting it we will make the ontology nicer.</dd>
-</dl><h2>Evaluation results</h2>
-<div class="panel-group" id="accordion">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h4 class="panel-title">
-<a data-toggle="collapse" href="#collapse0">
-P08. Missing annotations<span style="float: right;">12 cases detected. <span class="label label-minor">Minor</span></span></a>
-</h4>
-</div>
-<div id="collapse0" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Ontology terms lack annotations properties. This kind of properties improves the ontology understanding and usability from a user point of view.</p><p>This pitfall affects to the following ontology elements: </p><ul><li><a href="http://purl.org/dc/elements/1.1/subject" target="_blank">http://purl.org/dc/elements/1.1/subject</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry" target="_blank">http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#VocabularyStatus" target="_blank">http://vocab.linkeddata.es/ontology/report#VocabularyStatus</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#entrySubject" target="_blank">http://vocab.linkeddata.es/ontology/report#entrySubject</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#Entry" target="_blank">http://vocab.linkeddata.es/ontology/report#Entry</a></li><li><a href="http://purl.org/vocommons/voaf#Vocabulary" target="_blank">http://purl.org/vocommons/voaf#Vocabulary</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#isEntryOfReport" target="_blank">http://vocab.linkeddata.es/ontology/report#isEntryOfReport</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#vocabularyStatus" target="_blank">http://vocab.linkeddata.es/ontology/report#vocabularyStatus</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#hasEntry" target="_blank">http://vocab.linkeddata.es/ontology/report#hasEntry</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#Report" target="_blank">http://vocab.linkeddata.es/ontology/report#Report</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#detectedProblem" target="_blank">http://vocab.linkeddata.es/ontology/report#detectedProblem</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#Problem" target="_blank">http://vocab.linkeddata.es/ontology/report#Problem</a></li></ul></div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h4 class="panel-title">
-<a data-toggle="collapse" href="#collapse1">
-P10. Missing disjointness [1, 2, 3]<span style="float: right;"> ontology *<span class="label label-warning">Important</span></span></a>
-</h4>
-</div>
-<div id="collapse1" class="panel-collapse collapse">
-<div class="panel-body">
-<p>The ontology lacks disjoint axioms between classes or between properties that should be defined as disjoint. For example, we can create the classes "Odd" and "Even" (or the classes "Prime" and "Composite") without being disjoint; such representation is not correct based on the definition of these types of numbers.</p><p>*This pitfall applies to the ontology in general instead of specific elements</p></div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h4 class="panel-title">
-<a data-toggle="collapse" href="#collapse2">
-P11. Missing domain or range in properties<span style="float: right;">1 case detected. <span class="label label-warning">Important</span></span></a>
-</h4>
-</div>
-<div id="collapse2" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Relationships and/or attributes without domain or range (or none of them) are included in the ontology. There are situations in which the relation is very general and the range should be the most general concept "Thing". However, in other cases, the relations are more specific and it could be a good practice to specify its domain and/or range. An example of this type of pitfall is to create the relationship "hasWritten" in an ontology about art in which the relationship domain should be "Writer" and the relationship range should be "LiteraryWork". This pitfall is related to the common error when defining ranges and domains described in [3].</p><p>This pitfall affects to the following ontology elements: </p><ul><li><a href="http://purl.org/dc/elements/1.1/subject" target="_blank">http://purl.org/dc/elements/1.1/subject</a></li></ul></div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h4 class="panel-title">
-<a data-toggle="collapse" href="#collapse3">
-P13. Missing inverse relationships<span style="float: right;">3 cases detected. <span class="label label-minor">Minor</span></span></a>
-</h4>
-</div>
-<div id="collapse3" class="panel-collapse collapse">
-<div class="panel-body">
-<p>This pitfall appears when a relationship (except for the symmetric ones) has not an inverse relationship defined within the ontology. For example, the case in which the ontology developer omits the inverse definition between the relations "hasLanguageCode" and "isCodeOf", or between "hasReferee" and "isRefereeOf".</p><p>This pitfall affects to the following ontology elements: </p><ul><li><a href="http://vocab.linkeddata.es/ontology/report#vocabularyStatus" target="_blank">http://vocab.linkeddata.es/ontology/report#vocabularyStatus</a></li><li><a href="http://vocab.linkeddata.es/ontology/report#entrySubject" target="_blank">http://vocab.linkeddata.es/ontology/report#entrySubject</a></li><li><a href="http://purl.org/dc/elements/1.1/subject" target="_blank">http://purl.org/dc/elements/1.1/subject</a></li><ul></div>
-</div>
-</div>
-</div>
-<p>References:</p>
+</dl><p>References:</p>
     <ul>
     <li>
     [1] G&oacute;mez-P&oacute;rez, A. Ontology Evaluation. Handbook on Ontologies. S. Staab and R. Studer Editors. Springer. International Handbooks on Information Systems. Pp: 251-274. 2004.
@@ -135,7 +84,7 @@ P13. Missing inverse relationships<span style="float: right;">3 cases detected. 
 	        <br>
     	Built with <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
 	        <br>
-           Integration with Widoco by <a href="http://delicias.dia.fi.upm.es/members/DGarijo/">Daniel Garijo</a>	        <br>
+           Integration with Widoco by <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a>	        <br>
         </div>
     	<div class="col-md-5">
 		<p class="text-right"> Developed with: </p>

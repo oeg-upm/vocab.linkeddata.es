@@ -1,0 +1,150 @@
+@prefix :        <http://vocab.linkeddata.es/ontology/report#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix voaf:    <http://purl.org/vocommons/voaf#> .
+@prefix terms:   <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix report:  <http://vocab.linkeddata.es/ontology/report#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+
+report:Error
+      a       owl:Class ;
+      rdfs:comment "Errors prevent vocabularies from appearing in the website."@en ;
+      rdfs:label "Error"@en ;
+      rdfs:subClassOf report:Problem .
+
+voaf:Vocabulary
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+report:Report
+      a       owl:Class ;
+      rdfs:label "Report"@en .
+
+report:Warning
+      a       owl:Class ;
+      rdfs:comment "Warnings do not prevent vocabularies from appearing in the website."@en ;
+      rdfs:label "Warning"@en ;
+      rdfs:subClassOf report:Problem .
+
+report:detectedProblem
+      a       owl:ObjectProperty ;
+      rdfs:domain report:Entry ;
+      rdfs:label "detectedProblem"@en ;
+      rdfs:range report:Problem ;
+      owl:inverseOf report:problemDetectedInEntry .
+
+report:Entry
+      a       owl:Class ;
+      rdfs:label "Entry"@en .
+
+report:isEntryOfReport
+      a       owl:ObjectProperty ;
+      rdfs:domain report:Entry ;
+      rdfs:label "isEntryOfReport"@en ;
+      rdfs:range report:Report .
+
+report:numberVocabsOK
+      a       owl:DatatypeProperty ;
+      rdfs:comment "number of vocabularies that did not have errors or warnings during the generation of the site"@en ;
+      rdfs:domain report:Report ;
+      rdfs:label "number vocabs ok"@en ;
+      rdfs:range xsd:nonNegativeInteger .
+
+report:VocabularyStatus
+      a       owl:Class ;
+      rdfs:label "VocabularyStatus"@en .
+
+report:problemDetectedInEntry
+      a       owl:ObjectProperty ;
+      rdfs:domain report:Problem ;
+      rdfs:label "problemDetectedInEntry"@en ;
+      rdfs:range report:Entry .
+
+report:hasEntry
+      a       owl:ObjectProperty ;
+      rdfs:domain report:Report ;
+      rdfs:label "hasEntry"@en ;
+      rdfs:range report:Entry ;
+      owl:inverseOf report:isEntryOfReport .
+
+terms:modified
+      a       owl:AnnotationProperty .
+
+terms:license
+      a       owl:AnnotationProperty .
+
+report:error
+      a       owl:NamedIndividual , report:VocabularyStatus ;
+      rdfs:label "error"@en .
+
+report:entrySubject
+      a       owl:ObjectProperty ;
+      rdfs:domain report:Entry ;
+      rdfs:label "entrySubject"@en ;
+      rdfs:range voaf:Vocabulary ;
+      rdfs:subPropertyOf dc:subject .
+
+report:numberVocabsWarning
+      a       owl:DatatypeProperty ;
+      rdfs:comment "number of vocabularies that had warnings (and had no erros) during the generation of the site "@en ;
+      rdfs:domain report:Report ;
+      rdfs:label "number vocabs warning"@en ;
+      rdfs:range xsd:nonNegativeInteger .
+
+dc:subject
+      a       owl:ObjectProperty .
+
+report:reportDate
+      a       owl:DatatypeProperty ;
+      rdfs:comment "timestamp indicating when the report was created"@en ;
+      rdfs:domain report:Report ;
+      rdfs:label "report date"@en ;
+      rdfs:range xsd:dateTimeStamp .
+
+<http://vocab.linkeddata.es/ontology/report>
+      a       owl:Ontology ;
+      rdfs:comment "http://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+      rdfs:label "Report ontology for vocab.linkeddata.es"@en ;
+      dc:creator "http://purl.org/net/mpoveda" , "http://delicias.dia.fi.upm.es/members/DGarijo/#me" ;
+      dc:license "Ontology for describing a vocabulary report and the issues and warnings found" ;
+      dc:title "Vocab report ontology"@en ;
+      vann:preferredNamespacePrefix
+              "err" ;
+      vann:preferredNamespaceUri
+              "http://vocab.linkeddata.es/ontology/report#" ;
+      owl:versionInfo "1.0.0" .
+
+terms:created
+      a       owl:AnnotationProperty .
+
+dc:creator
+      a       owl:AnnotationProperty .
+
+report:Problem
+      a       owl:Class ;
+      rdfs:label "Problem"@en ;
+      rdfs:subClassOf owl:Thing .
+
+report:vocabularyStatus
+      a       owl:ObjectProperty ;
+      rdfs:domain report:Entry ;
+      rdfs:label "vocabularyStatus"@en ;
+      rdfs:range report:VocabularyStatus .
+
+report:warning
+      a       owl:NamedIndividual , report:VocabularyStatus ;
+      rdfs:label "warning"@en .
+
+report:numberVocabsError
+      a       owl:DatatypeProperty ;
+      rdfs:comment "number of vocabularies that had errors (and had no warnings) during the generation of the site"@en ;
+      rdfs:domain report:Report ;
+      rdfs:label "number vocabs error"@en ;
+      rdfs:range xsd:nonNegativeInteger .
+
+report:success
+      a       owl:NamedIndividual , report:VocabularyStatus ;
+      rdfs:label "success"@en .
