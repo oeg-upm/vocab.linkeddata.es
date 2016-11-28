@@ -1,0 +1,90 @@
+<http://vocab.linkeddata.es/ontology/report#Problem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://vocab.linkeddata.es/ontology/report#Problem> <http://www.w3.org/2000/01/rdf-schema#label> "Problem"@en .
+<http://vocab.linkeddata.es/ontology/report#Problem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsWarning> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsWarning> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Report> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsWarning> <http://www.w3.org/2000/01/rdf-schema#comment> "number of vocabularies that had warnings (and had no erros) during the generation of the site "@en .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsWarning> <http://www.w3.org/2000/01/rdf-schema#label> "number vocabs warning"@en .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsWarning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/ontology/report#entrySubject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Entry> .
+<http://vocab.linkeddata.es/ontology/report#entrySubject> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/vocommons/voaf#Vocabulary> .
+<http://vocab.linkeddata.es/ontology/report#entrySubject> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/elements/1.1/subject> .
+<http://vocab.linkeddata.es/ontology/report#entrySubject> <http://www.w3.org/2000/01/rdf-schema#label> "entrySubject"@en .
+<http://vocab.linkeddata.es/ontology/report#entrySubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://vocab.linkeddata.es/ontology/report#vocabularyStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/ontology/report#VocabularyStatus> .
+<http://vocab.linkeddata.es/ontology/report#vocabularyStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Entry> .
+<http://vocab.linkeddata.es/ontology/report#vocabularyStatus> <http://www.w3.org/2000/01/rdf-schema#label> "vocabularyStatus"@en .
+<http://vocab.linkeddata.es/ontology/report#vocabularyStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/ontology/report#warning> <http://www.w3.org/2000/01/rdf-schema#label> "warning"@en .
+<http://vocab.linkeddata.es/ontology/report#warning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://vocab.linkeddata.es/ontology/report#VocabularyStatus> .
+<http://vocab.linkeddata.es/ontology/report#warning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://vocab.linkeddata.es/ontology/report#reportDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://vocab.linkeddata.es/ontology/report#reportDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Report> .
+<http://vocab.linkeddata.es/ontology/report#reportDate> <http://www.w3.org/2000/01/rdf-schema#comment> "timestamp indicating when the report was created"@en .
+<http://vocab.linkeddata.es/ontology/report#reportDate> <http://www.w3.org/2000/01/rdf-schema#label> "report date"@en .
+<http://vocab.linkeddata.es/ontology/report#reportDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://vocab.linkeddata.es/ontology/report#isEntryOfReport> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/ontology/report#Report> .
+<http://vocab.linkeddata.es/ontology/report#isEntryOfReport> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Entry> .
+<http://vocab.linkeddata.es/ontology/report#isEntryOfReport> <http://www.w3.org/2000/01/rdf-schema#label> "isEntryOfReport"@en .
+<http://vocab.linkeddata.es/ontology/report#isEntryOfReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/ontology/report#error> <http://www.w3.org/2000/01/rdf-schema#label> "error"@en .
+<http://vocab.linkeddata.es/ontology/report#error> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://vocab.linkeddata.es/ontology/report#VocabularyStatus> .
+<http://vocab.linkeddata.es/ontology/report#error> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://vocab.linkeddata.es/ontology/report#Error> <http://www.w3.org/2000/01/rdf-schema#comment> "Errors prevent vocabularies from appearing in the website."@en .
+<http://vocab.linkeddata.es/ontology/report#Error> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vocab.linkeddata.es/ontology/report#Problem> .
+<http://vocab.linkeddata.es/ontology/report#Error> <http://www.w3.org/2000/01/rdf-schema#label> "Error"@en .
+<http://vocab.linkeddata.es/ontology/report#Error> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/ontology/report#VocabularyStatus> <http://www.w3.org/2000/01/rdf-schema#label> "VocabularyStatus"@en .
+<http://vocab.linkeddata.es/ontology/report#VocabularyStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/elements/1.1/subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://vocab.linkeddata.es/ontology/report#Report> <http://www.w3.org/2000/01/rdf-schema#label> "Report"@en .
+<http://vocab.linkeddata.es/ontology/report#Report> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/ontology/report> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
+<http://vocab.linkeddata.es/ontology/report> <http://purl.org/dc/elements/1.1/license> "Ontology for describing a vocabulary report and the issues and warnings found" .
+<http://vocab.linkeddata.es/ontology/report> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://vocab.linkeddata.es/ontology/report#" .
+<http://vocab.linkeddata.es/ontology/report> <http://purl.org/vocab/vann/preferredNamespacePrefix> "err" .
+<http://vocab.linkeddata.es/ontology/report> <http://purl.org/dc/elements/1.1/title> "Vocab report ontology"@en .
+<http://vocab.linkeddata.es/ontology/report> <http://www.w3.org/2000/01/rdf-schema#comment> "http://creativecommons.org/licenses/by/4.0/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://vocab.linkeddata.es/ontology/report> <http://purl.org/dc/elements/1.1/creator> "http://delicias.dia.fi.upm.es/members/DGarijo/#me" .
+<http://vocab.linkeddata.es/ontology/report> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://vocab.linkeddata.es/ontology/report> <http://purl.org/dc/elements/1.1/creator> "http://purl.org/net/mpoveda" .
+<http://vocab.linkeddata.es/ontology/report> <http://www.w3.org/2000/01/rdf-schema#label> "Report ontology for vocab.linkeddata.es"@en .
+<http://vocab.linkeddata.es/ontology/report#success> <http://www.w3.org/2000/01/rdf-schema#label> "success"@en .
+<http://vocab.linkeddata.es/ontology/report#success> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://vocab.linkeddata.es/ontology/report#VocabularyStatus> .
+<http://vocab.linkeddata.es/ontology/report#success> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsError> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsError> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Report> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsError> <http://www.w3.org/2000/01/rdf-schema#comment> "number of vocabularies that had errors (and had no warnings) during the generation of the site"@en .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsError> <http://www.w3.org/2000/01/rdf-schema#label> "number vocabs error"@en .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsError> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://vocab.linkeddata.es/ontology/report#Warning> <http://www.w3.org/2000/01/rdf-schema#comment> "Warnings do not prevent vocabularies from appearing in the website."@en .
+<http://vocab.linkeddata.es/ontology/report#Warning> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vocab.linkeddata.es/ontology/report#Problem> .
+<http://vocab.linkeddata.es/ontology/report#Warning> <http://www.w3.org/2000/01/rdf-schema#label> "Warning"@en .
+<http://vocab.linkeddata.es/ontology/report#Warning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/ontology/report#Entry> <http://www.w3.org/2000/01/rdf-schema#label> "Entry"@en .
+<http://vocab.linkeddata.es/ontology/report#Entry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsOK> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsOK> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Report> .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsOK> <http://www.w3.org/2000/01/rdf-schema#comment> "number of vocabularies that did not have errors or warnings during the generation of the site"@en .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsOK> <http://www.w3.org/2000/01/rdf-schema#label> "number vocabs ok"@en .
+<http://vocab.linkeddata.es/ontology/report#numberVocabsOK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://vocab.linkeddata.es/ontology/report#hasEntry> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/ontology/report#isEntryOfReport> .
+<http://vocab.linkeddata.es/ontology/report#hasEntry> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Report> .
+<http://vocab.linkeddata.es/ontology/report#hasEntry> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/ontology/report#Entry> .
+<http://vocab.linkeddata.es/ontology/report#hasEntry> <http://www.w3.org/2000/01/rdf-schema#label> "hasEntry"@en .
+<http://vocab.linkeddata.es/ontology/report#hasEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/ontology/report#detectedProblem> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry> .
+<http://vocab.linkeddata.es/ontology/report#detectedProblem> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/ontology/report#Problem> .
+<http://vocab.linkeddata.es/ontology/report#detectedProblem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Entry> .
+<http://vocab.linkeddata.es/ontology/report#detectedProblem> <http://www.w3.org/2000/01/rdf-schema#label> "detectedProblem"@en .
+<http://vocab.linkeddata.es/ontology/report#detectedProblem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/ontology/report#Problem> .
+<http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/ontology/report#Entry> .
+<http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry> <http://www.w3.org/2000/01/rdf-schema#label> "problemDetectedInEntry"@en .
+<http://vocab.linkeddata.es/ontology/report#problemDetectedInEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .

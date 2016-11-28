@@ -3,11 +3,13 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
  <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />   <script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
     <script> 
 function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
 	var hash = location.hash;
 	if($(hash).offset()!=null){
-		$('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
 	}
 }    $(function(){
       $("#abstract").load("sections/abstract-en.html"); 
@@ -32,11 +34,18 @@ function loadHash() {
 <dl><dt>Authors:</dt>
 <dd><a property="dc:creator schema:author prov:wasAttributedTo" resource="http://delicias.dia.fi.upm.es/members/DGarijo/#me" href="http://delicias.dia.fi.upm.es/members/DGarijo/#me">http://delicias.dia.fi.upm.es/members/DGarijo/#me</a></dd><dd><a property="dc:creator schema:author prov:wasAttributedTo" resource="http://purl.org/net/mpoveda" href="http://purl.org/net/mpoveda">http://purl.org/net/mpoveda</a></dd></dl>
 
-<dl>This work is licensed under a license: <a rel="license" href="http://insertlicenseURIhere.org">Ontology for describing a vocabulary report and the issues and warnings found</a>.</dl>
-<span property="dc:license" resource="http://insertlicenseURIhere.org"></span>
-<dl><a href="provenance/provenance-en.html">Click here</a> to see the provenance of this page.</dl><hr/>
+<dl><dt>Download serialization:</dt><dd><span><a href="ontology.n3" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg"</img></a> </span><span><a href="ontology.xml" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg"</img></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg"</img></a> </span></dd></dl><dl><dt>License: </dt><dd><a rel="license" href="null" target="_blank"><img src ="https://img.shields.io/badge/License-Ontology for describing a vocabulary report and the issues and warnings found-blue.svg"</img></a>
+<span property="dc:license" resource="null"></span>
+<a property="dc:rights" href="null" rel="license" target="_blank">
+<img src="null" style="border-width:0" alt="License"></img>
+</a>
+<br/></dd></dl><dl><a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a></dl><hr/>
 </div>
-     <div id="abstract"></div>
+<div class="status">
+<div>
+<span>Specification Draft</span>
+</div>
+</div>     <div id="abstract"></div>
 <div id="toc"><h2>Table of contents</h2>
 <ul>
 <li><a href="#introduction">1. Introduction</a></li>
@@ -61,7 +70,7 @@ function loadHash() {
      <div id="references"></div>
 <div id="acknowledgements">
 <h2>6. Acknowledgements <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<p>The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="http://purl.org/net/dgarijo/">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the document template used in this documentation.</p>
+<p>The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="http://purl.org/net/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the document template used in this documentation.</p>
 </div>
 </body> 
 </html>
